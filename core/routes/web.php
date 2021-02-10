@@ -220,6 +220,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
   Route::post('/propic/update', 'Admin\ProfileController@updatePropic')->name('admin.propic.update');
   Route::post('/profile/update', 'Admin\ProfileController@updateProfile')->name('admin.updateProfile');
 
+  // Truck Management
+  Route::get('/truck', 'Admin\TruckController@index')->name('admin.truck.index');
+  Route::get('/truck/create', 'Admin\TruckController@create')->name('admin.truck.create');
+  Route::post('/truck', 'Admin\TruckController@store')->name('admin.truck.store');
+  Route::get('/truck/show/{id}', 'Admin\TruckController@show')->name('admin.truck.show');
+  Route::put('/truck/{id}', 'Admin\TruckController@update')->name('admin.truck.update');
+  Route::get('/truck/edit/{id}', 'Admin\TruckController@edit')->name('admin.truck.edit');
+  Route::get('/truck/destroy/{id}', 'Admin\TruckController@destroy')->name('admin.truck.destroy');
+
+
+
+
+
+
+
+
 
   Route::group(['middleware' => 'checkpermission:Basic Settings'], function() {
     // Admin Favicon Routes
