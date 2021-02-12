@@ -264,6 +264,32 @@
         </li>
         @endif
 
+        @if (empty($admin->role) || (!empty($permissions) && in_array('Trucks', $permissions)))
+        <li class="nav-item
+        @if(request()->routeIs('admin.truck.index')) active
+        @elseif(request()->routeIs('admin.truck.show')) active
+        @endif">
+       
+            <a href="{{route('admin.truck.index')}}">
+                <i class="fas fa-truck"></i>
+                <p>Trucks Management</p>
+            </a>
+        </li>
+        @endif
+
+        <!-- @if (empty($admin->role) || (!empty($permissions) && in_array('Drivers', $permissions)))
+        <li class="nav-item
+        @if(request()->routeIs('admin.truck.index')) active
+        @elseif(request()->routeIs('admin.truck.show')) active
+        @endif">
+       
+            <a href="{{route('admin.truck.index')}}">
+                <i class="fas fa-screwdriver"></i>
+                <p>Drivers Management</p>
+            </a>
+        </li>
+        @endif -->
+
 
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Subscribers', $permissions)))
