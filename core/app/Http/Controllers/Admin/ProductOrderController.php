@@ -10,8 +10,11 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use Illuminate\Support\Facades\Mail;
 use App\BasicExtended;
-
+use App\Truck;
+use App\TruckDriver;
 use App\User;
+use Auth;
+use App\Admin;
 use Session;
 
 class ProductOrderController extends Controller
@@ -25,7 +28,8 @@ class ProductOrderController extends Controller
         })
         ->orderBy('id', 'DESC')->paginate(10);
 
-        return view('admin.product.order.index', $data);
+        return view('admin.product.order.index', $data)->with('trucks',Truck::all())
+                                                        ->with('users',Admin::all());
     }
 
     public function pending(Request $request)
@@ -169,6 +173,39 @@ class ProductOrderController extends Controller
 
         Session::flash('success', 'product order deleted successfully!');
         return back();
+    }
+
+    public function assignDriver(Request $request)
+    {
+        $this->validate($request,[
+            'truck_id' => 'required',
+            'user_id' => 'required',
+            'order_id' => 'required',
+            'pick_address' => 'required',
+            'drop_address' => 'required',
+            'date' => 'required',
+        ]);
+
+        TruckDriver::create([
+            'truck_id'=>$request->truck_id,
+            'user_id'=>$request->user_id,
+            'order_id'=>$request->order_id,
+            'pick_address'=>$request->pick_address,
+            'drop_address'=>$request->drop_address,
+            'date'=>$request->date,
+            'status'=>1,
+        ]);
+      
+   
+
+        return response('success');
+    }
+
+    public function indexDriver()
+    {
+        $drivers = TruckDriver::where('user_id',Auth::guard('admin')->user()->id)->get();
+        return view('admin.driver.index')->with('drivers',$drivers);
+        Session::flash('success', 'Driver created successfully!');
     }
 
 }

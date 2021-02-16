@@ -82,6 +82,10 @@
                 			<input type="checkbox" name="permissions[]" value="Drivers" class="selectgroup-input" @if(is_array($permissions) && in_array('Drivers', $permissions)) checked @endif>
                 			<span class="selectgroup-button">Drivers</span>
                 		</label>
+						<!-- <label class="selectgroup-item">
+                			<input type="checkbox" name="permissions[]" value="Order" class="selectgroup-input" @if(is_array($permissions) && in_array('orders', $permissions)) checked @endif>
+                			<span class="selectgroup-button">All Orders</span>
+                		</label> -->
                 		<label class="selectgroup-item">
                 			<input type="checkbox" name="permissions[]" value="Quote Management" class="selectgroup-input" @if(is_array($permissions) && in_array('Quote Management', $permissions)) checked @endif>
                 			<span class="selectgroup-button">Quote Management</span>

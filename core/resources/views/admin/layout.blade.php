@@ -59,5 +59,6 @@
         <img src="{{asset('assets/admin/img/loader.gif')}}" alt="">
     </div>
     {{-- Loader --}}
+    <!-- @yield('scripts') -->
 </body>
 </html>
