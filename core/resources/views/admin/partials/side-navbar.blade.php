@@ -269,7 +269,7 @@
         @if(request()->routeIs('admin.truck.index')) active
         @elseif(request()->routeIs('admin.truck.show')) active
         @endif">
-       
+
             <a href="{{route('admin.truck.index')}}">
                 <i class="fas fa-truck"></i>
                 <p>Trucks Management</p>
@@ -277,18 +277,21 @@
         </li>
         @endif
 
-        <!-- @if (empty($admin->role) || (!empty($permissions) && in_array('Drivers', $permissions)))
+        @if(isset(Auth::guard('admin')->user()->role_id))
+        @if(Auth::guard('admin')->user()->role_id == 6)
+        <!-- @if (empty($admin->role) || (!empty($permissions) && in_array('Trucks', $permissions))) -->
         <li class="nav-item
-        @if(request()->routeIs('admin.truck.index')) active
-        @elseif(request()->routeIs('admin.truck.show')) active
+        @if(request()->routeIs('driver.index')) active
         @endif">
        
-            <a href="{{route('admin.truck.index')}}">
-                <i class="fas fa-screwdriver"></i>
-                <p>Drivers Management</p>
+            <a href="{{route('driver.index')}}">
+                <i class="la flaticon-file"></i>
+                <p>My orders</p>
             </a>
         </li>
-        @endif -->
+        <!-- @endif -->
+        @endif
+        @endif
 
 
 
