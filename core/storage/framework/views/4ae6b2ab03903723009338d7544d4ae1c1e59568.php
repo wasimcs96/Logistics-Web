@@ -1,8 +1,6 @@
-@extends('admin.layout')
-
-@section('content')
-<form  class="" action="{{route('admin.truck.store')}}" method="POST">
-  @csrf
+<?php $__env->startSection('content'); ?>
+<form  class="" action="<?php echo e(route('admin.truck.store')); ?>" method="POST">
+  <?php echo csrf_field(); ?>
   <div class="row" style="justify-content: center;">
   <div class="mb-3 col-lg-6">
     <div class="form-group">
@@ -37,4 +35,5 @@
     <button  type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\logistics\core\resources\views/admin/trucks/create.blade.php ENDPATH**/ ?>

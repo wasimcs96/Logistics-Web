@@ -232,6 +232,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
 
   Route::get('/driver', 'Admin\ProductOrderController@indexDriver')->name('driver.index');
 
+  Route::post('driver/product/orders/status', 'Admin\ProductOrderController@driverStatus')->name('admin.driver.product.orders.status');
+
 
 
 

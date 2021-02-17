@@ -36,6 +36,8 @@
       <style>
       #scroll_up {
           bottom: 50px;
+          margin-bottom: 34px;
+    margin-right: 4px;
       }
       #scroll_up {
           right: 20px;

@@ -201,7 +201,7 @@
     <!-- preloader section end -->
 
     <!--Scroll-up-->
-    <a id="scroll_up" ><i class="fas fa-angle-up"></i></a>
+    <a id="scroll_up"><i class="fas fa-angle-up"></i></a>
 
 
     {{-- Cookie alert dialog start --}}

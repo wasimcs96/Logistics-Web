@@ -400,7 +400,7 @@
                     </div>
                 </div>
             </div>
-            <div class="blog_slide blog-slick">
+            <div class="blog_slide blog-slick" style="height: 530px;">
                 @foreach ($blogs as $key => $blog)
                     <div class="grid_item">
                         <div class="grid_inner_item">

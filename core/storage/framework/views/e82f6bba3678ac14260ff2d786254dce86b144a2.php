@@ -402,7 +402,7 @@
                     </div>
                 </div>
             </div>
-            <div class="blog_slide blog-slick">
+            <div class="blog_slide blog-slick" style="height: 530px;">
                 <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="grid_item">
                         <div class="grid_inner_item">

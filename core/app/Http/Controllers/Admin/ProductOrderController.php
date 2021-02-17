@@ -79,6 +79,7 @@ class ProductOrderController extends Controller
     public function status(Request $request)
     {
 
+        // dd($request->all());
         $po = ProductOrder::find($request->order_id);
         $po->order_status = $request->order_status;
         $po->save();
@@ -207,5 +208,67 @@ class ProductOrderController extends Controller
         return view('admin.driver.index')->with('drivers',$drivers);
         Session::flash('success', 'Driver created successfully!');
     }
+
+    public function driverStatus(Request $request)
+    {
+
+        // dd($request->all());
+        $po = ProductOrder::find($request->order_id);
+        $po->order_status = $request->order_status;
+        $po->save();
+
+        $user = User::findOrFail($po->user_id);
+        $be = BasicExtended::first();
+        $sub = 'Order Status Update';
+
+        $to = $user->email;
+         // Send Mail to Buyer
+         $mail = new PHPMailer(true);
+         if ($be->is_smtp == 1) {
+             try {
+                 $mail->isSMTP();
+                 $mail->Host       = $be->smtp_host;
+                 $mail->SMTPAuth   = true;
+                 $mail->Username   = $be->smtp_username;
+                 $mail->Password   = $be->smtp_password;
+                 $mail->SMTPSecure = $be->encryption;
+                 $mail->Port       = $be->smtp_port;
+
+                 //Recipients
+                 $mail->setFrom($be->from_mail, $be->from_name);
+                 $mail->addAddress($user->email, $user->fname);
+
+                 // Content
+                 $mail->isHTML(true);
+                 $mail->Subject = $sub;
+                 $mail->Body    = 'Hello <strong>' . $user->fname . '</strong>,<br/>Your order status is '.$request->order_status.'.<br/>Thank you.';
+                 $mail->send();
+             } catch (Exception $e) {
+                 // die($e->getMessage());
+             }
+         } else {
+             try {
+
+                 //Recipients
+                 $mail->setFrom($be->from_mail, $be->from_name);
+                 $mail->addAddress($user->email, $user->fname);
+
+
+                 // Content
+                 $mail->isHTML(true);
+                 $mail->Subject = $sub ;
+                 $mail->Body    = 'Hello <strong>' . $user->fname . '</strong>,<br/>Your order status is '.$request->order_status.'.<br/>Thank you.';
+
+                 $mail->send();
+             } catch (Exception $e) {
+                 // die($e->getMessage());
+             }
+         }
+
+
+        Session::flash('success', 'Order status changed successfully!');
+        return back();
+    }
+
 
 }

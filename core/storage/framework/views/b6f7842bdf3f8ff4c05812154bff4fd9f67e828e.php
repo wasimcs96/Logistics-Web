@@ -73,8 +73,8 @@
           <li class="nav-item
           <?php if(request()->path() == 'admin/favicon'): ?> active
           <?php elseif(request()->path() == 'admin/logo'): ?> active
-          <?php elseif(request()->path() == 'admin/themeversion'): ?> active
-          <?php elseif(request()->path() == 'admin/homeversion'): ?> active
+          <!-- <!-- <?php elseif(request()->path() == 'admin/themeversion'): ?> active -->
+          <!-- <?php elseif(request()->path() == 'admin/homeversion'): ?> active --> -->
           <?php elseif(request()->path() == 'admin/basicinfo'): ?> active
           <?php elseif(request()->path() == 'admin/support'): ?> active
           <?php elseif(request()->path() == 'admin/social'): ?> active
@@ -101,8 +101,8 @@
             <div class="collapse
             <?php if(request()->path() == 'admin/favicon'): ?> show
             <?php elseif(request()->path() == 'admin/logo'): ?> show
-            <?php elseif(request()->path() == 'admin/themeversion'): ?> show
-            <?php elseif(request()->path() == 'admin/homeversion'): ?> show
+            <!-- <?php elseif(request()->path() == 'admin/themeversion'): ?> show -->
+            <!-- <?php elseif(request()->path() == 'admin/homeversion'): ?> show -->
             <?php elseif(request()->path() == 'admin/basicinfo'): ?> show
             <?php elseif(request()->path() == 'admin/support'): ?> show
             <?php elseif(request()->path() == 'admin/social'): ?> show
@@ -159,7 +159,7 @@
                     </div>
                 </li>
 
-                <li class="<?php if(request()->path() == 'admin/themeversion'): ?> active <?php endif; ?>">
+                <!-- <li class="<?php if(request()->path() == 'admin/themeversion'): ?> active <?php endif; ?>">
                   <a href="<?php echo e(route('admin.themeversion') . '?language=' . $default->code); ?>">
                     <span class="sub-item">Theme Versions</span>
                   </a>
@@ -168,7 +168,7 @@
                   <a href="<?php echo e(route('admin.homeversion') . '?language=' . $default->code); ?>">
                     <span class="sub-item">Home Versions</span>
                   </a>
-                </li>
+                </li> -->
 
                 <li class="<?php if(request()->routeIs('admin.featuresettings')): ?> active <?php endif; ?>">
                   <a href="<?php echo e(route('admin.featuresettings') . '?language=' . $default->code); ?>">

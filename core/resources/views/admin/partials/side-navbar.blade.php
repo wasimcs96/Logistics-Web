@@ -72,8 +72,8 @@
           <li class="nav-item
           @if(request()->path() == 'admin/favicon') active
           @elseif(request()->path() == 'admin/logo') active
-          @elseif(request()->path() == 'admin/themeversion') active
-          @elseif(request()->path() == 'admin/homeversion') active
+          <!-- <!-- @elseif(request()->path() == 'admin/themeversion') active -->
+          <!-- @elseif(request()->path() == 'admin/homeversion') active --> -->
           @elseif(request()->path() == 'admin/basicinfo') active
           @elseif(request()->path() == 'admin/support') active
           @elseif(request()->path() == 'admin/social') active
@@ -100,8 +100,8 @@
             <div class="collapse
             @if(request()->path() == 'admin/favicon') show
             @elseif(request()->path() == 'admin/logo') show
-            @elseif(request()->path() == 'admin/themeversion') show
-            @elseif(request()->path() == 'admin/homeversion') show
+            <!-- @elseif(request()->path() == 'admin/themeversion') show -->
+            <!-- @elseif(request()->path() == 'admin/homeversion') show -->
             @elseif(request()->path() == 'admin/basicinfo') show
             @elseif(request()->path() == 'admin/support') show
             @elseif(request()->path() == 'admin/social') show
@@ -158,7 +158,7 @@
                     </div>
                 </li>
 
-                <li class="@if(request()->path() == 'admin/themeversion') active @endif">
+                <!-- <li class="@if(request()->path() == 'admin/themeversion') active @endif">
                   <a href="{{route('admin.themeversion') . '?language=' . $default->code}}">
                     <span class="sub-item">Theme Versions</span>
                   </a>
@@ -167,7 +167,7 @@
                   <a href="{{route('admin.homeversion') . '?language=' . $default->code}}">
                     <span class="sub-item">Home Versions</span>
                   </a>
-                </li>
+                </li> -->
 
                 <li class="@if(request()->routeIs('admin.featuresettings')) active @endif">
                   <a href="{{route('admin.featuresettings') . '?language=' . $default->code}}">

@@ -34,7 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Truck Id</th>
+                                        <th scope="col">Truck Number</th>
                                         <th scope="col">User Id</th>
                                         <th scope="col">Order Id</th>
                                         <th scope="col">Pick Address</th>
@@ -46,31 +46,49 @@
                                 <tbody>
 
                                     <?php $__currentLoopData = $drivers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $driver): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php $truck = DB::table('trucks')->where('id',$driver->truck_id)->first(); ?>
                                     <tr>
                                         <td><?php echo e($driver->id ?? ''); ?></td>
-                                        <td><?php echo e($driver->truck_id ?? ''); ?></td>
+                                        <td><?php echo e($truck->truck_number ?? ''); ?></td>
                                         <td><?php echo e($driver->user_id ?? ''); ?></td>
                                         <td><?php echo e($driver->order_id ?? ''); ?></td>
                                         <td><?php echo e($driver->pick_address ?? ''); ?></td>
                                         <td><?php echo e($driver->drop_address ?? ''); ?></td>
                                         <td><?php echo e($driver->date ?? ''); ?></td>
                                         <td>
-                                            <!-- <a class="btn btn-secondary btn-sm"
-                                                href="<?php echo e(route('admin.truck.edit',['id'=>$driver->id])); ?>" style="background: #6861CE !important;
-                          border-color: #6861CE !important;">
-                                                <span class="btn-label">
-                                                    <i class="fas fa-edit"></i>
-                                                </span>
-                                                Edit
-                                            </a> -->
-                                            <!-- <a class="btn btn-danger btn-sm"
-                                                href="<?php echo e(route('admin.truck.destroy',['id'=>$driver->id])); ?>" style="    background: #F25961 !important;
-                          border-color: #F25961 !important;">
-                                                <span class="btn-label">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                                Delete
-                                            </a> -->
+                                        <?php $order = DB::table('product_orders')->where('id',$driver->order_id)->first(); ?>
+                                        <form id="statusForm<?php echo e($order->id); ?>" class="d-inline-block" action="<?php echo e(route('admin.driver.product.orders.status')); ?>" method="post">
+                                                <?php echo csrf_field(); ?>
+                                                <input type="hidden" name="order_id" value="<?php echo e($order->id); ?>">
+                                                <select class="form-control form-control-sm
+                              <?php if($order->order_status == 'pending'): ?>
+                                bg-warning
+                              <?php elseif($order->order_status == 'processing'): ?>
+                                bg-primary
+                              <?php elseif($order->order_status == 'completed'): ?>
+                                bg-success
+                              <?php elseif($order->order_status == 'rejected'): ?>
+                                bg-danger
+                              <?php endif; ?>"
+                               name="order_status"
+                                                    onchange="document.getElementById('statusForm<?php echo e($order->id); ?>').submit();">
+                                                    <!-- <option value="pending"
+                                                        <?php echo e($driver->order_status == 'pending' ? 'selected' : ''); ?>>Pending
+                                                    </option> -->
+                                                  
+                                                    <option value="processing"
+                                                        <?php echo e($order->order_status == 'processing' ? 'selected' : ''); ?>
+
+                                                        >Processing
+                                                    </option>
+                                                    <option value="completed"
+                                                        <?php echo e($order->order_status == 'completed' ? 'selected' : ''); ?>>Completed
+                                                    </option>
+                                                    <!-- <option value="rejected"
+                                                        <?php echo e($driver->order_status == 'rejected' ? 'selected' : ''); ?>>
+                                                        Rejected</option> -->
+                                                </select>
+                                            </form>
                                         </td>
                                     </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

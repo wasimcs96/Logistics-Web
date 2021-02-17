@@ -36,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Truck Id</th>
+                                        <th scope="col">Truck Number</th>
                                         <th scope="col">User Id</th>
                                         <th scope="col">Order Id</th>
                                         <th scope="col">Pick Address</th>
@@ -48,31 +48,48 @@
                                 <tbody>
 
                                     @foreach($drivers as $driver)
+                                    <?php $truck = DB::table('trucks')->where('id',$driver->truck_id)->first(); ?>
                                     <tr>
                                         <td>{{ $driver->id ?? '' }}</td>
-                                        <td>{{ $driver->truck_id ?? '' }}</td>
+                                        <td>{{ $truck->truck_number ?? '' }}</td>
                                         <td>{{ $driver->user_id ?? '' }}</td>
                                         <td>{{ $driver->order_id ?? '' }}</td>
                                         <td>{{ $driver->pick_address ?? '' }}</td>
                                         <td>{{ $driver->drop_address ?? '' }}</td>
                                         <td>{{ $driver->date ?? '' }}</td>
                                         <td>
-                                            <!-- <a class="btn btn-secondary btn-sm"
-                                                href="{{ route('admin.truck.edit',['id'=>$driver->id]) }}" style="background: #6861CE !important;
-                          border-color: #6861CE !important;">
-                                                <span class="btn-label">
-                                                    <i class="fas fa-edit"></i>
-                                                </span>
-                                                Edit
-                                            </a> -->
-                                            <!-- <a class="btn btn-danger btn-sm"
-                                                href="{{ route('admin.truck.destroy',['id'=>$driver->id]) }}" style="    background: #F25961 !important;
-                          border-color: #F25961 !important;">
-                                                <span class="btn-label">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                                Delete
-                                            </a> -->
+                                        <?php $order = DB::table('product_orders')->where('id',$driver->order_id)->first(); ?>
+                                        <form id="statusForm{{$order->id}}" class="d-inline-block" action="{{route('admin.driver.product.orders.status')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="order_id" value="{{$order->id}}">
+                                                <select class="form-control form-control-sm
+                              @if ($order->order_status == 'pending')
+                                bg-warning
+                              @elseif ($order->order_status == 'processing')
+                                bg-primary
+                              @elseif ($order->order_status == 'completed')
+                                bg-success
+                              @elseif ($order->order_status == 'rejected')
+                                bg-danger
+                              @endif"
+                               name="order_status"
+                                                    onchange="document.getElementById('statusForm{{$order->id}}').submit();">
+                                                    <!-- <option value="pending"
+                                                        {{$driver->order_status == 'pending' ? 'selected' : ''}}>Pending
+                                                    </option> -->
+                                                  
+                                                    <option value="processing"
+                                                        {{$order->order_status == 'processing' ? 'selected' : ''}}
+                                                        >Processing
+                                                    </option>
+                                                    <option value="completed"
+                                                        {{$order->order_status == 'completed' ? 'selected' : ''}}>Completed
+                                                    </option>
+                                                    <!-- <option value="rejected"
+                                                        {{$driver->order_status == 'rejected' ? 'selected' : ''}}>
+                                                        Rejected</option> -->
+                                                </select>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
