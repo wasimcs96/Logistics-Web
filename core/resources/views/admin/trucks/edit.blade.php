@@ -8,7 +8,7 @@
   <div class="mb-3 col-lg-6">
     <div class="form-group">
       <label for="">Truck Number **</label>
-      <input type="number" class="form-control" name="truck_number" placeholder="Enter truck number" value="{{ $truck->truck_number }}">
+      <input type="string" class="form-control" name="truck_number" placeholder="Enter truck number" value="{{ $truck->truck_number }}">
       <p id="errusername" class="mb-0 text-danger em"></p>
     </div>
   </div>
