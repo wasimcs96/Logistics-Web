@@ -40,7 +40,7 @@ class ProductOrderController extends Controller
             return $query->where('order_number', $search);
         })
         ->where('order_status', 'pending')->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.product.order.index', $data);
+        return view('admin.product.order.index', $data)->with('trucks',Truck::all())->with('users',Admin::all());
     }
 
     public function processing(Request $request)
@@ -51,7 +51,8 @@ class ProductOrderController extends Controller
             return $query->where('order_number', $search);
         })
         ->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.product.order.index', $data);
+        return view('admin.product.order.index', $data)->with('trucks',Truck::all())
+        ->with('users',Admin::all());
     }
 
     public function completed(Request $request)
@@ -62,7 +63,8 @@ class ProductOrderController extends Controller
             return $query->where('order_number', $search);
         })
         ->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.product.order.index', $data);
+        return view('admin.product.order.index', $data)->with('trucks',Truck::all())
+        ->with('users',Admin::all());;
     }
 
     public function rejected(Request $request)
@@ -73,7 +75,8 @@ class ProductOrderController extends Controller
             return $query->where('order_number', $search);
         })
         ->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.product.order.index', $data);
+        return view('admin.product.order.index', $data)->with('trucks',Truck::all())
+        ->with('users',Admin::all());
     }
 
     public function status(Request $request)

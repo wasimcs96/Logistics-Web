@@ -20,12 +20,12 @@
         </div>
         <div class="info">
           <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-            <span>
+            <span style="color: white;">
               {{Auth::guard('admin')->user()->first_name}}
               @if (empty(Auth::guard('admin')->user()->role))
                 <span class="user-level">Owner</span>
               @else
-                <span class="user-level">{{Auth::guard('admin')->user()->role->name}}</span>
+                <span class="user-level" style="color: white;">{{Auth::guard('admin')->user()->role->name}}</span>
               @endif
               <span class="caret"></span>
             </span>
@@ -36,17 +36,17 @@
             <ul class="nav">
               <li>
                 <a href="{{route('admin.editProfile')}}">
-                  <span class="link-collapse">Edit Profile</span>
+                  <span class="link-collapse" style="color: white;">Edit Profile</span>
                 </a>
               </li>
               <li>
                 <a href="{{route('admin.changePass')}}">
-                  <span class="link-collapse">Change Password</span>
+                  <span class="link-collapse" style="color: white;">Change Password</span>
                 </a>
               </li>
               <li>
                 <a href="{{route('admin.logout')}}">
-                  <span class="link-collapse">Logout</span>
+                  <span class="link-collapse" style="color: white;">Logout</span>
                 </a>
               </li>
             </ul>
@@ -60,7 +60,7 @@
           <li class="nav-item @if(request()->path() == 'admin/dashboard') active @endif">
             <a href="{{route('admin.dashboard')}}">
               <i class="la flaticon-paint-palette"></i>
-              <p>Dashboard</p>
+              <p style="color: white;">Dashboard</p>
             </a>
           </li>
         @endif
@@ -94,7 +94,7 @@
           @endif">
             <a data-toggle="collapse" href="#basic">
               <i class="la flaticon-settings"></i>
-              <p>Basic Settings</p>
+              <p style="color: white;">Basic Settings</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -123,35 +123,35 @@
               <ul class="nav nav-collapse">
                 <li class="@if(request()->path() == 'admin/favicon') active @endif">
                   <a href="{{route('admin.favicon') . '?language=' . $default->code}}">
-                    <span class="sub-item">Favicon</span>
+                    <span class="sub-item" style="color: white;">Favicon</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/logo') active @endif">
                   <a href="{{route('admin.logo') . '?language=' . $default->code}}">
-                    <span class="sub-item">Logo</span>
+                    <span class="sub-item" style="color: white;">Logo</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/basicinfo') active @endif">
                   <a href="{{route('admin.basicinfo') . '?language=' . $default->code}}">
-                    <span class="sub-item">General Settings</span>
+                    <span class="sub-item" style="color: white;">General Settings</span>
                   </a>
                 </li>
 
                 <li class="submenu">
                     <a data-toggle="collapse" href="#emailset" aria-expanded="{{(request()->path() == 'admin/mail-from-admin' || request()->path() == 'admin/mail-to-admin') ? 'true' : 'false' }}">
-                      <span class="sub-item">Email Settings</span>
+                      <span class="sub-item" style="color: white;">Email Settings</span>
                       <span class="caret"></span>
                     </a>
                     <div class="collapse {{(request()->path() == 'admin/mail-from-admin' || request()->path() == 'admin/mail-to-admin') ? 'show' : '' }}" id="emailset" style="">
                       <ul class="nav nav-collapse subnav">
                         <li class="@if(request()->path() == 'admin/mail-from-admin') active @endif">
                           <a href="{{route('admin.mailFromAdmin')}}">
-                            <span class="sub-item">Mail from Admin</span>
+                            <span class="sub-item" style="color: white;">Mail from Admin</span>
                           </a>
                         </li>
                         <li class="@if(request()->path() == 'admin/mail-to-admin') active @endif">
                           <a href="{{route('admin.mailToAdmin')}}">
-                            <span class="sub-item">Mail to Admin</span>
+                            <span class="sub-item" style="color: white;">Mail to Admin</span>
                           </a>
                         </li>
                       </ul>
@@ -171,13 +171,13 @@
 
                 <li class="@if(request()->routeIs('admin.featuresettings')) active @endif">
                   <a href="{{route('admin.featuresettings') . '?language=' . $default->code}}">
-                    <span class="sub-item">Features Settings</span>
+                    <span class="sub-item" style="color: white;">Features Settings</span>
                   </a>
                 </li>
 
                 <li class="submenu">
                   <a data-toggle="collapse" href="#shopset" aria-expanded="{{(request()->path() == 'admin/shipping' || request()->routeIs('admin.shipping.edit')) || request()->routeIs('admin.product.tags') ? 'true' : 'false' }}">
-                    <span class="sub-item">Shop Settings</span>
+                    <span class="sub-item" style="color: white;">Shop Settings</span>
                     <span class="caret"></span>
                   </a>
                   <div class="collapse {{(request()->path() == 'admin/shipping' || request()->routeIs('admin.shipping.edit')) || request()->routeIs('admin.product.tags') ? 'show' : '' }}" id="shopset" style="">
@@ -187,12 +187,12 @@
                       @elseif(request()->routeIs('admin.shipping.edit')) active
                       @endif">
                         <a href="{{route('admin.shipping.index'). '?language=' . $default->code}}">
-                          <span class="sub-item">Shipping Charges</span>
+                          <span class="sub-item" style="color: white;">Shipping Charges</span>
                         </a>
                       </li>
                       <li class="@if(request()->routeIs('admin.product.tags')) active @endif">
                         <a href="{{route('admin.product.tags'). '?language=' . $default->code}}">
-                          <span class="sub-item">Popular Tags</span>
+                          <span class="sub-item" style="color: white;">Popular Tags</span>
                         </a>
                       </li>
                     </ul>
@@ -201,48 +201,48 @@
 
                 <li class="@if(request()->path() == 'admin/support') active @endif">
                   <a href="{{route('admin.support') . '?language=' . $default->code}}">
-                    <span class="sub-item">Support Informations</span>
+                    <span class="sub-item" style="color: white;">Support Informations</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/social') active
                 @elseif(request()->is('admin/social/*')) active @endif">
                   <a href="{{route('admin.social.index')}}">
-                    <span class="sub-item">Social Links</span>
+                    <span class="sub-item" style="color: white;">Social Links</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/breadcrumb') active @endif">
                   <a href="{{route('admin.breadcrumb') . '?language=' . $default->code}}">
-                    <span class="sub-item">Breadcrumb</span>
+                    <span class="sub-item" style="color: white;">Breadcrumb</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/heading') active @endif">
                   <a href="{{route('admin.heading') . '?language=' . $default->code}}">
-                    <span class="sub-item">Page Headings</span>
+                    <span class="sub-item" style="color: white;">Page Headings</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/script') active @endif">
                   <a href="{{route('admin.script')}}">
-                    <span class="sub-item">Scripts</span>
+                    <span class="sub-item" style="color: white;">Scripts</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/seo') active @endif">
                   <a href="{{route('admin.seo') . '?language=' . $default->code}}">
-                    <span class="sub-item">SEO Information</span>
+                    <span class="sub-item" style="color: white;">SEO Information</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/maintainance') active @endif">
                   <a href="{{route('admin.maintainance')}}">
-                    <span class="sub-item">Maintainance Mode</span>
+                    <span class="sub-item" style="color: white;">Maintainance Mode</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/announcement') active @endif">
                   <a href="{{route('admin.announcement') . '?language=' . $default->code}}">
-                    <span class="sub-item">Announcement Popup</span>
+                    <span class="sub-item" style="color: white;">Announcement Popup</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/cookie-alert') active @endif">
                   <a href="{{route('admin.cookie.alert') . '?language=' . $default->code}}">
-                    <span class="sub-item">Cookie Alert</span>
+                    <span class="sub-item" style="color: white;">Cookie Alert</span>
                   </a>
                 </li>
               </ul>
@@ -259,7 +259,7 @@
         @endif">
             <a href="{{route('admin.register.user')}}">
                 <i class="la flaticon-users"></i>
-                <p>Customers</p>
+                <p style="color: white;">Customers</p>
             </a>
         </li>
         @endif
@@ -272,7 +272,7 @@
 
             <a href="{{route('admin.truck.index')}}">
                 <i class="fas fa-truck"></i>
-                <p>Trucks Management</p>
+                <p style="color: white;">Trucks Management</p>
             </a>
         </li>
         @endif
@@ -286,7 +286,7 @@
        
             <a href="{{route('driver.index')}}">
                 <i class="la flaticon-file"></i>
-                <p>My orders</p>
+                <p style="color: white;">My orders</p>
             </a>
         </li>
         <!-- @endif -->
@@ -303,7 +303,7 @@
           @endif">
             <a data-toggle="collapse" href="#subscribers">
               <i class="la flaticon-envelope"></i>
-              <p>Subscribers</p>
+              <p style="color: white;">Subscribers</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -313,12 +313,12 @@
               <ul class="nav nav-collapse">
                 <li class="@if(request()->path() == 'admin/subscribers') active @endif">
                   <a href="{{route('admin.subscriber.index')}}">
-                    <span class="sub-item">Subscribers</span>
+                    <span class="sub-item" style="color: white;">Subscribers</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/mailsubscriber') active @endif">
                   <a href="{{route('admin.mailsubscriber')}}">
-                    <span class="sub-item">Mail to Subscribers</span>
+                    <span class="sub-item" style="color: white;">Mail to Subscribers</span>
                   </a>
                 </li>
               </ul>
@@ -344,7 +344,7 @@
           @endif">
             <a data-toggle="collapse" href="#packages">
               <i class="la flaticon-box-1"></i>
-              <p>Package Management</p>
+              <p style="color: white;">Package Management</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -363,37 +363,37 @@
                 @elseif(request()->is('admin/package/*/inputEdit')) active
                 @endif">
                   <a href="{{route('admin.package.form') . '?language=' . $default->code}}">
-                    <span class="sub-item">Form Builder</span>
+                    <span class="sub-item" style="color: white;">Form Builder</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/packages') active @endif">
                   <a href="{{route('admin.package.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Packages</span>
+                    <span class="sub-item" style="color: white;">Packages</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/all/orders') active @endif">
                   <a href="{{route('admin.all.orders')}}">
-                    <span class="sub-item">All Orders</span>
+                    <span class="sub-item" style="color: white;">All Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/pending/orders') active @endif">
                   <a href="{{route('admin.pending.orders')}}">
-                    <span class="sub-item">Pending Orders</span>
+                    <span class="sub-item" style="color: white;">Pending Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/processing/orders') active @endif">
                   <a href="{{route('admin.processing.orders')}}">
-                    <span class="sub-item">Processing Orders</span>
+                    <span class="sub-item" style="color: white;">Processing Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/completed/orders') active @endif">
                   <a href="{{route('admin.completed.orders')}}">
-                    <span class="sub-item">Completed Orders</span>
+                    <span class="sub-item" style="color: white;">Completed Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/rejected/orders') active @endif">
                   <a href="{{route('admin.rejected.orders')}}">
-                    <span class="sub-item">Rejected Orders</span>
+                    <span class="sub-item" style="color: white;">Rejected Orders</span>
                   </a>
                 </li>
               </ul>
@@ -416,7 +416,7 @@
           @endif">
             <a data-toggle="collapse" href="#quote">
               <i class="la flaticon-list"></i>
-              <p>Quote Management</p>
+              <p style="color: white;">Quote Management</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -434,7 +434,7 @@
                 @if(request()->path() == 'admin/quote/visibility') active
                 @endif">
                   <a href="{{route('admin.quote.visibility')}}">
-                    <span class="sub-item">Visibility</span>
+                    <span class="sub-item" style="color: white;">Visibility</span>
                   </a>
                 </li>
                 <li class="
@@ -442,32 +442,32 @@
                 @elseif(request()->is('admin/quote/*/inputEdit')) active
                 @endif">
                   <a href="{{route('admin.quote.form') . '?language=' . $default->code}}">
-                    <span class="sub-item">Form Builder</span>
+                    <span class="sub-item" style="color: white;">Form Builder</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/all/quotes') active @endif">
                   <a href="{{route('admin.all.quotes')}}">
-                    <span class="sub-item">All Quotes</span>
+                    <span class="sub-item" style="color: white;">All Quotes</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/pending/quotes') active @endif">
                   <a href="{{route('admin.pending.quotes')}}">
-                    <span class="sub-item">Pending Quotes</span>
+                    <span class="sub-item" style="color: white;">Pending Quotes</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/processing/quotes') active @endif">
                   <a href="{{route('admin.processing.quotes')}}">
-                    <span class="sub-item">Processing Quotes</span>
+                    <span class="sub-item" style="color: white;">Processing Quotes</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/completed/quotes') active @endif">
                   <a href="{{route('admin.completed.quotes')}}">
-                    <span class="sub-item">Completed Quotes</span>
+                    <span class="sub-item" style="color: white;">Completed Quotes</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/rejected/quotes') active @endif">
                   <a href="{{route('admin.rejected.quotes')}}">
-                    <span class="sub-item">Rejected Quotes</span>
+                    <span class="sub-item" style="color: white;">Rejected Quotes</span>
                   </a>
                 </li>
               </ul>
@@ -494,7 +494,7 @@
           @endif">
             <a data-toggle="collapse" href="#category">
               <i class="fab fa-product-hunt"></i>
-              <p>Product Management</p>
+              <p style="color: white;">Order Management</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -516,7 +516,7 @@
                 @elseif(request()->is('admin/category/*/edit')) active
                 @endif">
                   <a href="{{route('admin.category.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Category</span>
+                    <span class="sub-item" style="color: white;">Category</span>
                   </a>
                 </li>
 
@@ -526,34 +526,34 @@
                 @elseif(request()->routeIs('admin.product.create')) active
                 @endif">
                   <a href="{{route('admin.product.index'). '?language=' . $default->code}}">
-                    <span class="sub-item">Products</span>
+                    <span class="sub-item" style="color: white;">Products</span>
                   </a>
                 </li>
 
 
                 <li class="@if(request()->path() == 'admin/product/all/orders') active @endif">
                   <a href="{{route('admin.all.product.orders')}}">
-                    <span class="sub-item">All Orders</span>
+                    <span class="sub-item" style="color: white;">All Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/product/pending/orders') active @endif">
                   <a href="{{route('admin.pending.product.orders')}}">
-                    <span class="sub-item">Pending Orders</span>
+                    <span class="sub-item" style="color: white;">Pending Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/product/processing/orders') active @endif">
                   <a href="{{route('admin.processing.product.orders')}}">
-                    <span class="sub-item">Processing Orders</span>
+                    <span class="sub-item" style="color: white;">Processing Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/product/completed/orders') active @endif">
                   <a href="{{route('admin.completed.product.orders')}}">
-                    <span class="sub-item">Completed Orders</span>
+                    <span class="sub-item" style="color: white;">Completed Orders</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/product/rejected/orders') active @endif">
                   <a href="{{route('admin.rejected.product.orders')}}">
-                    <span class="sub-item">Rejected Orders</span>
+                    <span class="sub-item" style="color: white;">Rejected Orders</span>
                   </a>
                 </li>
               </ul>
@@ -574,7 +574,7 @@
             @endif">
             <a data-toggle="collapse" href="#tickets">
                 <i class="la flaticon-web-1"></i>
-                <p>Tickets</p>
+                <p style="color: white;">Tickets</p>
                 <span class="caret"></span>
             </a>
             <div class="collapse
@@ -587,22 +587,22 @@
                 <ul class="nav nav-collapse">
                     <li class="@if(request()->path() == 'admin/all/tickets') active @endif">
                         <a href="{{route('admin.tickets.all')}}">
-                        <span class="sub-item">All Tickets</span>
+                        <span class="sub-item" style="color: white;">All Tickets</span>
                         </a>
                     </li>
                     <li class="@if(request()->path() == 'admin/pending/tickets') active @endif">
                         <a href="{{route('admin.tickets.pending')}}">
-                        <span class="sub-item">Pending Tickets</span>
+                        <span class="sub-item" style="color: white;">Pending Tickets</span>
                         </a>
                     </li>
                     <li class="@if(request()->path() == 'admin/open/tickets') active @endif">
                         <a href="{{route('admin.tickets.open')}}">
-                        <span class="sub-item">Open Tickets</span>
+                        <span class="sub-item" style="color: white;">Open Tickets</span>
                         </a>
                     </li>
                     <li class="@if(request()->path() == 'admin/closed/tickets') active @endif">
                         <a href="{{route('admin.tickets.closed')}}">
-                        <span class="sub-item">Closed Tickets</span>
+                        <span class="sub-item" style="color: white;">Closed Tickets</span>
                         </a>
                     </li>
                 </ul>
@@ -619,7 +619,7 @@
           @endif">
             <a data-toggle="collapse" href="#gateways">
               <i class="la flaticon-paypal"></i>
-              <p>Payment Gateways</p>
+              <p style="color: white;">Payment Gateways</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -629,12 +629,12 @@
               <ul class="nav nav-collapse">
                 <li class="@if(request()->path() == 'admin/gateways') active @endif">
                   <a href="{{route('admin.gateway.index')}}">
-                    <span class="sub-item">Online Gateways</span>
+                    <span class="sub-item" style="color: white;">Online Gateways</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/offline/gateways') active @endif">
                   <a href="{{route('admin.gateway.offline') . '?language=' . $default->code}}">
-                    <span class="sub-item">Offline Gateways</span>
+                    <span class="sub-item" style="color: white;">Offline Gateways</span>
                   </a>
                 </li>
               </ul>
@@ -670,7 +670,6 @@
           @elseif(request()->path() == 'admin/invitation') active
           @elseif(request()->path() == 'admin/partners') active
           @elseif(request()->is('admin/partner/*/edit')) active
-          @elseif(request()->path() == 'admin/portfoliosection') active
           @elseif(request()->path() == 'admin/blogsection') active
           @elseif(request()->path() == 'admin/member/create') active
           @elseif(request()->path() == 'admin/sections') active
@@ -678,7 +677,7 @@
           @endif">
             <a data-toggle="collapse" href="#home">
               <i class="la flaticon-home"></i>
-              <p>Home Page</p>
+              <p style="color: white;">Home Page</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -702,7 +701,6 @@
             @elseif(request()->path() == 'admin/invitation') show
             @elseif(request()->path() == 'admin/partners') show
             @elseif(request()->is('admin/partner/*/edit')) show
-            @elseif(request()->path() == 'admin/portfoliosection') show
             @elseif(request()->path() == 'admin/blogsection') show
             @elseif(request()->path() == 'admin/member/create') show
             @elseif(request()->path() == 'admin/sections') show
@@ -716,7 +714,7 @@
                 @elseif(request()->is('admin/herosection/slider/*/edit')) selected
                 @endif">
                   <a data-toggle="collapse" href="#herosection">
-                    <span class="sub-item">Hero Section</span>
+                    <span class="sub-item" style="color: white;">Hero Section</span>
                     <span class="caret"></span>
                   </a>
                   <div class="collapse
@@ -728,7 +726,7 @@
                     <ul class="nav nav-collapse subnav">
                       <li class="@if(request()->path() == 'admin/herosection/static') active @endif">
                         <a href="{{route('admin.herosection.static') . '?language=' . $default->code}}">
-                          <span class="sub-item">Static Version</span>
+                          <span class="sub-item" style="color: white;">Static Version</span>
                         </a>
                       </li>
                       <li class="
@@ -736,12 +734,12 @@
                       @elseif(request()->is('admin/herosection/slider/*/edit')) active
                       @endif">
                         <a href="{{route('admin.slider.index') . '?language=' . $default->code}}">
-                          <span class="sub-item">Slider Version</span>
+                          <span class="sub-item" style="color: white;">Slider Version</span>
                         </a>
                       </li>
                       <li class="@if(request()->path() == 'admin/herosection/video') active @endif">
                         <a href="{{route('admin.herosection.video') . '?language=' . $default->code}}">
-                          <span class="sub-item">Video Version</span>
+                          <span class="sub-item" style="color: white;">Video Version</span>
                         </a>
                       </li>
                     </ul>
@@ -753,17 +751,17 @@
                 @elseif(request()->is('admin/feature/*/edit')) active
                 @endif">
                   <a href="{{route('admin.feature.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Features</span>
+                    <span class="sub-item" style="color: white;">Features</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/introsection') active @endif">
                   <a href="{{route('admin.introsection.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Intro Section</span>
+                    <span class="sub-item" style="color: white;">Intro Section</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/servicesection') active @endif">
                   <a href="{{route('admin.servicesection.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Service Section</span>
+                    <span class="sub-item" style="color: white;">Service Section</span>
                   </a>
                 </li>
                 <li class="
@@ -771,7 +769,7 @@
                 @elseif(request()->is('admin/approach/*/pointedit')) active
                 @endif">
                   <a href="{{route('admin.approach.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Approach Section</span>
+                    <span class="sub-item" style="color: white;">Approach Section</span>
                   </a>
                 </li>
                 <li class="
@@ -779,17 +777,12 @@
                 @elseif(request()->is('admin/statistics/*/edit')) active
                 @endif">
                   <a href="{{route('admin.statistics.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Statistics Section</span>
+                    <span class="sub-item" style="color: white;">Statistics Section</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/cta') active @endif">
                   <a href="{{route('admin.cta.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Call to Action Section</span>
-                  </a>
-                </li>
-                <li class="@if(request()->path() == 'admin/portfoliosection') active @endif">
-                  <a href="{{route('admin.portfoliosection.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Portfolio Section</span>
+                    <span class="sub-item" style="color: white;">Call to Action Section</span>
                   </a>
                 </li>
                 <li class="
@@ -797,7 +790,7 @@
                 @elseif(request()->is('admin/testimonial/*/edit')) active
                 @endif">
                   <a href="{{route('admin.testimonial.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Testimonials</span>
+                    <span class="sub-item" style="color: white;">Testimonials</span>
                   </a>
                 </li>
                 <li class="
@@ -806,19 +799,19 @@
                 @elseif(request()->path() == 'admin/member/create') active
                 @endif">
                   <a href="{{route('admin.member.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Team Section</span>
+                    <span class="sub-item" style="color: white;">Team Section</span>
                   </a>
                 </li>
                 <li class="
                 @if(request()->path() == 'admin/package/background') active
                 @endif">
                   <a href="{{route('admin.package.background') . '?language=' . $default->code}}">
-                    <span class="sub-item">Package Background</span>
+                    <span class="sub-item" style="color: white;">Package Background</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/blogsection') active @endif">
                   <a href="{{route('admin.blogsection.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Blog Section</span>
+                    <span class="sub-item" style="color: white;">Blog Section</span>
                   </a>
                 </li>
                 <li class="
@@ -826,14 +819,14 @@
                 @elseif(request()->is('admin/partner/*/edit')) active
                 @endif">
                   <a href="{{route('admin.partner.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Partners</span>
+                    <span class="sub-item" style="color: white;">Partners</span>
                   </a>
                 </li>
                 <li class="
                 @if(request()->path() == 'admin/sections') active
                 @endif">
                   <a href="{{route('admin.sections.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Section Customization</span>
+                    <span class="sub-item" style="color: white;">Section Customization</span>
                   </a>
                 </li>
               </ul>
@@ -848,7 +841,7 @@
         @if(request()->path() == 'admin/menu-builder') active @endif">
         <a href="{{route('admin.menu_builder.index') . '?language=' . $default->code}}">
           <i class="fas fa-bars"></i>
-          <p>Drag & Drop Menu Builder</p>
+          <p style="color: white;">Drag & Drop Menu Builder</p>
         </a>
       </li>
     @endif
@@ -863,7 +856,7 @@
           @endif">
             <a data-toggle="collapse" href="#footer">
               <i class="la flaticon-layers"></i>
-              <p>Footer</p>
+              <p style="color: white;">Footer</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -873,12 +866,12 @@
               <ul class="nav nav-collapse">
                 <li class="@if(request()->path() == 'admin/footers') active @endif">
                   <a href="{{route('admin.footer.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Logo & Text</span>
+                    <span class="sub-item" style="color: white;">Logo & Text</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/ulinks') active @endif">
                   <a href="{{route('admin.ulink.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Useful Links</span>
+                    <span class="sub-item" style="color: white;">Useful Links</span>
                   </a>
                 </li>
               </ul>
@@ -897,7 +890,7 @@
           @endif">
             <a data-toggle="collapse" href="#pages">
               <i class="la flaticon-file"></i>
-              <p>Pages</p>
+              <p style="color: white;">Pages</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -908,12 +901,12 @@
               <ul class="nav nav-collapse">
                 <li class="@if(request()->path() == 'admin/page/create') active @endif">
                   <a href="{{route('admin.page.create')}}">
-                    <span class="sub-item">Create Page</span>
+                    <span class="sub-item" style="color: white;">Create Page</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/pages') active @endif">
                   <a href="{{route('admin.page.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Pages</span>
+                    <span class="sub-item" style="color: white;">Pages</span>
                   </a>
                 </li>
               </ul>
@@ -933,7 +926,7 @@
           @endif">
             <a data-toggle="collapse" href="#service">
               <i class="la flaticon-customer-support"></i>
-              <p>Service Page</p>
+              <p style="color: white;">Service Page</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -949,7 +942,7 @@
                 @elseif(request()->is('admin/scategory/*/edit')) active
                 @endif">
                   <a href="{{route('admin.scategory.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Category</span>
+                    <span class="sub-item" style="color: white;">Category</span>
                   </a>
                 </li>
                 @endif
@@ -958,7 +951,7 @@
                 @elseif(request()->is('admin/service/*/edit')) active
                 @endif">
                   <a href="{{route('admin.service.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Services</span>
+                    <span class="sub-item" style="color: white;">Services</span>
                   </a>
                 </li>
               </ul>
@@ -968,19 +961,7 @@
 
 
 
-        @if (empty($admin->role) || (!empty($permissions) && in_array('Portfolio Management', $permissions)))
-          {{-- Portfolio Management --}}
-          <li class="nav-item
-           @if(request()->path() == 'admin/portfolios') active
-           @elseif(request()->path() == 'admin/portfolio/create') active
-           @elseif(request()->is('admin/portfolio/*/edit')) active
-           @endif">
-            <a href="{{route('admin.portfolio.index') . '?language=' . $default->code}}">
-              <i class="la flaticon-imac"></i>
-              <p>Portfolio Management</p>
-            </a>
-          </li>
-        @endif
+    
 
 
 
@@ -995,7 +976,7 @@
           @endif">
             <a data-toggle="collapse" href="#career">
                 <i class="fas fa-user-md"></i>
-              <p>Career Page</p>
+              <p style="color: white;">Career Page</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -1011,7 +992,7 @@
                 @elseif(request()->is('admin/jcategory/*/edit')) active
                 @endif">
                   <a href="{{route('admin.jcategory.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Category</span>
+                    <span class="sub-item" style="color: white;">Category</span>
                   </a>
                 </li>
                 <li class="
@@ -1020,7 +1001,7 @@
                 @elseif(request()->is('admin/job/create')) active
                 @endif">
                   <a href="{{route('admin.job.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Job Management</span>
+                    <span class="sub-item" style="color: white;">Job Management</span>
                   </a>
                 </li>
               </ul>
@@ -1036,7 +1017,7 @@
            @endif">
             <a href="{{route('admin.calendar.index') . '?language=' . $default->code}}">
               <i class="la flaticon-calendar"></i>
-              <p>Event Calendar</p>
+              <p style="color: white;">Event Calendar</p>
             </a>
           </li>
         @endif
@@ -1051,7 +1032,7 @@
            @endif">
             <a href="{{route('admin.gallery.index') . '?language=' . $default->code}}">
               <i class="la flaticon-picture"></i>
-              <p>Gallery Management</p>
+              <p style="color: white;">Gallery Management</p>
             </a>
           </li>
         @endif
@@ -1064,7 +1045,7 @@
            @if(request()->path() == 'admin/faqs') active @endif">
             <a href="{{route('admin.faq.index') . '?language=' . $default->code}}">
               <i class="la flaticon-round"></i>
-              <p>FAQ Management</p>
+              <p style="color: white;">FAQ Management</p>
             </a>
           </li>
         @endif
@@ -1081,7 +1062,7 @@
           @endif">
             <a data-toggle="collapse" href="#blog">
               <i class="la flaticon-chat-4"></i>
-              <p>Blogs</p>
+              <p style="color: white;">Blogs</p>
               <span class="caret"></span>
             </a>
             <div class="collapse
@@ -1093,7 +1074,7 @@
               <ul class="nav nav-collapse">
                 <li class="@if(request()->path() == 'admin/bcategorys') active @endif">
                   <a href="{{route('admin.bcategory.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Category</span>
+                    <span class="sub-item" style="color: white;">Category</span>
                   </a>
                 </li>
                 <li class="
@@ -1101,12 +1082,12 @@
                 @elseif(request()->is('admin/blog/*/edit')) active
                 @endif">
                   <a href="{{route('admin.blog.index') . '?language=' . $default->code}}">
-                    <span class="sub-item">Blogs</span>
+                    <span class="sub-item" style="color: white;">Blogs</span>
                   </a>
                 </li>
                 <li class="@if(request()->path() == 'admin/archives') active @endif">
                   <a href="{{route('admin.archive.index')}}">
-                    <span class="sub-item">Archives</span>
+                    <span class="sub-item" style="color: white;">Archives</span>
                   </a>
                 </li>
               </ul>
@@ -1124,7 +1105,7 @@
         @endif">
           <a data-toggle="collapse" href="#rss">
             <i class="fa fa-rss"></i>
-            <p>RSS Feeds</p>
+            <p style="color: white;">RSS Feeds</p>
             <span class="caret"></span>
           </a>
           <div class="collapse
@@ -1136,19 +1117,19 @@
             <ul class="nav nav-collapse">
               <li class="@if(request()->path() == 'admin/rss/create') active @endif">
                 <a href="{{route('admin.rss.create')}}">
-                  <span class="sub-item">Import RSS Feeds</span>
+                  <span class="sub-item" style="color: white;">Import RSS Feeds</span>
                 </a>
               </li>
 
               <li class="@if(request()->path() == 'admin/rss/feeds') active @endif">
                 <a href="{{route('admin.rss.feed'). '?language=' . $default->code}}">
-                  <span class="sub-item">RSS Feeds</span>
+                  <span class="sub-item" style="color: white;">RSS Feeds</span>
                 </a>
               </li>
 
               <li class="@if(request()->path() == 'admin/rss') active @endif">
                 <a href="{{route('admin.rss.index'). '?language=' . $default->code}}">
-                  <span class="sub-item">RSS Posts</span>
+                  <span class="sub-item" style="color: white;">RSS Posts</span>
                 </a>
               </li>
 
@@ -1165,7 +1146,7 @@
         @if(request()->path() == 'admin/sitemap') active @endif">
         <a href="{{route('admin.sitemap.index') . '?language=' . $default->code}}">
           <i class="fa fa-sitemap"></i>
-          <p>Sitemap</p>
+          <p style="color: white;">Sitemap</p>
         </a>
       </li>
     @endif
@@ -1176,7 +1157,7 @@
           @if(request()->path() == 'admin/contact') active @endif">
           <a href="{{route('admin.contact.index') . '?language=' . $default->code}}">
             <i class="la flaticon-whatsapp"></i>
-            <p>Contact Page</p>
+            <p style="color: white;">Contact Page</p>
           </a>
         </li>
       @endif
@@ -1190,7 +1171,7 @@
           @endif">
           <a href="{{route('admin.role.index')}}">
             <i class="la flaticon-multimedia-2"></i>
-            <p>Role Management</p>
+            <p style="color: white;">Role Management</p>
           </a>
         </li>
       @endif
@@ -1205,7 +1186,7 @@
            @endif">
             <a href="{{route('admin.user.index')}}">
               <i class="la flaticon-user-5"></i>
-              <p>Users Management</p>
+              <p style="color: white;">Users Management</p>
             </a>
           </li>
         @endif
@@ -1220,7 +1201,7 @@
          @endif">
           <a href="{{route('admin.language.index')}}">
             <i class="la flaticon-chat-8"></i>
-            <p>Language Management</p>
+            <p style="color: white;">Language Management</p>
           </a>
         </li>
         @endif
@@ -1233,7 +1214,7 @@
          @endif">
           <a href="{{route('admin.backup.index')}}">
             <i class="la flaticon-down-arrow-3"></i>
-            <p>Backup</p>
+            <p style="color: white;">Backup</p>
           </a>
         </li>
         @endif
@@ -1244,7 +1225,7 @@
         <li class="nav-item">
           <a href="{{route('admin.cache.clear')}}">
             <i class="la flaticon-close"></i>
-            <p>Clear Cache</p>
+            <p style="color: white;">Clear Cache</p>
           </a>
         </li>
       </ul>

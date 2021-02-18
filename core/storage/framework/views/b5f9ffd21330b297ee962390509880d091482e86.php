@@ -244,11 +244,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <!-- <select>
-                                          <?php $__currentLoopData = $trucks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $truck): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($truck->id); ?>" name="truck">$item->name</option>
-                                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        </select> -->
+                                      
                                         <form id="processModalForm">
                                             <label>Truck Information **</label>
                                             <select name="truck" class="form-control ltr" id="truck">
@@ -372,7 +368,6 @@ var date = '';
 var pick_address = '';
 var drop_address = '';
 var inc = '';
-inc = <?php echo e($increase); ?>;
 
 $(document).on('click', '#assignDriver', function() {
     var order_id = $(this).attr('custom1');

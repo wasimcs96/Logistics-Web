@@ -185,7 +185,7 @@
     		</div>
     	</div>
     </div>
-    <div class="col-lg-6">
+    <!-- <div class="col-lg-6">
       <div class="row row-card-no-pd">
     		<div class="col-md-12">
     			<div class="card">
@@ -229,7 +229,7 @@
     			</div>
     		</div>
     	</div>
-    </div>
+    </div> -->
   </div>
 
 

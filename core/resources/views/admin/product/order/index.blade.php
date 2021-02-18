@@ -242,11 +242,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <!-- <select>
-                                          @foreach($trucks as $truck)
-                                            <option value="{{ $truck->id }}" name="truck">$item->name</option>
-                                          @endforeach
-                                        </select> -->
+                                      
                                         <form id="processModalForm">
                                             <label>Truck Information **</label>
                                             <select name="truck" class="form-control ltr" id="truck">
@@ -367,7 +363,6 @@ var date = '';
 var pick_address = '';
 var drop_address = '';
 var inc = '';
-inc = {{ $increase }};
 
 $(document).on('click', '#assignDriver', function() {
     var order_id = $(this).attr('custom1');
