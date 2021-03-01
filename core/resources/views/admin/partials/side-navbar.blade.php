@@ -277,6 +277,19 @@
         </li>
         @endif
 
+        @if (empty($admin->role) || (!empty($permissions) && in_array('Leads', $permissions)))
+        <li class="nav-item
+        @if(request()->routeIs('admin.lead.index')) active
+        @elseif(request()->routeIs('admin.lead.show')) active
+        @endif">
+
+            <a href="{{route('admin.lead.index')}}">
+                <i class="fas fa-tasks"></i>
+                <p style="color: white;">Leads Management</p>
+            </a>
+        </li>
+        @endif
+
         @if(isset(Auth::guard('admin')->user()->role_id))
         @if(Auth::guard('admin')->user()->role_id == 6)
         <!-- @if (empty($admin->role) || (!empty($permissions) && in_array('Trucks', $permissions))) -->

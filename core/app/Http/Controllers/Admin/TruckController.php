@@ -73,7 +73,7 @@ class TruckController extends Controller
     {
         $truck = Truck::find($id);
         $truck->delete();
-        Session::flash('success', 'Truck updated successfully!');
+        Session::flash('success', 'Truck deleted successfully!');
         return redirect()->route('admin.truck.index');
     }
 

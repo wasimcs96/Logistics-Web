@@ -278,6 +278,19 @@
         </li>
         <?php endif; ?>
 
+        <?php if(empty($admin->role) || (!empty($permissions) && in_array('Leads', $permissions))): ?>
+        <li class="nav-item
+        <?php if(request()->routeIs('admin.lead.index')): ?> active
+        <?php elseif(request()->routeIs('admin.lead.show')): ?> active
+        <?php endif; ?>">
+
+            <a href="<?php echo e(route('admin.lead.index')); ?>">
+                <i class="fas fa-tasks"></i>
+                <p style="color: white;">Leads Management</p>
+            </a>
+        </li>
+        <?php endif; ?>
+
         <?php if(isset(Auth::guard('admin')->user()->role_id)): ?>
         <?php if(Auth::guard('admin')->user()->role_id == 6): ?>
         <!-- <?php if(empty($admin->role) || (!empty($permissions) && in_array('Trucks', $permissions))): ?> -->
