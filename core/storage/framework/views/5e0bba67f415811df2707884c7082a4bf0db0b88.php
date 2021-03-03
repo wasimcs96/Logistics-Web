@@ -1,5 +1,5 @@
 <!-- Details Modal -->
-<div class="modal fade" id="detailsModal{{$quote->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="detailsModal<?php echo e($quote->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,170 +14,172 @@
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Name:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->name)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->name)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Email:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->email)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->email)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Primary Conatct:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->primary_number)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->primary_number)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Client Notes:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->client_notes)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->client_notes)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Media:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->media)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->media)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Job Type:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->job_type)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->job_type)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Price Type:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->price_type)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->price_type)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Payment Method:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->payment_method)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->payment_method)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Move Date:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->mdate)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->mdate)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Follow Up Date:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->fdate)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->fdate)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Building Type:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->c_building_type)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->c_building_type)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Country:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->c_country)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->c_country)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">State:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->c_state)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->c_state)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">City:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->c_city)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->c_city)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Franchisee Notes:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->franchisee_notes)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->franchisee_notes)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Truck Fee:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->truck_fee)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->truck_fee)); ?></div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Hourly Rate:</strong>
                 </div>
-                <div class="col-lg-8">{{convertUtf8($quote->hourly_rate)}}</div>
+                <div class="col-lg-8"><?php echo e(convertUtf8($quote->hourly_rate)); ?></div>
             </div>
             <hr>
 
-          @php
+          <?php
             $fields = json_decode($quote->fields, true);
-          @endphp
+          ?>
 
-          @foreach ($fields as $key => $field)
+          <?php $__currentLoopData = $fields; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $field): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <div class="row">
             <div class="col-lg-4">
-              <strong style="text-transform: capitalize;">{{str_replace("_"," ",$key)}}:</strong>
+              <strong style="text-transform: capitalize;"><?php echo e(str_replace("_"," ",$key)); ?>:</strong>
             </div>
             <div class="col-lg-8">
-                @if (is_array($field))
-                    @php
+                <?php if(is_array($field)): ?>
+                    <?php
                         $str = implode(", ", $field);
-                    @endphp
-                    {{convertUtf8($str)}}
-                @else
-                    {{convertUtf8($field)}}
-                @endif
+                    ?>
+                    <?php echo e(convertUtf8($str)); ?>
+
+                <?php else: ?>
+                    <?php echo e(convertUtf8($field)); ?>
+
+                <?php endif; ?>
             </div>
           </div>
           <hr>
-          @endforeach
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
           <div class="row">
             <div class="col-lg-4">
               <strong>Status:</strong>
             </div>
             <div class="col-lg-8">
-              @if ($quote->status == 0)
+              <?php if($quote->status == 0): ?>
                 <span class="badge badge-warning">Pending</span>
-              @elseif ($quote->status == 1)
+              <?php elseif($quote->status == 1): ?>
                 <span class="badge badge-secondary">Processing</span>
-              @elseif ($quote->status == 2)
+              <?php elseif($quote->status == 2): ?>
                 <span class="badge badge-success">Completed</span>
-              @elseif ($quote->status == 3)
+              <?php elseif($quote->status == 3): ?>
                 <span class="badge badge-danger">Rejected</span>
-              @endif
+              <?php endif; ?>
             </div>
           </div>
           <hr>
 
-          @if (!empty($quote->nda))
+          <?php if(!empty($quote->nda)): ?>
           <div class="row">
             <div class="col-lg-4">
               <strong>NDA File:</strong>
             </div>
             <div class="col-lg-8">
-              <a class="btn btn-secondary btn-sm" href="{{asset('assets/front/ndas/'.$quote->nda)}}" target="_blank">
+              <a class="btn btn-secondary btn-sm" href="<?php echo e(asset('assets/front/ndas/'.$quote->nda)); ?>" target="_blank">
                 <span class="btn-label">
                   <i class="fa fa-eye"></i>
                 </span>
@@ -186,7 +188,7 @@
             </div>
           </div>
           <hr>
-          @endif
+          <?php endif; ?>
 
         </div>
       </div>
@@ -196,3 +198,4 @@
     </div>
   </div>
 </div>
+<?php /**PATH C:\xampp\htdocs\logistics\core\resources\views/admin/quote/quote-details.blade.php ENDPATH**/ ?>
