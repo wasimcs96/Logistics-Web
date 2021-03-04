@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2021 at 07:24 AM
+-- Generation Time: Mar 01, 2021 at 02:44 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -909,9 +909,16 @@ CREATE TABLE `leads` (
   `move_data` varchar(255) DEFAULT NULL,
   `moving_from` varchar(255) DEFAULT NULL,
   `moving_to` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `leads`
+--
+
+INSERT INTO `leads` (`id`, `first_name`, `last_name`, `phone_number`, `client_email`, `move_data`, `moving_from`, `moving_to`, `created_at`, `updated_at`) VALUES
+(5, 'MOHAMMED', 'SAIF', '9649177235', 'saifchohan7235@gmail.com', 'hgasdghAFthag', 'dvcGfdaetdftwyd', 'fbszjkfbshjd', '2021-03-01 04:15:16', '2021-03-01 04:16:02');
 
 -- --------------------------------------------------------
 
@@ -2390,8 +2397,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `permissions`, `created_at`, `updated_at`) VALUES
 (1, 'Moderator', '[\"Dashboard\",\"Tickets\",\"Service Page\",\"Portfolio Management\",\"Career Page\",\"Event Calendar\",\"FAQ Management\",\"Blogs\",\"RSS Feeds\"]', '2019-10-03 03:47:30', '2021-02-10 00:20:13'),
-(3, 'Super Admin', '[\"Dashboard\",\"Basic Settings\",\"Customers\",\"Subscribers\",\"Package Management\",\"Drivers\",\"Quote Management\",\"Product Management\",\"Tickets\",\"Payment Gateways\",\"Home Page\",\"Menu Builder\",\"Footer\",\"Pages\",\"Service Page\",\"Portfolio Management\",\"Career Page\",\"Event Calendar\",\"Gallery Management\",\"FAQ Management\",\"Blogs\",\"RSS Feeds\",\"Sitemap\",\"Contact Page\",\"Role Management\",\"Users Management\",\"Language Management\",\"Backup\"]', '2019-10-04 02:52:29', '2021-02-16 00:22:03'),
-(4, 'Admin', '[\"Dashboard\",\"Basic Settings\",\"Trucks\",\"Quote Management\",\"Home Page\",\"Footer\",\"Service Page\",\"Portfolio Management\",\"Gallery Management\",\"FAQ Management\",\"Blogs\",\"Contact Page\"]', '2019-10-04 02:52:53', '2019-10-04 02:53:21'),
+(3, 'Super Admin', '[\"Dashboard\",\"Leads\",\"Basic Settings\",\"Customers\",\"Subscribers\",\"Package Management\",\"Drivers\",\"Quote Management\",\"Product Management\",\"Tickets\",\"Payment Gateways\",\"Home Page\",\"Menu Builder\",\"Footer\",\"Pages\",\"Service Page\",\"Portfolio Management\",\"Career Page\",\"Event Calendar\",\"Gallery Management\",\"FAQ Management\",\"Blogs\",\"RSS Feeds\",\"Sitemap\",\"Contact Page\",\"Role Management\",\"Users Management\",\"Language Management\",\"Backup\"]', '2019-10-04 02:52:29', '2021-02-16 00:22:03'),
+(4, 'Admin', '[\"Dashboard\",\"Leads\",\"Basic Settings\",\"Trucks\",\"Quote Management\",\"Home Page\",\"Footer\",\"Service Page\",\"Portfolio Management\",\"Gallery Management\",\"FAQ Management\",\"Blogs\",\"Contact Page\"]', '2019-10-04 02:52:53', '2019-10-04 02:53:21'),
 (6, 'Driver', '[\"Dashboard\",\"Trucks\",\"Drivers\"]', '2021-02-09 23:36:16', '2021-02-15 23:57:51');
 
 -- --------------------------------------------------------
@@ -3614,7 +3621,7 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `leads`
 --
 ALTER TABLE `leads`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `members`

@@ -234,8 +234,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
 
   Route::post('driver/product/orders/status', 'Admin\ProductOrderController@driverStatus')->name('admin.driver.product.orders.status');
 
-
-
+// Leads....
+Route::get('/lead', 'Admin\LeadController@index')->name('admin.lead.index');
+Route::get('/lead/create', 'Admin\LeadController@create')->name('admin.lead.create');
+Route::post('/lead', 'Admin\LeadController@store')->name('admin.lead.store');
+Route::get('/lead/show/{id}', 'Admin\LeadController@show')->name('admin.lead.show');
+Route::put('/lead/{id}', 'Admin\LeadController@update')->name('admin.lead.update');
+Route::get('/lead/edit/{id}', 'Admin\LeadController@edit')->name('admin.lead.edit');
+Route::get('/lead/destroy/{id}', 'Admin\LeadController@destroy')->name('admin.lead.destroy');
 
 
 
