@@ -620,6 +620,7 @@ class FrontendController extends Controller
 
     public function sendquote(Request $request)
     {
+      
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
         } else {
@@ -642,25 +643,15 @@ class FrontendController extends Controller
         $rules = [
             'name' => 'required',
             'email' => 'required|email',
-            'nda' => [
-                function ($attribute, $value, $fail) use ($nda, $allowedExts) {
-
-                    $ext = $nda->getClientOriginalExtension();
-                    if (!in_array($ext, $allowedExts)) {
-                        return $fail("Only doc, docx, pdf, rtf, txt, zip, rar files are allowed");
-                    }
-
-                },
-
-            ],
+       
         ];
 
 
-        if ($ndaIn->required == 1 && $ndaIn->active == 1) {
-            if (!$request->hasFile('nda')) {
-                $rules["nda"] = 'required';
-            }
-        }
+        // if ($ndaIn->required == 1 && $ndaIn->active == 1) {
+        //     if (!$request->hasFile('nda')) {
+        //         $rules["nda"] = 'required';
+        //     }
+        // }
 
 
         foreach ($quote_inputs as $input) {
@@ -673,22 +664,62 @@ class FrontendController extends Controller
             $rules['g-recaptcha-response'] = 'required|captcha';
         }
 
-        $request->validate($rules, $messages);
+        // $request->validate($rules, $messages);
 
         $fields = [];
-        foreach ($quote_inputs as $key => $input) {
-            $in_name = $input->name;
-            if ($request["$in_name"]) {
-                $fields["$in_name"] = $request["$in_name"];
-            }
-        }
+        // foreach ($quote_inputs as $key => $input) {
+        //     $in_name = $input->name;
+        //     if ($request["$in_name"]) {
+        //         $fields["$in_name"] = $request["$in_name"];
+        //     }
+        // }
         $jsonfields = json_encode($fields);
         $jsonfields = str_replace("\/","/",$jsonfields);
 
-
+//   dd($request->all());
         $quote = new Quote;
         $quote->name = $request->name;
         $quote->email = $request->email;
+        $quote->primary_phone= $request->primary_phone;
+        $quote->primary_number= $request->primary_number;
+        $quote->secondary_phone = $request->secondary_phone;
+        $quote->secondary_number = $request->secondary_number;
+        $quote->client_notes = $request->client_notes;
+        $quote->add_on = $request->add_on;
+        $quote->media = $request->media;
+        $quote->job_type = $request->job_type;
+        $quote->price_type = $request->price_type;
+        $quote->payment_method = $request->payment_method;
+        $quote->mdate = $request->mdate;
+        $quote->fdate = $request->fdate;
+        //for current address
+        $quote->c_building_type = $request->c_inputbuild;
+        $quote->c_country = $request->c_inputCountry;
+        $quote->c_street = $request->c_inputStreet;
+        $quote->c_state = $request->c_inputState;
+        $quote->c_city = $request->c_inputCity;
+        $quote->c_zip_code = $request->c_inputZip;
+        $quote->c_floor = $request->c_inputFloor;
+        $quote->c_sqft = $request->c_inputSqft;
+        $quote->c_bedroom = $request->c_inputBedroom;
+        $quote->c_movers = $request->c_movers;
+        $quote->c_trucks = $request->c_trucks;
+        // for permanent address
+        $quote->p_building_type = $request->p_inputbuild;
+        $quote->p_country = $request->p_inputCountry;
+        $quote->p_street = $request->p_inputStreet;
+        $quote->p_state = $request->p_inputState;
+        $quote->p_city = $request->p_inputCity;
+        $quote->p_zip_code = $request->p_inputZip;
+        $quote->p_floor = $request->p_inputFloor;
+        $quote->p_sqft = $request->p_inputSqft;
+        $quote->p_bedroom = $request->p_inputBedroom;
+        $quote->p_movers = $request->p_movers;
+        $quote->p_trucks = $request->p_trucks;
+        $quote->franchisee_notes = $request->franchisee_notes;
+        $quote->source = $request->source;
+        $quote->truck_fee = $request->truck_fee;
+        $quote->hourly_rate = $request->hourly_rate;
         $quote->fields = $jsonfields;
 
         if ($request->hasFile('nda')) {
