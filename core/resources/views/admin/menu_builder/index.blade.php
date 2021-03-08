@@ -71,11 +71,12 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
                                 <li class="list-group-item">{{__('Home')}} <a data-text="{{__('Home')}}" data-type="home" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li>
                                 <li class="list-group-item">{{__('Services')}} <a data-text="{{__('Services')}}" data-type="services" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li>
                                 <li class="list-group-item">{{__('Packages')}} <a data-text="{{__('Packages')}}" data-type="packages" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li>
-                                <li class="list-group-item">{{__('Portfolios')}} <a data-text="{{__('Portfolios')}}" data-type="portfolios" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li>
+                                <!-- <li class="list-group-item">{{__('Portfolios')}} <a data-text="{{__('Portfolios')}}" data-type="portfolios" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li> -->
 
                                 @foreach ($pages as $page)
                                     <li class="list-group-item">{{$page->name}} <a data-text="{{$page->name}}" data-type="{{$page->id}}" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li>
                                 @endforeach
+                                
 
                                 <li class="list-group-item">{{__('Team Members')}} <a data-text="{{__('Team Members')}}" data-type="team" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li>
                                 <li class="list-group-item">{{__('Career')}} <a data-text="{{__('Career')}}" data-type="career" class="addToMenus btn btn-primary btn-sm float-right" href="">Add to Menus</a></li>

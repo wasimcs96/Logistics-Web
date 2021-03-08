@@ -1,4 +1,4 @@
-<?php if(!empty($member->language) && $member->language->rtl == 1): ?>
+<?php if(!empty($scategory->language) && $scategory->language->rtl == 1): ?>
 <?php $__env->startSection('styles'); ?>
 <style>
     form input,
@@ -16,10 +16,10 @@
 
 <?php $__env->startSection('content'); ?>
   <div class="page-header">
-    <h4 class="page-title">Edit Member</h4>
+    <h4 class="page-title">Edit Category</h4>
     <ul class="breadcrumbs">
       <li class="nav-home">
-        <a href="#">
+        <a href="<?php echo e(route('admin.dashboard')); ?>">
           <i class="flaticon-home"></i>
         </a>
       </li>
@@ -27,13 +27,13 @@
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">Home Page</a>
+        <a href="#">Service Page</a>
       </li>
       <li class="separator">
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">Edit Member</a>
+        <a href="#">Edit Category</a>
       </li>
     </ul>
   </div>
@@ -41,8 +41,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <div class="card-title d-inline-block">Edit Member</div>
-          <a class="btn btn-info btn-sm float-right d-inline-block" href="<?php echo e(route('admin.member.index') . '?language=' . request()->input('language')); ?>">
+          <div class="card-title d-inline-block">Edit Category</div>
+          <a class="btn btn-info btn-sm float-right d-inline-block" href="<?php echo e(route('admin.scategory.index') . '?language=' . request()->input('language')); ?>">
             <span class="btn-label">
               <i class="fas fa-backward" style="font-size: 12px;"></i>
             </span>
@@ -52,14 +52,18 @@
         <div class="card-body pt-5 pb-5">
           <div class="row">
             <div class="col-lg-6 offset-lg-3">
-              <form class="mb-3 dm-uploader drag-and-drop-zone" enctype="multipart/form-data" action="<?php echo e(route('admin.member.uploadUpdate', $member->id)); ?>" method="POST">
+              <form class="mb-3 dm-uploader drag-and-drop-zone" enctype="multipart/form-data" action="<?php echo e(route('admin.scategory.uploadUpdate', $scategory->id)); ?>" method="POST">
                 <?php echo csrf_field(); ?>
                 <div class="form-row px-2">
                   <div class="col-12 mb-2">
                     <label for=""><strong>Image **</strong></label>
                   </div>
                   <div class="col-md-12 d-md-block d-sm-none mb-3">
-                    <img src="<?php echo e(asset('assets/front/img/members/'.$member->image)); ?>" alt="..." class="img-thumbnail">
+                    <?php if(!empty($scategory->image)): ?>
+                        <img src="<?php echo e(asset('assets/front/img/service_category_icons/'.$scategory->image)); ?>" alt="..." class="img-thumbnail">
+                    <?php else: ?>
+                        <img src="<?php echo e(asset('assets/admin/img/noimage.jpg')); ?>" alt="..." class="img-thumbnail">
+                    <?php endif; ?>
                   </div>
                   <div class="col-sm-12">
                     <div class="from-group mb-2">
@@ -87,38 +91,33 @@
                 </div>
               </form>
 
-              <form id="ajaxForm" class="" action="<?php echo e(route('admin.member.update')); ?>" method="post">
+              <form id="ajaxForm" class="" action="<?php echo e(route('admin.scategory.update')); ?>" method="post">
                 <?php echo csrf_field(); ?>
-                <input type="hidden" name="member_id" value="<?php echo e($member->id); ?>">
+                <input type="hidden" name="scategory_id" value="<?php echo e($scategory->id); ?>">
                 <div class="form-group">
                   <label for="">Name **</label>
-                  <input type="text" class="form-control" name="name" value="<?php echo e($member->name); ?>" placeholder="Enter name">
+                  <input type="text" class="form-control" name="name" value="<?php echo e($scategory->name); ?>" placeholder="Enter name">
                   <p id="errname" class="mb-0 text-danger em"></p>
                 </div>
                 <div class="form-group">
-                  <label for="">Rank **</label>
-                  <input type="text" class="form-control" name="rank" value="<?php echo e($member->rank); ?>" placeholder="Enter rank">
-                  <p id="errrank" class="mb-0 text-danger em"></p>
+                  <label for="">Sort Text **</label>
+                  <input type="text" class="form-control" name="short_text" value="<?php echo e($scategory->short_text); ?>" placeholder="Enter short text">
+                  <p id="errshort_text" class="mb-0 text-danger em"></p>
                 </div>
                 <div class="form-group">
-                  <label for="">Facebook</label>
-                  <input type="text" class="form-control ltr" name="facebook" value="<?php echo e($member->facebook); ?>" placeholder="Enter facebook url">
-                  <p id="errfacebook" class="mb-0 text-danger em"></p>
+                  <label for="">Status **</label>
+                  <select class="form-control ltr" name="status">
+                    <option value="" selected disabled>Select a status</option>
+                    <option value="1" <?php echo e($scategory->status == 1 ? 'selected' : ''); ?>>Active</option>
+                    <option value="0" <?php echo e($scategory->status == 0 ? 'selected' : ''); ?>>Deactive</option>
+                  </select>
+                  <p id="errstatus" class="mb-0 text-danger em"></p>
                 </div>
                 <div class="form-group">
-                  <label for="">Twitter</label>
-                  <input type="text" class="form-control ltr" name="twitter" value="<?php echo e($member->twitter); ?>" placeholder="Enter twitter url">
-                  <p id="errtwitter" class="mb-0 text-danger em"></p>
-                </div>
-                <div class="form-group">
-                  <label for="">Instagram</label>
-                  <input type="text" class="form-control ltr" name="instagram" value="<?php echo e($member->instagram); ?>" placeholder="Enter instagram url">
-                  <p id="errinstagram" class="mb-0 text-danger em"></p>
-                </div>
-                <div class="form-group">
-                  <label for="">Linkedin</label>
-                  <input type="text" class="form-control ltr" name="linkedin" value="<?php echo e($member->linkedin); ?>" placeholder="Enter linkedin url">
-                  <p id="errlinkedin" class="mb-0 text-danger em"></p>
+                  <label for="">Serial Number **</label>
+                  <input type="number" class="form-control ltr" name="serial_number" value="<?php echo e($scategory->serial_number); ?>" placeholder="Enter Serial Number">
+                  <p id="errserial_number" class="mb-0 text-danger em"></p>
+                  <p class="text-warning"><small>The higher the serial number is, the later the service category will be shown everywhere.</small></p>
                 </div>
               </form>
             </div>
@@ -140,4 +139,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('admin.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\logistics\core\resources\views/admin/home/member/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\logistics\core\resources\views/admin/service/scategory/edit.blade.php ENDPATH**/ ?>
