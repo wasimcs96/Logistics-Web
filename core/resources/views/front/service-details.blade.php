@@ -39,7 +39,7 @@
               </div>
            </div>
            <!--    service sidebar start   -->
-           <div class="col-lg-4">
+           <!-- <div class="col-lg-4">
              <div class="blog-sidebar-widgets">
                 <div class="searchbar-form-section">
                    <form action="{{route('front.services')}}">
@@ -73,7 +73,7 @@
                    <div class="form-element"><input type="submit" value="{{__('Subscribe')}}"></div>
                 </form>
              </div>
-           </div>
+           </div> -->
            <!--    service sidebar end   -->
         </div>
      </div>
