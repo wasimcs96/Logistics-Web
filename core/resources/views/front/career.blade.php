@@ -1,108 +1,137 @@
 @extends("front.$version.layout")
 
 @section('pagename')
- -
- @if (empty($category))
- {{__('All')}}
- @else
- {{convertUtf8($category->name)}}
- @endif
- {{__('Jobs')}}
+-
+@if (empty($category))
+{{__('All')}}
+@else
+{{convertUtf8($category->name)}}
+@endif
+{{__('Jobs')}}
 @endsection
 
 @section('meta-keywords', "$be->career_meta_keywords")
 @section('meta-description', "$be->career_meta_description")
 
 @section('content')
-  <!--   breadcrumb area start   -->
-  <div class="breadcrumb-area jobs" style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
-     <div class="container">
+<!--   breadcrumb area start   -->
+<div class="breadcrumb-area jobs"
+    style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
+    <div class="container">
         <div class="breadcrumb-txt">
-           <div class="row">
-              <div class="col-xl-7 col-lg-8 col-sm-10">
-                 <span>{{convertUtf8($be->career_title)}}</span>
-                 <h1>{{convertUtf8($be->career_subtitle)}}</h1>
-                 <ul class="breadcumb">
-                    <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
-                    <li>{{__('Career')}}</li>
-                 </ul>
-              </div>
-           </div>
+            <div class="row">
+                <div class="col-xl-7 col-lg-8 col-sm-10">
+                    <span>{{convertUtf8($be->career_title)}}</span>
+                    <h1>{{convertUtf8($be->career_subtitle)}}</h1>
+                    <ul class="breadcumb">
+                        <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
+                        <li>{{__('Career')}}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-     </div>
-     <div class="breadcrumb-area-overlay" style="background-color: #{{$be->breadcrumb_overlay_color}};opacity: {{$be->breadcrumb_overlay_opacity}};"></div>
-  </div>
-  <!--   breadcrumb area end    -->
-
-
-  <!--    job lists start   -->
-  <div class="job-lists">
-     <div class="container">
-        <div class="row">
-           <div class="col-lg-8">
-              <div class="row">
-                @if (count($jobs) == 0)
-                  <div class="col-12 bg-light py-5">
-                    <h3 class="text-center">{{__('NO JOB FOUND')}}</h3>
-                  </div>
-                @else
-                  @foreach ($jobs as $key => $job)
-                    <div class="col-md-12">
-                       <div class="single-job @if($loop->last) mb-0 @endif">
-
-                            <h3><a href="{{route('front.careerdetails', [$job->slug, $job->id])}}" class="title">{{convertUtf8($job->title)}}</a></h3>
-
-                            @php
-                            $deadline = \Carbon\Carbon::parse($job->deadline)->locale("$currentLang->code");
-                            $deadline = $deadline->translatedFormat('jS F, Y');
-                            @endphp
-
-                            <p class="deadline"><strong><i class="far fa-calendar-alt"></i> {{__('Deadline')}}:</strong> {{$deadline}}</p>
-                            <p class="education"><strong><i class="fas fa-graduation-cap"></i> {{__('Educational Experience')}}:</strong> {!! (strlen(convertUtf8(strip_tags($job->educational_requirements))) > 110) ? convertUtf8(substr(strip_tags($job->educational_requirements), 0, 110)) . '...' : convertUtf8(strip_tags($job->educational_requirements)) !!}</p>
-                            <p class="experience"><strong><i class="fas fa-briefcase"></i> {{__('Work Experience')}}:</strong> {{convertUtf8($job->experience)}}</p>
-                       </div>
-                    </div>
-                  @endforeach
-                @endif
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                   <nav class="pagination-nav">
-                     {{$jobs->appends(['category' => request()->input('category'), 'term' => request()->input('term')])->links()}}
-                   </nav>
-                </div>
-              </div>
-           </div>
-           <!--    job sidebar start   -->
-           <div class="col-lg-4">
-             <div class="blog-sidebar-widgets">
-                <div class="searchbar-form-section">
-                   <form action="{{route('front.career')}}">
-                      <div class="searchbar">
-                         <input name="category" type="hidden" value="{{request()->input('category')}}">
-                         <input name="term" type="text" placeholder="{{__('Search Jobs')}}" value="{{request()->input('term')}}">
-                         <button type="submit"><i class="fa fa-search"></i></button>
-                      </div>
-                   </form>
-                </div>
-             </div>
-             <div class="blog-sidebar-widgets category-widget">
-                <div class="category-lists job">
-                   <h4>{{__('Job Categories')}}</h4>
-                   <ul>
-                        <li class="single-category {{empty(request()->input('category')) ? 'active' : ''}}">
-                            <a href="{{route('front.career')}}">{{__('All')}} <span>({{$jobscount}})</span></a>
-                        </li>
-                        @foreach ($jcats as $key => $jcat)
-                            <li class="single-category {{$jcat->id == request()->input('category') ? 'active' : ''}}"><a href="{{route('front.career', ['category' => $jcat->id, 'term'=>request()->input('term')])}}">{{convertUtf8($jcat->name)}} <span>({{$jcat->jobs()->count()}})</span></a></li>
-                        @endforeach
-                   </ul>
-                </div>
-             </div>
-           </div>
-           <!--    job sidebar end   -->
+    </div>
+    <div class="breadcrumb-area-overlay"
+        style="background-color: #{{$be->breadcrumb_overlay_color}};opacity: {{$be->breadcrumb_overlay_opacity}};">
+    </div>
+</div>
+<!--   breadcrumb area end    -->
+<section style="color: rgb(33, 37, 41); font-family: montserrat; font-size: 16px;">
+    <div class="container" style="width: 1160px; max-width: 1160px;">
+        <h2 class="round-title text"
+            style="margin-bottom: 100px; font-weight: 700; line-height: 1.2; font-size: 27px; text-transform: uppercase; font-family: oswald; text-align: center; position: relative; z-index: 1; color: rgb(19, 19, 19);">
+            CAREERS</h2>
+        <div class="row align-items-top flex-column-reverse flex-lg-row">
+            <div class="col-lg-7 col-12 pt-4 pt-lg-0 pl-lg-3 pl-xl-3"
+                style="width: 676.656px; flex-basis: 58.3333%; max-width: 58.3333%;">
+                <p style="line-height: 30px; text-align: justify;"></p>
+                <p style="line-height: 30px; text-align: justify;">Our industry never sleeps, we continue to perform
+                    moves all year around, sunshine, rain or snow we have moved in it all. This means that we are always
+                    excited to grow our team of professionals as our business continues to expand. To join the exciting
+                    Metropolitan Movers family see our career options and their requirements below and we would love to
+                    hear from you!</p>
+            </div>
+            <div class="mt-3 mt-md-3 col-12 col-lg-5 text-center"
+                style="width: 483.328px; flex-basis: 41.6667%; max-width: 41.6667%;"><a
+                    href="https://www.metropolitanmovers.ca/careers#" class="modal-video video-btn" data-toggle="modal"
+                    data-src="https://www.youtube.com/embed/ORuh8RqC9m0" data-target="#myModal"
+                    style="color: rgb(0, 123, 255);"><img
+                        src="https://www.metropolitanmovers.ca/wp-content/uploads/2020/04/how-to-choose-video-place-holder.jpg"
+                        alt="Careers" class="img-fluid">&nbsp;</a><img class="pt-3 w-75"
+                    src="https://www.metropolitanmovers.ca/wp-content/uploads/2020/04/media-divider-single.jpg"
+                    style="width: 339.984px;">
+                <p style="line-height: 30px;"><span style="font-weight: bolder;">How To Choose A Moving Company</span>
+                </p>
+            </div>
         </div>
-     </div>
-  </div>
-  <!--    job lists end   -->
+    </div>
+</section>
+<div class="container mb-2"
+    style="width: 1160px; max-width: 1160px; color: rgb(33, 37, 41); font-family: montserrat; font-size: 16px;">
+    <div class="row align-items-center">
+        <div class="col-12 col-lg-5 pl-lg-10" style="width: 483.328px; flex-basis: 41.6667%; max-width: 41.6667%;"><img
+                src="https://www.metropolitanmovers.ca/wp-content/uploads/2020/05/IMG_20180824_150533.jpg" alt="Movers"
+                class="img-fluid float-right" style="margin-bottom: 22.6562px;"></div>
+        <div class="pl-lg-5 col-12 col-lg-7" style="width: 676.656px; flex-basis: 58.3333%; max-width: 58.3333%;"><span
+                style="font-weight: bolder;">Movers</span>
+            <p style="line-height: 30px; text-align: justify;"></p>
+            <p style="line-height: 30px; text-align: justify;">A Mover is the face of our company, therefore we are
+                looking for someone presentable, honest and caring that will value our company standards and the
+                client’s home or business. As a Metropolitan Movers Mover, you will help prepare and pack customers’
+                items to prevent damage during transit. You will need to be able to work with tools and assemble and
+                disassemble furniture. You should be able to lift, load and unload heavy boxes and items like furniture,
+                pianos and pool tables. You will need to arrange items in the truck and play life-size Tetris, to
+                maximize the capacity and efficiency of the move, this ability is highly valued in this business and by
+                the client. You will take inventory should items go into storage and be able to answer customers’
+                questions and address requests they have during the full moving process. Having a positive attitude and
+                a caring personality is what will make you shine and become a top-performing mover at Metropolitan
+                Movers.</p>
+        </div>
+    </div>
+</div>
+<div class="container mb-2"
+    style="width: 1160px; max-width: 1160px; color: rgb(33, 37, 41); font-family: montserrat; font-size: 16px;">
+    <div class="row align-items-center flex-column-reverse flex-lg-row">
+        <div class="col-12 col-lg-7" style="width: 676.656px; flex-basis: 58.3333%; max-width: 58.3333%;"><span
+                style="font-weight: bolder;">Driver</span>
+            <p style="line-height: 30px; text-align: justify;"></p>
+            <p style="line-height: 30px; text-align: justify;">A Driver position takes a strong, focused, responsible
+                and punctual individual. As a driver, you will be responsible to drive the truck for local jobs and
+                long-distance jobs. You must be qualified and comfortable in operating heavy and large trucks of various
+                sizes. To operate the truck you must have a valid G Full driver’s license and demonstrate adequate
+                driving experience. Previous truck/ large vehicle driving experience is an asset. The driver is often
+                the team leader on the job and must ensure that the team performance is professional, courteous and
+                efficient. You will be responsible to assist the movers with heavy lifting and participate throughout
+                the moving process. We put our trust in you with all the valued equipment placed in your hands and
+                therefore your responsibility and professionalism will be what makes you a Metropolitan Movers valued
+                family member.</p>
+        </div>
+        <div class="col-12 col-lg-5" style="width: 483.328px; flex-basis: 41.6667%; max-width: 41.6667%;"><img
+                src="https://www.metropolitanmovers.ca/wp-content/uploads/2020/05/IMG_20180824_113736.jpg" alt="Driver"
+                class="img-fluid float-left" style="height: 400px; margin-bottom: 22.6562px;"></div>
+    </div>
+</div>
+<div class="container mb-2"
+    style="width: 1160px; max-width: 1160px; color: rgb(33, 37, 41); font-family: montserrat; font-size: 16px;">
+    <div class="row align-items-center">
+        <div class="col-12 col-lg-5" style="width: 483.328px; flex-basis: 41.6667%; max-width: 41.6667%;"><img
+                src="https://www.metropolitanmovers.ca/wp-content/uploads/2020/05/IMG_20180824_145148.jpg"
+                alt="Crew Manager" class="img-fluid float-right" style="height: 400px; margin-bottom: 22.6562px;"></div>
+        <div class="pl-lg-5 col-12 col-lg-7" style="width: 676.656px; flex-basis: 58.3333%; max-width: 58.3333%;"><span
+                style="font-weight: bolder;">Crew Manager</span>
+            <p style="line-height: 30px; text-align: justify;"></p>
+            <p style="line-height: 30px; text-align: justify;">As a crew manager, you must have some moving experience.
+                Usually, this position is given to someone who has worked as a mover or a driver within the company and
+                has earned the respect of the movers and the management team. You will act as the godfather of all the
+                movers at your unit. They will approach you for your advice, look for your assistance and rely on you
+                for your professionalism. You will have constant communication with the moving team while they are on
+                the job to ensure that they have everything they need in order to complete a successful move. You must
+                assess the suitability of each staff member and assign them and the correct truck to the jobs where they
+                can perform their best. You will also be responsible to discuss the schedule and availability of each
+                mover. You will be responsible to collect all paperwork, contracts and ensure all records are maintained
+                accurately and payments are processed. This position requires you to be an active listener, reliable,
+                honest, patient and caring for each member of the operation.</p>
+        </div>
+    </div>
+</div>
 @endsection
