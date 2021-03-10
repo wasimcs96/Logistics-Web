@@ -18,6 +18,7 @@ class Claim extends Model
                 'postal_code',
                 'email',
                 'move_date',
-                'order_number'
+                'order_number',
+                'additional_information'
                                 ];
 }

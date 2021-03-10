@@ -901,3 +901,6 @@ Route::get('/lead/destroy/{id}', 'Admin\LeadController@destroy')->name('admin.le
 
 Route::get('/claim', 'Front\ClaimController@index')->name('claim.index');
 
+Route::post('/claim/store', 'Front\ClaimController@store')->name('claim.store');
+
+
