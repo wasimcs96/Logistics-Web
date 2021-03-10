@@ -898,3 +898,9 @@ Route::get('/lead/destroy/{id}', 'Admin\LeadController@destroy')->name('admin.le
   // Admin Cache Clear Routes
   Route::get('/cache-clear', 'Admin\CacheController@clear')->name('admin.cache.clear');
 });
+
+Route::get('/claim', 'Front\ClaimController@index')->name('claim.index');
+
+Route::post('/claim/store', 'Front\ClaimController@store')->name('claim.store');
+
+
