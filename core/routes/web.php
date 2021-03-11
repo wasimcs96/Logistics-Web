@@ -903,4 +903,10 @@ Route::get('/claim', 'Front\ClaimController@index')->name('claim.index');
 
 Route::post('/claim/store', 'Front\ClaimController@store')->name('claim.store');
 
+Route::get('/claim/show', 'Front\ClaimController@show')->name('admin.claim.show');
+
+Route::get('/claim/view/{id}', 'Front\ClaimController@view')->name('admin.claim.view');
+
+
+
 

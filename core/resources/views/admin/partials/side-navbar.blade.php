@@ -266,6 +266,19 @@
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Trucks', $permissions)))
         <li class="nav-item
+        @if(request()->routeIs('admin.claim.show')) active
+        @elseif(request()->routeIs('admin.claim.show')) active
+        @endif">
+
+            <a href="{{route('admin.claim.show')}}">
+            <i class="fas fa-exclamation-circle"></i>
+                <p style="color: white;">Claim</p>
+            </a>
+        </li>
+        @endif
+
+        @if (empty($admin->role) || (!empty($permissions) && in_array('Claims', $permissions)))
+        <li class="nav-item
         @if(request()->routeIs('admin.truck.index')) active
         @elseif(request()->routeIs('admin.truck.show')) active
         @endif">
