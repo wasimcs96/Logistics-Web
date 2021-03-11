@@ -115,7 +115,7 @@
     <!-- Start logistics_footer section -->
     <footer class="logistics_footer footer_v1 dark_bg">
         @if ($bs->top_footer_section == 1)
-        <div class="footer_top pt-120">
+        <div class="footer_top pt-50">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
