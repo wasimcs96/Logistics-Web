@@ -35,11 +35,12 @@
            <div class="col-lg-6">
               <span class="section-title"><?php echo e(convertUtf8($bs->contact_form_title)); ?></span>
               <h2 class="section-summary"><?php echo e(convertUtf8($bs->contact_form_subtitle)); ?></h2>
-              <form action="<?php echo e(route('front.sendmail')); ?>" class="contact-form" method="POST">
+              <form action="<?php echo e(route('front.contact')); ?>" class="contact-form" method="POST">
                  <?php echo csrf_field(); ?>
                  <div class="row">
                     <div class="col-md-6">
                        <div class="form-element">
+                     <label for="">Name</label>
                           <input name="name" type="text" placeholder="<?php echo e(__('Name')); ?>" required>
                        </div>
                        <?php if($errors->has('name')): ?>
@@ -48,6 +49,7 @@
                     </div>
                     <div class="col-md-6">
                        <div class="form-element">
+                     <label for="">Email</label>
                           <input name="email" type="email" placeholder="<?php echo e(__('Email')); ?>" required>
                        </div>
                        <?php if($errors->has('email')): ?>
@@ -55,21 +57,43 @@
                        <?php endif; ?>
                     </div>
                     <div class="col-md-12">
-                       <div class="form-element">
-                          <input name="subject" type="text" placeholder="<?php echo e(__('Subject')); ?>" required>
-                       </div>
-                       <?php if($errors->has('subject')): ?>
-                         <p class="text-danger mb-0"><?php echo e($errors->first('subject')); ?></p>
-                       <?php endif; ?>
-                    </div>
-                    <div class="col-md-12">
-                       <div class="form-element">
-                          <textarea name="message" id="comment" cols="30" rows="10" placeholder="<?php echo e(__('Comment')); ?>" required></textarea>
-                       </div>
-                       <?php if($errors->has('message')): ?>
-                         <p class="text-danger mb-0"><?php echo e($errors->first('message')); ?></p>
-                       <?php endif; ?>
-                    </div>
+                     <div class="form-element">
+                      <label for="">Phone Number</label>
+                        <input name="number" type="number" placeholder="<?php echo e(__('Phone Number')); ?>" required>
+                     </div>
+                     <?php if($errors->has('number')): ?>
+                       <p class="text-danger mb-0"><?php echo e($errors->first('number')); ?></p>
+                     <?php endif; ?>
+                  </div>
+                  <div class="col-md-12">
+                     <div class="form-element">
+                      <label for="">Moving From</label>
+                      <input name="moving_from" type="text" placeholder="<?php echo e(__('Moving From')); ?>" required>
+                     </div>
+                     <?php if($errors->has('moving_from')): ?>
+                       <p class="text-danger mb-0"><?php echo e($errors->first('moving_from')); ?></p>
+                     <?php endif; ?>
+                  </div>
+                  <div class="col-md-12">
+                   <div class="form-element">
+                      <label for="">Moving To</label>
+                      <input name="moving_to" type="text" placeholder="<?php echo e(__('Moving To')); ?>" required>
+                   </div>
+                   <?php if($errors->has('moving_to')): ?>
+                     <p class="text-danger mb-0"><?php echo e($errors->first('moving_to')); ?></p>
+                   <?php endif; ?>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-element">
+                     <label for="">Moving To</label>
+                     <input name="moving_date" type="datetime-local" placeholder="<?php echo e(__('Moving Date')); ?>" required>
+                  </div>
+                  <?php if($errors->has('moving_date')): ?>
+                    <p class="text-danger mb-0"><?php echo e($errors->first('moving_date')); ?></p>
+                  <?php endif; ?>
+               </div>
+                
+                    
                     <?php if($bs->is_recaptcha == 1): ?>
                         <div class="col-lg-12 mb-4">
                             <?php echo NoCaptcha::renderJs(); ?>

@@ -148,6 +148,7 @@
                                             <li class="d-lg-none d-inline-block"><a href="{{route('user-dashboard')}}">{{__('Dashboard')}}</a></li>
                                             @endauth
                                         </ul>
+                                        
                                     </nav>
                                 </div>
                             </div>
