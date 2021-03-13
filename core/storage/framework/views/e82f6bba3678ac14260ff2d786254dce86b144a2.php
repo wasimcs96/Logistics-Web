@@ -458,7 +458,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="button_box">
-                        <a href="<?php echo e($bs->cta_section_button_url); ?>" class="logistics_btn"><?php echo e(convertUtf8($bs->cta_section_button_text)); ?></a>
+                        <!-- <a href="<?php echo e($bs->cta_section_button_url); ?>" class="logistics_btn"><?php echo e(convertUtf8($bs->cta_section_button_text)); ?></a> -->
                     </div>
                 </div>
             </div>

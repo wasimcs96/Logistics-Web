@@ -134,26 +134,7 @@
             $fields = json_decode($quote->fields, true);
           ?>
 
-          <?php $__currentLoopData = $fields; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $field): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <div class="row">
-            <div class="col-lg-4">
-              <strong style="text-transform: capitalize;"><?php echo e(str_replace("_"," ",$key)); ?>:</strong>
-            </div>
-            <div class="col-lg-8">
-                <?php if(is_array($field)): ?>
-                    <?php
-                        $str = implode(", ", $field);
-                    ?>
-                    <?php echo e(convertUtf8($str)); ?>
-
-                <?php else: ?>
-                    <?php echo e(convertUtf8($field)); ?>
-
-                <?php endif; ?>
-            </div>
-          </div>
-          <hr>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          
 
           <div class="row">
             <div class="col-lg-4">

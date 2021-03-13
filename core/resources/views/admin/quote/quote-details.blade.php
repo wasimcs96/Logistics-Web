@@ -134,7 +134,7 @@
             $fields = json_decode($quote->fields, true);
           @endphp
 
-          @foreach ($fields as $key => $field)
+          {{-- @foreach ($fields as $key=>$field)
           <div class="row">
             <div class="col-lg-4">
               <strong style="text-transform: capitalize;">{{str_replace("_"," ",$key)}}:</strong>
@@ -151,7 +151,7 @@
             </div>
           </div>
           <hr>
-          @endforeach
+          @endforeach --}}
 
           <div class="row">
             <div class="col-lg-4">

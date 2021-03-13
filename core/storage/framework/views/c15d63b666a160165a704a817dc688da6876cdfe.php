@@ -149,6 +149,7 @@
                                             <li class="d-lg-none d-inline-block"><a href="<?php echo e(route('user-dashboard')); ?>"><?php echo e(__('Dashboard')); ?></a></li>
                                             <?php endif; ?>
                                         </ul>
+                                        
                                     </nav>
                                 </div>
                             </div>
