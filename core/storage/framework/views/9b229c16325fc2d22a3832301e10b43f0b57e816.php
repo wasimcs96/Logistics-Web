@@ -1,34 +1,33 @@
-@extends("front.$version.layout")
+<?php $__env->startSection('pagename'); ?>
+- <?php echo e(__('Request A Quote')); ?>
 
-@section('pagename')
-- {{__('Request A Quote')}}
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('meta-keywords', "$be->quote_meta_keywords")
-@section('meta-description', "$be->quote_meta_description")
+<?php $__env->startSection('meta-keywords', "$be->quote_meta_keywords"); ?>
+<?php $__env->startSection('meta-description', "$be->quote_meta_description"); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 <!--   breadcrumb area start   -->
 <div class="breadcrumb-area"
-    style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
+    style="background-image: url('<?php echo e(asset('assets/front/img/' . $bs->breadcrumb)); ?>');background-size:cover;">
     <div class="container">
         <div class="breadcrumb-txt">
             <div class="row">
                 <div class="col-xl-7 col-lg-8 col-sm-10">
-                    <span>{{convertUtf8($bs->quote_title)}}</span>
-                    <h1>{{convertUtf8($bs->quote_subtitle)}}</h1>
+                    <span><?php echo e(convertUtf8($bs->quote_title)); ?></span>
+                    <h1><?php echo e(convertUtf8($bs->quote_subtitle)); ?></h1>
                     <ul class="breadcumb">
-                        <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
-                        <li>{{__('Quote Page')}}</li>
+                        <li><a href="<?php echo e(route('front.index')); ?>"><?php echo e(__('Home')); ?></a></li>
+                        <li><?php echo e(__('Quote Page')); ?></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <div class="breadcrumb-area-overlay"
-        style="background-color: #{{$be->breadcrumb_overlay_color}};opacity: {{$be->breadcrumb_overlay_opacity}};">
+        style="background-color: #<?php echo e($be->breadcrumb_overlay_color); ?>;opacity: <?php echo e($be->breadcrumb_overlay_opacity); ?>;">
     </div>
 </div>
 <!--   breadcrumb area end    -->
@@ -40,8 +39,8 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <form action="{{route('front.sendquote')}}" enctype="multipart/form-data" method="POST">
-                    @csrf
+                <form action="<?php echo e(route('front.sendquote')); ?>" enctype="multipart/form-data" method="POST">
+                    <?php echo csrf_field(); ?>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">REQUEST A MOVING QUOTE</div>
@@ -51,80 +50,40 @@
                            <div class="row">
                            <div class="col-lg-6">
                                 <div class="form-element mb-4">
-                                    <label>{{__('Name')}} <span>**</span></label>
-                                    <input name="name" type="text" value="{{old("name")}}"
-                                        placeholder="{{__('Enter Name')}}" required="required">
+                                    <label><?php echo e(__('Name')); ?> <span>**</span></label>
+                                    <input name="name" type="text" value="<?php echo e(old("name")); ?>"
+                                        placeholder="<?php echo e(__('Enter Name')); ?>" required="required">
 
-                                    @if ($errors->has("name"))
-                                    <p class="text-danger mb-0">{{$errors->first("name")}}</p>
-                                    @endif
+                                    <?php if($errors->has("name")): ?>
+                                    <p class="text-danger mb-0"><?php echo e($errors->first("name")); ?></p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-element mb-4">
-                                    <label>{{__('Email')}} <span>**</span></label>
-                                    <input name="email" type="text" value="{{old("email")}}"
-                                        placeholder="{{__('Enter Email Address')}}" required="required">
+                                    <label><?php echo e(__('Email')); ?> <span>**</span></label>
+                                    <input name="email" type="text" value="<?php echo e(old("email")); ?>"
+                                        placeholder="<?php echo e(__('Enter Email Address')); ?>" required="required">
 
-                                    @if ($errors->has("email"))
-                                    <p class="text-danger mb-0">{{$errors->first("email")}}</p>
-                                    @endif
+                                    <?php if($errors->has("email")): ?>
+                                    <p class="text-danger mb-0"><?php echo e($errors->first("email")); ?></p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                            </div>
 
-                            {{-- <div class="col-lg-6">
-                                <div class="form-element mb-4">
-                                    <label>{{__('Phone Number')}} <span>**</span></label>
-                                    <input name="phone" type="number" value="{{old("phone")}}"
-                                        placeholder="{{__('Enter Phone Number')}}" required="required">
+                            
 
-                                    @if ($errors->has("phone"))
-                                    <p class="text-danger mb-0">{{$errors->first("phone")}}</p>
-                                    @endif
-                                </div>
-                            </div> --}}
+                            
 
-                            {{-- <div class="col-lg-6">
-                                <div class="form-element mb-4">
-                                    <label>{{__('Moving From')}} <span>**</span></label>
-                                    <input name="moving_from" type="text" value="{{old("moving_from")}}"
-                                        placeholder="{{__('Enter Moving From')}}" required="required">
+                            
 
-                                    @if ($errors->has("moving_from"))
-                                    <p class="text-danger mb-0">{{$errors->first("moving_from")}}</p>
-                                    @endif
-                                </div>
-                            </div> --}}
-
-                            {{-- <div class="col-lg-6">
-                                <div class="form-element mb-4">
-                                    <label>{{__('Moving To')}} <span>**</span></label>
-                                    <input name="moving_to" type="text" value="{{old("moving_to")}}"
-                                        placeholder="{{__('Enter Moving To')}}" required="required">
-
-                                    @if ($errors->has("moving_to"))
-                                    <p class="text-danger mb-0">{{$errors->first("moving_to")}}</p>
-                                    @endif
-                                </div>
-                            </div> --}}
-
-                            {{-- <div class="col-lg-6">
-                                <div class="form-element mb-4">
-                                    <label>{{__('Moving Date')}} <span>**</span></label>
-                                    <input name="moving_date" type="date" value="{{old("moving_to")}}"
-                                        placeholder="{{__('Enter Moving Date')}}" required="required">
-
-                                    @if ($errors->has("moving_date"))
-                                    <p class="text-danger mb-0">{{$errors->first("moving_date")}}</p>
-                                    @endif
-                                </div>
-                            </div> --}}
+                            
 
 
                             <div class="row">
                 <div class="col-lg-6">
-                  <div class="form-element mb-4"><label>{{__('Job Type')}} <span>**</span></label>
+                  <div class="form-element mb-4"><label><?php echo e(__('Job Type')); ?> <span>**</span></label>
                     <select name="job_type" id="job_type" required="required">
                       <option value="local">Local</option>
                       <option value="longdistance">Long Distance</option>
@@ -138,7 +97,7 @@
                 </div> 
 
                              <div class="col-lg-6">
-                  <div class="form-element mb-4"><label>{{__('Price Type')}} <span>**</span></label>
+                  <div class="form-element mb-4"><label><?php echo e(__('Price Type')); ?> <span>**</span></label>
                     <select name="price_type" id="price_type" required="required">
                       <option value="hourly">Hourly</option>
                       <option value="flatrate">Flat Rate</option>
@@ -149,7 +108,7 @@
 
                              <div class="row"> 
               <div class="col-lg-6">
-                  <div class="form-element mb-4"><label>{{__('Phone Number')}} <span>**</span></label>
+                  <div class="form-element mb-4"><label><?php echo e(__('Phone Number')); ?> <span>**</span></label>
                     <select class="col-lg-3" for="inlineFormInput" name="primary_phone" id="primary_phone"
                       required="required">
                       <option value="select">Select</option>
@@ -158,12 +117,13 @@
                       <option value="home">Home</option>
                       <option value="mobile">Mobile</option>
                     </select>
-                    <input class="col-lg-9" type="text" name="primary_number" value="{{old("contact_number")}}" required="required">
+                    <input class="col-lg-9" type="text" name="primary_number" value="<?php echo e(old("contact_number")); ?>" required="required">
                   </div> 
                 </div>
 
                 <div class="col-lg-6">
-                <div class="form-element mb-4"><label>{{__('Secondary Phone')}}
+                <div class="form-element mb-4"><label><?php echo e(__('Secondary Phone')); ?>
+
                         <span></span></label>
                     <select class="col-lg-3" for="inlineFormInput" name="secondary_phone"
                         id="secondary_phone" required="required">
@@ -174,14 +134,14 @@
                         <option value="mobile">Mobile</option>
                     </select>
                     <input class="col-lg-9" type="text" name="secondary_number"
-                        value="{{old("contact_number")}}" required="required">
+                        value="<?php echo e(old("contact_number")); ?>" required="required">
                 </div>
             </div>
         </div> 
 
                              <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="form-element mb-4"><label>{{__('Media')}} <span>**</span></label>
+                                    <div class="form-element mb-4"><label><?php echo e(__('Media')); ?> <span>**</span></label>
                                         <select name="media" id="media" required="required">
                                             <option value="select">Select</option>
                                             <option value="call">Call</option>
@@ -197,7 +157,8 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="form-element mb-4"><label>{{__('Payment Method')}}
+                                    <div class="form-element mb-4"><label><?php echo e(__('Payment Method')); ?>
+
                                             <span>**</span></label>
                                         <select name="payment_method" id="payment_method" required="required">
                                             <option value="credit">Credit Card</option>
@@ -212,14 +173,15 @@
 
                              <div class="row">
                                 <div class="col-lg-6" for="inlineFormInput">
-                                    <div class="form-element mb-4"><label>{{__('Move date')}} <span>**</span></label>
+                                    <div class="form-element mb-4"><label><?php echo e(__('Move date')); ?> <span>**</span></label>
                                         <input type="date" name="mdate" class="form-control" id="mdate"
                                             required="required">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="form-element mb-4"><label>{{__('Follow Up date')}}
+                                    <div class="form-element mb-4"><label><?php echo e(__('Follow Up date')); ?>
+
                                             <span>**</span></label>
                                         <input type="date" name="fdate" class="form-control" id="fdate"
                                             required="required">
@@ -240,7 +202,7 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="form-element mb-4"><label>{{__('Client Notes')}} <span>**</span></label>
+                                    <div class="form-element mb-4"><label><?php echo e(__('Client Notes')); ?> <span>**</span></label>
                                         <textarea class="form-control" name="client_notes" id="client_notes" rows="3"
                                             required="required"></textarea>
                                     </div>
@@ -544,4 +506,5 @@
     </div>
 </div>
 <!--   quote area end   -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("front.$version.layout", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\wamp64\www\logistics\core\resources\views/front/quote.blade.php ENDPATH**/ ?>
