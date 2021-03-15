@@ -11,7 +11,8 @@ class ClaimController extends Controller
 {
     public function index()
     {
-        return view('front.claim.index');
+        $claims = Claim::all();
+        return view('front.claim.index',compact('claims'));
     }
 
     public function store(Request $request)
