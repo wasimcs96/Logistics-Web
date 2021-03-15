@@ -68,28 +68,7 @@
                                                 
                                                 <?php if($link["type"] == 'services' && hasCategory($be->theme_version)): ?>
 
-                                                    <li class="menu-item menu-item-has-children static"><a href="<?php echo e($href); ?>"><?php echo e($link["text"]); ?></a>
-                                                        <ul class="mega-menu">
-                                                            <div class="row">
-                                                                <?php if(count($scats) > 0): ?>
-                                                                    <?php $__currentLoopData = $scats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $scat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                        <div class="col-lg-3">
-                                                                            <li class="mega-item">
-                                                                                <a><?php echo e($scat->name); ?></a>
-                                                                                <ul>
-                                                                                    <?php $__currentLoopData = $scat->services()->orderBy('serial_number', 'ASC')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                                                                        <li><a href="<?php echo e(route('front.servicedetails', [$service->slug, $service->id])); ?>"><?php echo e($service->title); ?></a></li>
-
-                                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                                                </ul>
-                                                                            </li>
-                                                                        </div>
-                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                                <?php endif; ?>
-                                                            </div>
-                                                        </ul>
-                                                    </li>
+                                                    
 
 
                                                 <?php else: ?>

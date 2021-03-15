@@ -67,7 +67,7 @@
                                                 {{-- if the theme version has service category, then show megamenu --}}
                                                 @if ($link["type"] == 'services' && hasCategory($be->theme_version))
 
-                                                    <li class="menu-item menu-item-has-children static"><a href="{{$href}}">{{$link["text"]}}</a>
+                                                    {{-- <li class="menu-item menu-item-has-children static"><a href="{{$href}}">{{$link["text"]}}</a>
                                                         <ul class="mega-menu">
                                                             <div class="row">
                                                                 @if (count($scats) > 0)
@@ -88,7 +88,7 @@
                                                                 @endif
                                                             </div>
                                                         </ul>
-                                                    </li>
+                                                    </li> --}}
 
 
                                                 @else
