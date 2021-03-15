@@ -11,7 +11,8 @@ class ClaimController extends Controller
 {
     public function index()
     {
-        return view('front.claim.index');
+        $claims = Claim::all();
+        return view('front.claim.index',compact('claims'));
     }
 
     public function store(Request $request)
@@ -51,5 +52,17 @@ class ClaimController extends Controller
 
         // Session::flash('success', 'Truck created successfully!');
         return redirect()->route('claim.index');
+    }
+
+    public function show()
+    {
+        $claims = Claim::all();
+        return view('admin.claim.show', compact('claims'));
+    }
+
+    public function view(Request $request,$id)
+    {
+        $items = FileItem::where('claims_id',$id)->get();
+        return view('admin.claim.view', compact('items'));
     }
 }

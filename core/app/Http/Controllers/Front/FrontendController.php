@@ -43,6 +43,7 @@ use App\PaymentGateway;
 use App\QuoteInput;
 use App\RssFeed;
 use App\RssPost;
+use App\Contact;
 use Session;
 use Validator;
 use Config;
@@ -1210,6 +1211,24 @@ class FrontendController extends Controller
 
      public function payreturn($packageid){
         return redirect()->route('front.packageorder.index', $packageid)->with('success',__('Pament Compelted!'));
+     }
+
+    //  public function getcontact()
+    //  {
+    //      return view('front.contact');
+    //  }
+
+     public function postcontact(Request $request)
+     {
+         $contact = Contact::create([
+             'name'=>$request->name,
+             'email'=>$request->email,
+             'phone_number'=>$request->number,
+             'move_from'=>$request->moving_from,
+             'move_to'=>$request->moving_to,
+             'move_date'=>$request->moving_date,
+         ]);
+         return redirect()->back()->with('success',__('Contact Compelted!'));
      }
 
 }

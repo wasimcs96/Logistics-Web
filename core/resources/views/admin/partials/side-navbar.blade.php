@@ -266,6 +266,19 @@
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Trucks', $permissions)))
         <li class="nav-item
+        @if(request()->routeIs('admin.claim.show')) active
+        @elseif(request()->routeIs('admin.claim.show')) active
+        @endif">
+
+            <a href="{{route('admin.claim.show')}}">
+            <i class="fas fa-exclamation-circle"></i>
+                <p style="color: white;">Claim</p>
+            </a>
+        </li>
+        @endif
+
+        @if (empty($admin->role) || (!empty($permissions) && in_array('Claims', $permissions)))
+        <li class="nav-item
         @if(request()->routeIs('admin.truck.index')) active
         @elseif(request()->routeIs('admin.truck.show')) active
         @endif">
@@ -1118,7 +1131,7 @@
         @endif">
           <a data-toggle="collapse" href="#rss">
             <i class="fa fa-rss"></i>
-            <p style="color: white;">RSS Feeds</p>
+            <p style="color: white;">Storage</p>
             <span class="caret"></span>
           </a>
           <div class="collapse
@@ -1130,19 +1143,19 @@
             <ul class="nav nav-collapse">
               <li class="@if(request()->path() == 'admin/rss/create') active @endif">
                 <a href="{{route('admin.rss.create')}}">
-                  <span class="sub-item" style="color: white;">Import RSS Feeds</span>
+                  <span class="sub-item" style="color: white;">Import Storage</span>
                 </a>
               </li>
 
               <li class="@if(request()->path() == 'admin/rss/feeds') active @endif">
                 <a href="{{route('admin.rss.feed'). '?language=' . $default->code}}">
-                  <span class="sub-item" style="color: white;">RSS Feeds</span>
+                  <span class="sub-item" style="color: white;">Storage Feeds</span>
                 </a>
               </li>
 
               <li class="@if(request()->path() == 'admin/rss') active @endif">
                 <a href="{{route('admin.rss.index'). '?language=' . $default->code}}">
-                  <span class="sub-item" style="color: white;">RSS Posts</span>
+                  <span class="sub-item" style="color: white;">Storage Posts</span>
                 </a>
               </li>
 

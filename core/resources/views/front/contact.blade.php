@@ -36,11 +36,12 @@
            <div class="col-lg-6">
               <span class="section-title">{{convertUtf8($bs->contact_form_title)}}</span>
               <h2 class="section-summary">{{convertUtf8($bs->contact_form_subtitle)}}</h2>
-              <form action="{{route('front.sendmail')}}" class="contact-form" method="POST">
+              <form action="{{route('front.contact')}}" class="contact-form" method="POST">
                  @csrf
                  <div class="row">
                     <div class="col-md-6">
                        <div class="form-element">
+                     <label for="">Name</label>
                           <input name="name" type="text" placeholder="{{__('Name')}}" required>
                        </div>
                        @if ($errors->has('name'))
@@ -49,6 +50,7 @@
                     </div>
                     <div class="col-md-6">
                        <div class="form-element">
+                     <label for="">Email</label>
                           <input name="email" type="email" placeholder="{{__('Email')}}" required>
                        </div>
                        @if ($errors->has('email'))
@@ -56,6 +58,50 @@
                        @endif
                     </div>
                     <div class="col-md-12">
+                     <div class="form-element">
+                      <label for="">Phone Number</label>
+                        <input name="number" type="number" placeholder="{{__('Phone Number')}}" required>
+                     </div>
+                     @if ($errors->has('number'))
+                       <p class="text-danger mb-0">{{$errors->first('number')}}</p>
+                     @endif
+                  </div>
+                  <div class="col-md-12">
+                     <div class="form-element">
+                      <label for="">Moving From</label>
+                      <input name="moving_from" type="text" placeholder="{{__('Moving From')}}" required>
+                     </div>
+                     @if ($errors->has('moving_from'))
+                       <p class="text-danger mb-0">{{$errors->first('moving_from')}}</p>
+                     @endif
+                  </div>
+                  <div class="col-md-12">
+                   <div class="form-element">
+                      <label for="">Moving To</label>
+                      <input name="moving_to" type="text" placeholder="{{__('Moving To')}}" required>
+                   </div>
+                   @if ($errors->has('moving_to'))
+                     <p class="text-danger mb-0">{{$errors->first('moving_to')}}</p>
+                   @endif
+                </div>
+                <div class="col-md-12">
+                  <div class="form-element">
+                     <label for="">Moving To</label>
+                     <input name="moving_date" type="datetime-local" placeholder="{{__('Moving Date')}}" required>
+                  </div>
+                  @if ($errors->has('moving_date'))
+                    <p class="text-danger mb-0">{{$errors->first('moving_date')}}</p>
+                  @endif
+               </div>
+                {{-- <div class="col-md-12">
+                   <div class="form-element">
+                      <input name="moving_date" type="localdate" placeholder="{{__('Moving Date')}}" required>
+                   </div>
+                   @if ($errors->has('message'))
+                     <p class="text-danger mb-0">{{$errors->first('message')}}</p>
+                   @endif
+                </div> --}}
+                    {{-- <div class="col-md-12">
                        <div class="form-element">
                           <input name="subject" type="text" placeholder="{{__('Subject')}}" required>
                        </div>
@@ -70,7 +116,7 @@
                        @if ($errors->has('message'))
                          <p class="text-danger mb-0">{{$errors->first('message')}}</p>
                        @endif
-                    </div>
+                    </div> --}}
                     @if ($bs->is_recaptcha == 1)
                         <div class="col-lg-12 mb-4">
                             {!! NoCaptcha::renderJs() !!}

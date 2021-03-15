@@ -456,7 +456,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="button_box">
-                        <a href="{{$bs->cta_section_button_url}}" class="logistics_btn">{{convertUtf8($bs->cta_section_button_text)}}</a>
+                        <!-- <a href="{{$bs->cta_section_button_url}}" class="logistics_btn">{{convertUtf8($bs->cta_section_button_text)}}</a> -->
                     </div>
                 </div>
             </div>

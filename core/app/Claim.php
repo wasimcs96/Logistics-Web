@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Claim extends Model
 {
+    protected $table = 'claims';
     protected $fillable = [
                 'first_name',
                 'last_name',

@@ -115,7 +115,7 @@
     <!-- Start logistics_footer section -->
     <footer class="logistics_footer footer_v1 dark_bg">
         @if ($bs->top_footer_section == 1)
-        <div class="footer_top pt-120 pb-120">
+        <div class="footer_top pt-50">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
@@ -124,7 +124,7 @@
                             <p>
                                 @if (strlen(convertUtf8($bs->footer_text)) > 194)
                                    {{substr(convertUtf8($bs->footer_text), 0, 194)}}<span style="display: none;">{{substr(convertUtf8($bs->footer_text), 194)}}</span>
-                                   <a href="#" class="see-more">see more...</a>
+                                   <a href="#" class="see-more" style="color: white;">see more...</a>
                                 @else
                                    {{convertUtf8($bs->footer_text)}}
                                 @endif
@@ -152,7 +152,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="widget_box newsletter_box">
                             <h4 class="widget_title">{{__('Newsletter')}}</h4>
-                            <p>{{convertUtf8($bs->newsletter_text)}}</p>
+                            <p style="color: white">{{convertUtf8($bs->newsletter_text)}}</p>
                             <form id="footerSubscribeForm" action="{{route('front.subscribe')}}" method="post">
                                 @csrf
                                 <div class="form_group">
