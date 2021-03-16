@@ -126,8 +126,8 @@
                             <img src="<?php echo e(asset('assets/front/img/'.$bs->footer_logo)); ?>" class="img-fluid" alt="">
                             <p>
                                 <?php if(strlen(convertUtf8($bs->footer_text)) > 194): ?>
-                                   <?php echo e(substr(convertUtf8($bs->footer_text), 0, 194)); ?><span style="display: none;"><?php echo e(substr(convertUtf8($bs->footer_text), 194)); ?></span>
-                                   <a href="#" class="see-more">see more...</a>
+                                   <?php echo e(substr(convertUtf8($bs->footer_text), 0, 194)); ?><span style="display: none; color: white"><?php echo e(substr(convertUtf8($bs->footer_text), 194)); ?></span>
+                                   <a href="#" class="see-more" style="color: #6c6b71;">see more...</a>
                                 <?php else: ?>
                                    <?php echo e(convertUtf8($bs->footer_text)); ?>
 
@@ -156,7 +156,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="widget_box newsletter_box">
                             <h4 class="widget_title"><?php echo e(__('Newsletter')); ?></h4>
-                            <p><?php echo e(convertUtf8($bs->newsletter_text)); ?></p>
+                            <p style="color: white"><?php echo e(convertUtf8($bs->newsletter_text)); ?></p>
                             <form id="footerSubscribeForm" action="<?php echo e(route('front.subscribe')); ?>" method="post">
                                 <?php echo csrf_field(); ?>
                                 <div class="form_group">
