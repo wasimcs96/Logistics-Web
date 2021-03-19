@@ -34,7 +34,7 @@
 
 
 <!--   quote area start   -->
-<div class="quote-area pt-115 pb-115">
+<div class="quote-area pt-115">
     <div class="container">
         <div class="row">
 
@@ -47,7 +47,8 @@
                         <div class="panel-body">
 
 
-                            <div class="col-lg-6">
+                           <div class="row">
+                           <div class="col-lg-6">
                                 <div class="form-element mb-4">
                                     <label><?php echo e(__('Name')); ?> <span>**</span></label>
                                     <input name="name" type="text" value="<?php echo e(old("name")); ?>"
@@ -69,6 +70,7 @@
                                     <?php endif; ?>
                                 </div>
                             </div>
+                           </div>
 
                             
 
@@ -105,7 +107,7 @@
               </div> 
 
                              <div class="row"> 
-                                 <div class="col-lg-6">
+              <div class="col-lg-6">
                   <div class="form-element mb-4"><label><?php echo e(__('Phone Number')); ?> <span>**</span></label>
                     <select class="col-lg-3" for="inlineFormInput" name="primary_phone" id="primary_phone"
                       required="required">
@@ -115,28 +117,27 @@
                       <option value="home">Home</option>
                       <option value="mobile">Mobile</option>
                     </select>
-                    <input class="col-lg-3" type="text" name="primary_number" value="<?php echo e(old("contact_number")); ?>"
-                      required="required">
+                    <input class="col-lg-9" type="text" name="primary_number" value="<?php echo e(old("contact_number")); ?>" required="required">
                   </div> 
+                </div>
 
+                <div class="col-lg-6">
+                <div class="form-element mb-4"><label><?php echo e(__('Secondary Phone')); ?>
 
-                                 <div class="col-lg-6">
-                                    <div class="form-element mb-4"><label><?php echo e(__('Secondary Phone')); ?>
-
-                                            <span></span></label>
-                                        <select class="col-lg-3" for="inlineFormInput" name="secondary_phone"
-                                            id="secondary_phone" required="required">
-                                            <option value="select">Select</option>
-                                            <option value="business">Business</option>
-                                            <option value="fax">Fax</option>
-                                            <option value="home">Home</option>
-                                            <option value="mobile">Mobile</option>
-                                        </select>
-                                        <input class="col-lg-3" type="text" name="secondary_number"
-                                            value="<?php echo e(old("contact_number")); ?>" required="required">
-                                    </div>
-                                </div>
-                            </div> 
+                        <span></span></label>
+                    <select class="col-lg-3" for="inlineFormInput" name="secondary_phone"
+                        id="secondary_phone" required="required">
+                        <option value="select">Select</option>
+                        <option value="business">Business</option>
+                        <option value="fax">Fax</option>
+                        <option value="home">Home</option>
+                        <option value="mobile">Mobile</option>
+                    </select>
+                    <input class="col-lg-9" type="text" name="secondary_number"
+                        value="<?php echo e(old("contact_number")); ?>" required="required">
+                </div>
+            </div>
+        </div> 
 
                              <div class="row">
                                 <div class="col-lg-6">
@@ -189,7 +190,7 @@
                             </div> 
 
                              <div class="row">
-                                <div class="col-lg-6" for="inlineFormInput">
+                                <div class="col-lg-6 m-auto" for="inlineFormInput">
                                     <select name="add_on" id="add_on" required="required">
                                         <option selected>Choose Add On's...</option>
                                         <option value="1">Packing Service</option>
@@ -497,7 +498,7 @@
                         </div>
                     </div> 
 
-                    <button type="submit" class="btn btn-primary btn-sm" value="CreateNewQuote">Create Quote</button>
+                    <button type="submit" class="btn btn-primary btn-sm mb-4" value="CreateNewQuote">Create Quote</button>
                 </form>
 
             </div>

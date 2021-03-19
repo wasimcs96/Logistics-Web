@@ -123,8 +123,8 @@
                             <img src="{{asset('assets/front/img/'.$bs->footer_logo)}}" class="img-fluid" alt="">
                             <p>
                                 @if (strlen(convertUtf8($bs->footer_text)) > 194)
-                                   {{substr(convertUtf8($bs->footer_text), 0, 194)}}<span style="display: none;">{{substr(convertUtf8($bs->footer_text), 194)}}</span>
-                                   <a href="#" class="see-more" style="color: white;">see more...</a>
+                                   {{substr(convertUtf8($bs->footer_text), 0, 194)}}<span style="display: none; color: white">{{substr(convertUtf8($bs->footer_text), 194)}}</span>
+                                   <a href="#" class="see-more" style="color: #6c6b71;">see more...</a>
                                 @else
                                    {{convertUtf8($bs->footer_text)}}
                                 @endif
