@@ -1235,4 +1235,26 @@ class FrontendController extends Controller
          return redirect()->back()->with('success',__('Contact Compelted!'));
      }
 
+     public function content(){
+        if (session()->has('lang')) {
+            $currentLang = Language::where('code', session()->get('lang'))->first();
+            } else {
+            $currentLang = Language::where('is_default', 1)->first();
+            }
+            $lang_id = $currentLang->id;
+            $data['partners'] = Partner::where('language_id', $lang_id)->orderBy('serial_number', 'ASC')->get();
+            
+            $bs = $currentLang->basic_setting;
+            $be = $currentLang->basic_extended;
+        $be = $currentLang->basic_extended;
+        $version = getVersion($be->theme_version);
+        if ($version == 'dark') {
+            $version = 'default';
+            }
+            
+            $data['version'] = $version;
+         return view ('front.logistic.content',$data);
+     }
+
+
 }

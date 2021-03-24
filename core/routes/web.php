@@ -29,6 +29,8 @@ Route::group(['middleware' => 'setlang'], function() {
   Route::get('/blogs', 'Front\FrontendController@blogs')->name('front.blogs');
   Route::get('/blog-details/{slug}/{id}', 'Front\FrontendController@blogdetails')->name('front.blogdetails');
 
+  Route::get('/content', 'Front\FrontendController@content')->name('front.content');
+
   Route::get('/rss', 'Front\FrontendController@rss')->name('front.rss');
   Route::get('/rss/category/{id}', 'Front\FrontendController@rcatpost')->name('front.rcatpost');
   Route::get('/rss-details/{slug}/{id}', 'Front\FrontendController@rssdetails')->name('front.rssdetails');
