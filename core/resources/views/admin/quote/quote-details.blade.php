@@ -26,109 +26,137 @@
             <hr>
             <div class="row">
                 <div class="col-lg-4">
+                    <strong style="text-transform: capitalize;">Phone Number:</strong>
+                </div>
+                <div class="col-lg-8">{{convertUtf8($quote->phone_number)}}</div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-lg-4">
+                  <strong style="text-transform: capitalize;">Moving From:</strong>
+              </div>
+              <div class="col-lg-8">{{convertUtf8($quote->move_from)}}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-lg-4">
+                <strong style="text-transform: capitalize;">Moving To:</strong>
+            </div>
+            <div class="col-lg-8">{{convertUtf8($quote->move_to)}}</div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-4">
+              <strong style="text-transform: capitalize;">Moving Date:</strong>
+          </div>
+          <div class="col-lg-8">{{convertUtf8($quote->move_date)}}</div>
+      </div>
+      <hr>
+            {{-- <div class="row">
+                <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Primary Conatct:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->primary_number)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Client Notes:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->client_notes)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Media:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->media)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Job Type:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->job_type)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Price Type:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->price_type)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Payment Method:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->payment_method)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Move Date:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->mdate)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Follow Up Date:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->fdate)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Building Type:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->c_building_type)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Country:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->c_country)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">State:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->c_state)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">City:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->c_city)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Franchisee Notes:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->franchisee_notes)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Truck Fee:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->truck_fee)}}</div>
             </div>
-            <hr>
-            <div class="row">
+            <hr> --}}
+            {{-- <div class="row">
                 <div class="col-lg-4">
                     <strong style="text-transform: capitalize;">Hourly Rate:</strong>
                 </div>
                 <div class="col-lg-8">{{convertUtf8($quote->hourly_rate)}}</div>
             </div>
-            <hr>
+            <hr> --}}
 
           @php
             $fields = json_decode($quote->fields, true);

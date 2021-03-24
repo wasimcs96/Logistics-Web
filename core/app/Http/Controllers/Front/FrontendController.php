@@ -681,6 +681,10 @@ class FrontendController extends Controller
         $quote = new Quote;
         $quote->name = $request->name;
         $quote->email = $request->email;
+        $quote->phone_number = $request->phone;
+        $quote->move_from = $request->moving_from;
+        $quote->move_to = $request->moving_to;
+        $quote->move_date = $request->moving_date;
         $quote->primary_phone= $request->primary_phone;
         $quote->primary_number= $request->primary_number;
         $quote->secondary_phone = $request->secondary_phone;
