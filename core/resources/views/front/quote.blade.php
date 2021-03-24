@@ -73,7 +73,7 @@
                             </div>
                            </div>
 
-                            {{-- <div class="col-lg-6">
+                            <div class="col-lg-6">
                                 <div class="form-element mb-4">
                                     <label>{{__('Phone Number')}} <span>**</span></label>
                                     <input name="phone" type="number" value="{{old("phone")}}"
@@ -83,9 +83,9 @@
                                     <p class="text-danger mb-0">{{$errors->first("phone")}}</p>
                                     @endif
                                 </div>
-                            </div> --}}
+                            </div>
 
-                            {{-- <div class="col-lg-6">
+                            <div class="col-lg-6">
                                 <div class="form-element mb-4">
                                     <label>{{__('Moving From')}} <span>**</span></label>
                                     <input name="moving_from" type="text" value="{{old("moving_from")}}"
@@ -95,9 +95,9 @@
                                     <p class="text-danger mb-0">{{$errors->first("moving_from")}}</p>
                                     @endif
                                 </div>
-                            </div> --}}
+                            </div>
 
-                            {{-- <div class="col-lg-6">
+                            <div class="col-lg-6">
                                 <div class="form-element mb-4">
                                     <label>{{__('Moving To')}} <span>**</span></label>
                                     <input name="moving_to" type="text" value="{{old("moving_to")}}"
@@ -107,9 +107,9 @@
                                     <p class="text-danger mb-0">{{$errors->first("moving_to")}}</p>
                                     @endif
                                 </div>
-                            </div> --}}
+                            </div>
 
-                            {{-- <div class="col-lg-6">
+                            <div class="col-lg-6">
                                 <div class="form-element mb-4">
                                     <label>{{__('Moving Date')}} <span>**</span></label>
                                     <input name="moving_date" type="date" value="{{old("moving_to")}}"
@@ -119,10 +119,10 @@
                                     <p class="text-danger mb-0">{{$errors->first("moving_date")}}</p>
                                     @endif
                                 </div>
-                            </div> --}}
+                            </div>
 
 
-                            <div class="row">
+                            {{-- <div class="row">
                 <div class="col-lg-6">
                   <div class="form-element mb-4"><label>{{__('Job Type')}} <span>**</span></label>
                     <select name="job_type" id="job_type" required="required">
@@ -135,9 +135,9 @@
                       <option value="delivery">Delivery</option>
                     </select>
                   </div>
-                </div> 
+                </div>  --}}
 
-                             <div class="col-lg-6">
+                             {{-- <div class="col-lg-6">
                   <div class="form-element mb-4"><label>{{__('Price Type')}} <span>**</span></label>
                     <select name="price_type" id="price_type" required="required">
                       <option value="hourly">Hourly</option>
@@ -145,9 +145,9 @@
                     </select>
                   </div>
                 </div>
-              </div> 
+              </div>  --}}
 
-                             <div class="row"> 
+                             {{-- <div class="row"> 
               <div class="col-lg-6">
                   <div class="form-element mb-4"><label>{{__('Phone Number')}} <span>**</span></label>
                     <select class="col-lg-3" for="inlineFormInput" name="primary_phone" id="primary_phone"
@@ -160,9 +160,9 @@
                     </select>
                     <input class="col-lg-9" type="text" name="primary_number" value="{{old("contact_number")}}" required="required">
                   </div> 
-                </div>
+                </div> --}}
 
-                <div class="col-lg-6">
+                {{-- <div class="col-lg-6">
                 <div class="form-element mb-4"><label>{{__('Secondary Phone')}}
                         <span></span></label>
                     <select class="col-lg-3" for="inlineFormInput" name="secondary_phone"
@@ -177,9 +177,9 @@
                         value="{{old("contact_number")}}" required="required">
                 </div>
             </div>
-        </div> 
+        </div>  --}}
 
-                             <div class="row">
+                             {{-- <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-element mb-4"><label>{{__('Media')}} <span>**</span></label>
                                         <select name="media" id="media" required="required">
@@ -208,9 +208,9 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>  --}}
 
-                             <div class="row">
+                             {{-- <div class="row">
                                 <div class="col-lg-6" for="inlineFormInput">
                                     <div class="form-element mb-4"><label>{{__('Move date')}} <span>**</span></label>
                                         <input type="date" name="mdate" class="form-control" id="mdate"
@@ -225,9 +225,9 @@
                                             required="required">
                                     </div>
                                 </div>
-                            </div> 
+                            </div>  --}}
 
-                             <div class="row">
+                             {{-- <div class="row">
                                 <div class="col-lg-6 m-auto" for="inlineFormInput">
                                     <select name="add_on" id="add_on" required="required">
                                         <option selected>Choose Add On's...</option>
@@ -245,11 +245,11 @@
                                             required="required"></textarea>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>  --}}
                         </div>
                     </div>
 
-                    <div class="panel panel-default">
+                    {{-- <div class="panel panel-default">
                         <div class="panel-heading">Address</div>
                         <div class="panel-body">
                             <table class="table">
@@ -440,9 +440,9 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> --}}
 
-                     <div class="panel panel-default">
+                     {{-- <div class="panel panel-default">
                         <div class="panel-heading">Select Base Location</div>
                         <div class="panel-body">
                             <div style="width:50%; padding:0px 5px;float:left;" id="bases" onchange="fillBaseFields()">
@@ -455,9 +455,9 @@
                                         class="ui-button-text">View/Hide Price List</span></button>
                             </div>
                         </div>
-                    </div> 
+                    </div>  --}}
 
-                     <div class="panel panel-default">
+                     {{-- <div class="panel panel-default">
                         <div class="panel-heading">Franchisee Notes</div>
                         <div class="panel-body">
                             <div class="form-element mb-4">
@@ -465,10 +465,10 @@
                                     required="required"></textarea>
                             </div>
                         </div>
-                    </div> 
+                    </div>  --}}
 
 
-                     <div class="panel panel-default">
+                     {{-- <div class="panel panel-default">
                         <div class="panel-heading">Source</div>
                         <div class="panel-body">
                             <div class="form-group col-md-4">
@@ -506,10 +506,10 @@
                                 </select>
                             </div>
                         </div>
-                    </div> 
+                    </div>  --}}
 
 
-                     <div class="panel panel-default">
+                     {{-- <div class="panel panel-default">
                         <div class="panel-heading">Getting an Estimate</div>
                         <div class="panel-body">
                             <table class="border-0">
@@ -534,7 +534,7 @@
                                 </tr>
                             </table>
                         </div>
-                    </div> 
+                    </div>  --}}
 
                     <button type="submit" class="btn btn-primary btn-sm mb-4" value="CreateNewQuote">Create Quote</button>
                 </form>
