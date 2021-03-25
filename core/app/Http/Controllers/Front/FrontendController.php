@@ -928,6 +928,9 @@ class FrontendController extends Controller
         } else {
             $currentLang = Language::where('is_default', 1)->first();
         }
+        $lang_id = $currentLang->id;
+
+        $data['partners'] = Partner::where('language_id', $lang_id)->orderBy('serial_number', 'ASC')->get();
 
         $data['page'] = Page::findOrFail($id);
 
