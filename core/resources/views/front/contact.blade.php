@@ -14,8 +14,8 @@
         <div class="breadcrumb-txt">
            <div class="row">
               <div class="col-xl-7 col-lg-8 col-sm-10">
-                 <span>{{convertUtf8($bs->contact_title)}}</span>
-                 <h1>{{convertUtf8($bs->contact_subtitle)}}</h1>
+                 {{-- <span>{{convertUtf8($bs->contact_title)}}</span>
+                 <h1>{{convertUtf8($bs->contact_subtitle)}}</h1> --}}
                  <ul class="breadcumb">
                     <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
                     <li>{{__('Contact Us')}}</li>

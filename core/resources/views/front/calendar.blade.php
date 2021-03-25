@@ -16,12 +16,17 @@
   <!--   breadcrumb area start   -->
   <div class="breadcrumb-area about" style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
      <div class="container">
-        <div class="service breadcrumb-txt">
+        <div class="service breadcrumb-txt"style="
+        padding: 5px;
+    ">
            <div class="row">
               <div class="col-xl-7 col-lg-8 col-sm-10">
-                 <span>{{convertUtf8($be->event_calendar_title)}}</span>
-                 <h1>{{convertUtf8($be->event_calendar_subtitle)}}</h1>
-                 <ul class="breadcumb">
+                 {{-- <span>{{convertUtf8($be->event_calendar_title)}}</span>
+                 <h1>{{convertUtf8($be->event_calendar_subtitle)}}</h1> --}}
+                 <ul class="breadcumb"style="
+                 padding: 10px;
+                 margin-top: 0;
+             ">
                     <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
                     <li>{{convertUtf8($be->event_calendar_title)}}</li>
                  </ul>

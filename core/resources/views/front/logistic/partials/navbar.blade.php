@@ -2,11 +2,11 @@
     <header class="logistics_header header_v1">
         <div class="container-full">
             <div class="hainer_main_content">
-                <div class="logo">
+                <div class="logo" style="background: white;">
                     <a href="{{route('front.index')}}"><img src="{{asset('assets/front/img/'.$bs->logo)}}" class="img-fluid" alt=""></a>
                 </div>
                 <div class="header_navigation">
-                    <div class="top_header">
+                    {{-- <div class="top_header">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="top_left">
@@ -47,12 +47,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="site_menu">
                         <div class="row align-items-center">
                             <div class="{{$bs->is_quote == 0 ? 'col-lg-12' : 'col-lg-10'}}">
                                 <div class="primary_menu">
-                                    <nav class="main-menu {{$bs->is_quote == 0 ? 'text-right' : ''}}">
+                                    <nav class="main-menu {{$bs->is_quote == 0 ? 'text-right' : ''}}" style="width:100vw;">
                                         @php
                                             $links = json_decode($menus, true);
                                             //  dd($links);

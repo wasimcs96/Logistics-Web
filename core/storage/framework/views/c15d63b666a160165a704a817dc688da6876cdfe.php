@@ -2,58 +2,16 @@
     <header class="logistics_header header_v1">
         <div class="container-full">
             <div class="hainer_main_content">
-                <div class="logo">
+                <div class="logo" style="background: white;">
                     <a href="<?php echo e(route('front.index')); ?>"><img src="<?php echo e(asset('assets/front/img/'.$bs->logo)); ?>" class="img-fluid" alt=""></a>
                 </div>
                 <div class="header_navigation">
-                    <div class="top_header">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <div class="top_left">
-                                    <span><i class="fas fa-headphones"></i><a href="tel:<?php echo e($bs->support_phone); ?>"><?php echo e($bs->support_phone); ?></a></span>
-                                    <span><i class="far fa-envelope"></i><a href="mailto:<?php echo e($bs->support_email); ?>"><?php echo e($bs->support_email); ?></a></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="top_right d-flex align-items-center">
-                                    <ul class="social">
-                                        <?php $__currentLoopData = $socials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $social): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <li><a href="<?php echo e($social->url); ?>"><i class="<?php echo e($social->icon); ?>"></i></a></li>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </ul>
-                                    <?php if(!empty($currentLang)): ?>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fas fa-globe"></i><?php echo e(convertUtf8($currentLang->name)); ?>
-
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <a class="dropdown-item" href='<?php echo e(route('changeLanguage', $lang->code)); ?>'><?php echo e(convertUtf8($lang->name)); ?></a>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-
-                                    <?php if(auth()->guard()->guest()): ?>
-
-                                    <ul class="login">
-                                        <li><a href="<?php echo e(route('user.login')); ?>"><?php echo e(__('Login')); ?></a></li>
-                                    </ul>
-                                    <?php endif; ?>
-                                    <?php if(auth()->guard()->check()): ?>
-                                    <ul class="login">
-                                        <li><a href="<?php echo e(route('user-dashboard')); ?>"><?php echo e(__('Dashboard')); ?></a></li>
-                                    </ul>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="site_menu">
                         <div class="row align-items-center">
                             <div class="<?php echo e($bs->is_quote == 0 ? 'col-lg-12' : 'col-lg-10'); ?>">
                                 <div class="primary_menu">
-                                    <nav class="main-menu <?php echo e($bs->is_quote == 0 ? 'text-right' : ''); ?>">
+                                    <nav class="main-menu <?php echo e($bs->is_quote == 0 ? 'text-right' : ''); ?>" style="width:100vw;">
                                         <?php
                                             $links = json_decode($menus, true);
                                             //  dd($links);
