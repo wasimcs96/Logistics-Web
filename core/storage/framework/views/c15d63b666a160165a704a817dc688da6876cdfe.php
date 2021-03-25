@@ -79,14 +79,23 @@
 
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
+                                            
                                             <?php if(auth()->guard()->guest()): ?>
-                                            <li class="d-lg-none d-inline-block"><a href="<?php echo e(route('user.login')); ?>"><?php echo e(__('Login')); ?></a></li>
+
+                                            <ul style="    display: inline-block;
+                                            position: relative;
+                                            margin-left: 20px;">
+                                                <li><a href="<?php echo e(route('user.login')); ?>"><?php echo e(__('Login')); ?></a></li>
+                                            </ul>
                                             <?php endif; ?>
                                             <?php if(auth()->guard()->check()): ?>
-                                            <li class="d-lg-none d-inline-block"><a href="<?php echo e(route('user-dashboard')); ?>"><?php echo e(__('Dashboard')); ?></a></li>
+                                            <ul class="login">
+                                                <li><a href="<?php echo e(route('user-dashboard')); ?>"><?php echo e(__('Dashboard')); ?></a></li>
+                                            </ul>
                                             <?php endif; ?>
                                         </ul>
-                                        
+                                                             
+                             
                                     </nav>
                                 </div>
                             </div>

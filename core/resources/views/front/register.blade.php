@@ -12,11 +12,16 @@
     <!--   hero area start   -->
     <div class="breadcrumb-area services service-bg" style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
         <div class="container">
-            <div class="breadcrumb-txt">
+            <div class="breadcrumb-txt"style="
+            padding: 5px;
+        ">
                 <div class="row">
                     <div class="col-xl-7 col-lg-8 col-sm-10">
-                        <h1>{{__('Sign Up')}}</h1>
-                        <ul class="breadcumb">
+                        {{-- <h1>{{__('Sign Up')}}</h1> --}}
+                        <ul class="breadcumb"style="
+                        padding: 10px;
+                        margin-top: 0;
+                    ">
                             <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
                             <li>{{__('Sign Up')}}</li>
                         </ul>

@@ -4,11 +4,16 @@
   <!--   breadcrumb area start   -->
   <div class="breadcrumb-area" style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
      <div class="container">
-        <div class="breadcrumb-txt">
+        <div class="breadcrumb-txt"style="
+        padding: 5px;
+    ">
            <div class="row">
               <div class="col-xl-7 col-lg-8 col-sm-10">
-                 <h1>File A Claim</h1>
-                 <ul class="breadcumb">
+                 {{-- <h1>File A Claim</h1> --}}
+                 <ul class="breadcumb"style="
+                 padding: 10px;
+                 margin-top: 0;
+             ">
                     <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
                     <li><a href="{{route('claim.index')}}"></a>{{__('Claim')}}</li>
                  </ul>
