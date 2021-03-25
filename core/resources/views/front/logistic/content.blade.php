@@ -1,4 +1,3 @@
-@extends("front.$version.layout")
 
 @section('content')
 
