@@ -11,12 +11,17 @@
   <!--   breadcrumb area start   -->
   <div class="breadcrumb-area service-details" style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
      <div class="container">
-        <div class="breadcrumb-txt service-details">
+        <div class="breadcrumb-txt service-details"style="
+        padding: 5px;
+    ">
            <div class="row">
               <div class="col-xl-7 col-lg-8 col-sm-10">
-                 <span>{{__('Job Details')}}</span>
-                 <h1>{{convertUtf8($job->title)}}</h1>
-                 <ul class="breadcumb">
+                 {{-- <span>{{__('Job Details')}}</span>
+                 <h1>{{convertUtf8($job->title)}}</h1> --}}
+                 <ul class="breadcumb"style="
+                 padding: 10px;
+                 margin-top: 0;
+             ">
                     <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
                     <li>{{__('Job Details')}}</li>
                  </ul>

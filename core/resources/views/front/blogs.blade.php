@@ -17,12 +17,17 @@
   <!--   hero area start   -->
   <div class="breadcrumb-area blogs" style="background-image: url('{{asset('assets/front/img/' . $bs->breadcrumb)}}');background-size:cover;">
      <div class="container">
-        <div class="breadcrumb-txt">
+        <div class="breadcrumb-txt"style="
+        padding: 5px;
+    ">
            <div class="row">
               <div class="col-xl-7 col-lg-8 col-sm-10">
-                 <span>{{convertUtf8($bs->blog_title)}}</span>
-                 <h1>{{convertUtf8($bs->blog_subtitle)}}</h1>
-                 <ul class="breadcumb">
+                 {{-- <span>{{convertUtf8($bs->blog_title)}}</span>
+                 <h1>{{convertUtf8($bs->blog_subtitle)}}</h1> --}}
+                 <ul class="breadcumb"style="
+                 padding: 10px;
+                 margin-top: 0;
+             ">
                     <li><a href="{{route('front.index')}}">{{__('Home')}}</a></li>
                     <li>{{__('Latest Blogs')}}</li>
                  </ul>

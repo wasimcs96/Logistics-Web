@@ -13,12 +13,17 @@
   <!--   breadcrumb area start   -->
   <div class="breadcrumb-area">
      <div class="container">
-        <div class="breadcrumb-txt">
+        <div class="breadcrumb-txt"style="
+        padding: 5px;
+    ">
            <div class="row">
               <div class="col-xl-7 col-lg-8 col-sm-10">
-                 <span>{{$bs->error_title}}</span>
-                 <h1>{{$bs->error_subtitle}}</h1>
-                 <ul class="breadcumb">
+                 {{-- <span>{{$bs->error_title}}</span>
+                 <h1>{{$bs->error_subtitle}}</h1> --}}
+                 <ul class="breadcumb"style="
+                 padding: 10px;
+                 margin-top: 0;
+             ">
                     <li><a href="{{route('front.index')}}">Home</a></li>
                     <li>404 Page</li>
                  </ul>
