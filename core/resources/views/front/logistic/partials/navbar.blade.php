@@ -141,14 +141,28 @@
 
                                             @endforeach
 
-                                            @guest
+                                            {{-- @guest
                                             <li class="d-lg-none d-inline-block"><a href="{{route('user.login')}}">{{__('Login')}}</a></li>
                                             @endguest
                                             @auth
                                             <li class="d-lg-none d-inline-block"><a href="{{route('user-dashboard')}}">{{__('Dashboard')}}</a></li>
+                                            @endauth --}}
+                                            @guest
+
+                                            <ul style="    display: inline-block;
+                                            position: relative;
+                                            margin-left: 20px;">
+                                                <li><a href="{{route('user.login')}}">{{__('Login')}}</a></li>
+                                            </ul>
+                                            @endguest
+                                            @auth
+                                            <ul class="login">
+                                                <li><a href="{{route('user-dashboard')}}">{{__('Dashboard')}}</a></li>
+                                            </ul>
                                             @endauth
                                         </ul>
-                                        
+                                                             
+                             
                                     </nav>
                                 </div>
                             </div>
