@@ -66,7 +66,7 @@
                             <div class="col-lg-6">
                                 <div class="form-element mb-4">
                                     <label><?php echo e(__('Email')); ?> <span>**</span></label>
-                                    <input name="email" type="text" value="<?php echo e(old("email")); ?>"
+                                    <input name="email" type="email" value="<?php echo e(old("email")); ?>"
                                         placeholder="<?php echo e(__('Enter Email Address')); ?>" required="required">
 
                                     <?php if($errors->has("email")): ?>
