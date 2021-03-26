@@ -239,6 +239,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
 
   Route::post('driver/product/orders/status', 'Admin\ProductOrderController@driverStatus')->name('admin.driver.product.orders.status');
 
+  
+
+
 // Leads....
 Route::get('/lead', 'Admin\LeadController@index')->name('admin.lead.index');
 Route::get('/lead/create', 'Admin\LeadController@create')->name('admin.lead.create');
@@ -816,6 +819,7 @@ Route::get('/lead/destroy/{id}', 'Admin\LeadController@destroy')->name('admin.le
     Route::post('/quote/inputUpdate', 'Admin\QuoteController@inputUpdate')->name('admin.quote.inputUpdate');
     Route::post('/quote/delete', 'Admin\QuoteController@delete')->name('admin.quote.delete');
     Route::post('/quote/bulk-delete', 'Admin\QuoteController@bulkDelete')->name('admin.quote.bulk.delete');
+    Route::get('/quote/add', 'Admin\QuoteController@addQuote')->name('admin.quote.addQuote');
 
 
     // Admin Quote Routes

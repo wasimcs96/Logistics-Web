@@ -29,8 +29,10 @@
       <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="card-title d-inline-block">Quotes</div>
+                    <a href="{{ route('admin.quote.addQuote') }}" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add
+                      Quote</a>
                 </div>
                 <div class="col-lg-6">
                     <button class="btn btn-danger float-right btn-sm mr-2 d-none bulk-delete" data-href="{{route('admin.quote.bulk.delete')}}"><i class="flaticon-interface-5"></i> Delete</button>
