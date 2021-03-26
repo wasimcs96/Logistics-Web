@@ -13,12 +13,16 @@
 <div class="breadcrumb-area"
     style="background-image: url('<?php echo e(asset('assets/front/img/' . $bs->breadcrumb)); ?>');background-size:cover;">
     <div class="container">
-        <div class="breadcrumb-txt">
+        <div class="breadcrumb-txt"style="
+        padding: 5px;
+    ">
             <div class="row">
                 <div class="col-xl-7 col-lg-8 col-sm-10">
-                    <span><?php echo e(convertUtf8($bs->quote_title)); ?></span>
-                    <h1><?php echo e(convertUtf8($bs->quote_subtitle)); ?></h1>
-                    <ul class="breadcumb">
+                    
+                    <ul class="breadcumb"style="
+                    padding: 10px;
+                    margin-top: 0;
+                ">
                         <li><a href="<?php echo e(route('front.index')); ?>"><?php echo e(__('Home')); ?></a></li>
                         <li><?php echo e(__('Quote Page')); ?></li>
                     </ul>

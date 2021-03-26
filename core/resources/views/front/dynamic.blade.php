@@ -35,7 +35,7 @@
 
 
   <!--   about company section start   -->
-  <div class="about-company-section pt-115 pb-80">
+  <div class="about-company-section">
      <div class="container">
         <div class="row">
            <div class="col-lg-12">

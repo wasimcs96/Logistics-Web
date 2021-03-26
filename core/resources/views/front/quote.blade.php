@@ -68,7 +68,7 @@
                             <div class="col-lg-6">
                                 <div class="form-element mb-4">
                                     <label>{{__('Email')}} <span>**</span></label>
-                                    <input name="email" type="text" value="{{old("email")}}"
+                                    <input name="email" type="email" value="{{old("email")}}"
                                         placeholder="{{__('Enter Email Address')}}" required="required">
 
                                     @if ($errors->has("email"))

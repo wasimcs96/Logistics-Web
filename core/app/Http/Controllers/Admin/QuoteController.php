@@ -297,4 +297,8 @@ class QuoteController extends Controller
         Session::flash('success', 'Quote requests deleted successfully!');
         return "success";
     }
+    public function addQuote()
+    {
+        return view('admin.quote.create');
+    }
 }
