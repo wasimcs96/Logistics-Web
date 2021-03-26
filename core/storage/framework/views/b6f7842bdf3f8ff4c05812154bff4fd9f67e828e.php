@@ -590,53 +590,11 @@
 
 
 
-<?php if(empty($admin->role) || (!empty($permissions) && in_array('Tickets', $permissions))): ?>
-        
-        <li class="nav-item
-            <?php if(request()->path() == 'admin/all/tickets'): ?> active
-            <?php elseif(request()->path() == 'admin/pending/tickets'): ?> active
-            <?php elseif(request()->path() == 'admin/open/tickets'): ?> active
-            <?php elseif(request()->path() == 'admin/closed/tickets'): ?> active
-            <?php elseif(request()->routeIs('admin.ticket.messages')): ?> active
-            <?php endif; ?>">
-            <a data-toggle="collapse" href="#tickets">
-                <i class="la flaticon-web-1"></i>
-                <p style="color: white;">Tickets</p>
-                <span class="caret"></span>
-            </a>
-            <div class="collapse
-            <?php if(request()->path() == 'admin/all/tickets'): ?> show
-            <?php elseif(request()->path() == 'admin/pending/tickets'): ?> show
-            <?php elseif(request()->path() == 'admin/open/tickets'): ?> show
-            <?php elseif(request()->path() == 'admin/closed/tickets'): ?> show
-            <?php elseif(request()->routeIs('admin.ticket.messages')): ?> show
-            <?php endif; ?>" id="tickets">
-                <ul class="nav nav-collapse">
-                    <li class="<?php if(request()->path() == 'admin/all/tickets'): ?> active <?php endif; ?>">
-                        <a href="<?php echo e(route('admin.tickets.all')); ?>">
-                        <span class="sub-item" style="color: white;">All Tickets</span>
-                        </a>
-                    </li>
-                    <li class="<?php if(request()->path() == 'admin/pending/tickets'): ?> active <?php endif; ?>">
-                        <a href="<?php echo e(route('admin.tickets.pending')); ?>">
-                        <span class="sub-item" style="color: white;">Pending Tickets</span>
-                        </a>
-                    </li>
-                    <li class="<?php if(request()->path() == 'admin/open/tickets'): ?> active <?php endif; ?>">
-                        <a href="<?php echo e(route('admin.tickets.open')); ?>">
-                        <span class="sub-item" style="color: white;">Open Tickets</span>
-                        </a>
-                    </li>
-                    <li class="<?php if(request()->path() == 'admin/closed/tickets'): ?> active <?php endif; ?>">
-                        <a href="<?php echo e(route('admin.tickets.closed')); ?>">
-                        <span class="sub-item" style="color: white;">Closed Tickets</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
 
-  <?php endif; ?>
+        
+        
+
+  
 
         <?php if(empty($admin->role) || (!empty($permissions) && in_array('Payment Gateways', $permissions))): ?>
           
@@ -943,48 +901,10 @@
 
 
 
-        <?php if(empty($admin->role) || (!empty($permissions) && in_array('Service Page', $permissions))): ?>
+        
           
-          <li class="nav-item
-          <?php if(request()->path() == 'admin/scategorys'): ?> active
-          <?php elseif(request()->is('admin/scategory/*/edit')): ?> active
-          <?php elseif(request()->path() == 'admin/services'): ?> active
-          <?php elseif(request()->is('admin/service/*/edit')): ?> active
-          <?php endif; ?>">
-            <a data-toggle="collapse" href="#service">
-              <i class="la flaticon-customer-support"></i>
-              <p style="color: white;">Service Page</p>
-              <span class="caret"></span>
-            </a>
-            <div class="collapse
-            <?php if(request()->path() == 'admin/scategorys'): ?> show
-            <?php elseif(request()->is('admin/scategory/*/edit')): ?> show
-            <?php elseif(request()->path() == 'admin/services'): ?> show
-            <?php elseif(request()->is('admin/service/*/edit')): ?> show
-            <?php endif; ?>" id="service">
-              <ul class="nav nav-collapse">
-                <?php if(hasCategory($be->theme_version)): ?>
-                <li class="
-                <?php if(request()->path() == 'admin/scategorys'): ?> active
-                <?php elseif(request()->is('admin/scategory/*/edit')): ?> active
-                <?php endif; ?>">
-                  <a href="<?php echo e(route('admin.scategory.index') . '?language=' . $default->code); ?>">
-                    <span class="sub-item" style="color: white;">Category</span>
-                  </a>
-                </li>
-                <?php endif; ?>
-                <li class="
-                <?php if(request()->path() == 'admin/services'): ?> active
-                <?php elseif(request()->is('admin/service/*/edit')): ?> active
-                <?php endif; ?>">
-                  <a href="<?php echo e(route('admin.service.index') . '?language=' . $default->code); ?>">
-                    <span class="sub-item" style="color: white;">Services</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        <?php endif; ?>
+          
+        
 
 
 

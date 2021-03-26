@@ -589,9 +589,9 @@
 
 
 
-@if (empty($admin->role) || (!empty($permissions) && in_array('Tickets', $permissions)))
+{{-- @if (empty($admin->role) || (!empty($permissions) && in_array('Tickets', $permissions))) --}}
         {{-- Tickets --}}
-        <li class="nav-item
+        {{-- <li class="nav-item
             @if(request()->path() == 'admin/all/tickets') active
             @elseif(request()->path() == 'admin/pending/tickets') active
             @elseif(request()->path() == 'admin/open/tickets') active
@@ -633,9 +633,9 @@
                     </li>
                 </ul>
             </div>
-        </li>
+        </li> --}}
 
-  @endif
+  {{-- @endif  --}}
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Payment Gateways', $permissions)))
           {{-- Payment Gateways --}}
@@ -942,9 +942,9 @@
 
 
 
-        @if (empty($admin->role) || (!empty($permissions) && in_array('Service Page', $permissions)))
+        {{-- @if (empty($admin->role) || (!empty($permissions) && in_array('Service Page', $permissions))) --}}
           {{-- Service Page --}}
-          <li class="nav-item
+          {{-- <li class="nav-item
           @if(request()->path() == 'admin/scategorys') active
           @elseif(request()->is('admin/scategory/*/edit')) active
           @elseif(request()->path() == 'admin/services') active
@@ -982,8 +982,8 @@
                 </li>
               </ul>
             </div>
-          </li>
-        @endif
+          </li> --}}
+        {{-- @endif --}}
 
 
 
@@ -991,9 +991,9 @@
 
 
 
-        @if (empty($admin->role) || (!empty($permissions) && in_array('Career Page', $permissions)))
+        {{-- @if (empty($admin->role) || (!empty($permissions) && in_array('Career Page', $permissions))) --}}
           {{-- Career Page --}}
-          <li class="nav-item
+          {{-- <li class="nav-item
           @if(request()->path() == 'admin/jcategorys') active
           @elseif(request()->path() == 'admin/job/create') active
           @elseif(request()->is('admin/jcategory/*/edit')) active
@@ -1032,8 +1032,8 @@
                 </li>
               </ul>
             </div>
-          </li>
-        @endif
+          </li> --}}
+        {{-- @endif --}}
 
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Event Calendar', $permissions)))
@@ -1078,9 +1078,9 @@
 
 
 
-        @if (empty($admin->role) || (!empty($permissions) && in_array('Blogs', $permissions)))
+        {{-- @if (empty($admin->role) || (!empty($permissions) && in_array('Blogs', $permissions))) --}}
           {{-- Blogs --}}
-          <li class="nav-item
+          {{-- <li class="nav-item
           @if(request()->path() == 'admin/bcategorys') active
           @elseif(request()->path() == 'admin/blogs') active
           @elseif(request()->path() == 'admin/archives') active
@@ -1118,12 +1118,12 @@
                 </li>
               </ul>
             </div>
-          </li>
-        @endif
+          </li> --}}
+        {{-- @endif --}}
 
-        @if (empty($admin->role) || (!empty($permissions) && in_array('RSS Feeds', $permissions)))
+        {{-- @if (empty($admin->role) || (!empty($permissions) && in_array('RSS Feeds', $permissions))) --}}
         {{-- Blogs --}}
-        <li class="nav-item
+        {{-- <li class="nav-item
         @if(request()->path() == 'admin/rss/create') active
         @elseif(request()->path() == 'admin/rss/feeds') active
         @elseif(request()->path() == 'admin/rss') active
@@ -1161,8 +1161,8 @@
 
             </ul>
           </div>
-        </li>
-      @endif
+        </li> --}}
+      {{-- @endif --}}
 
 
 
@@ -1218,9 +1218,9 @@
         @endif
 
 
-        @if (empty($admin->role) || (!empty($permissions) && in_array('Language Management', $permissions)))
+        {{-- @if (empty($admin->role) || (!empty($permissions) && in_array('Language Management', $permissions))) --}}
         {{-- Language Management Page --}}
-        <li class="nav-item
+        {{-- <li class="nav-item
          @if(request()->path() == 'admin/languages') active
          @elseif(request()->is('admin/language/*/edit')) active
          @elseif(request()->is('admin/language/*/edit/keyword')) active
@@ -1229,8 +1229,8 @@
             <i class="la flaticon-chat-8"></i>
             <p style="color: white;">Language Management</p>
           </a>
-        </li>
-        @endif
+        </li> --}}
+        {{-- @endif --}}
 
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Backup', $permissions)))
