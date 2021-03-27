@@ -1,3 +1,78 @@
+    <style>
+       @media  screen and (max-width: 1316px) and (min-width: 1266px) {
+        #res-nav > li a
+            {
+                    /* font-size: 13px; */
+                    padding: 20px 6px;
+            }
+        }
+       @media  screen and (max-width: 1266px) and (min-width: 1245px) {
+        #res-nav > li a
+            {
+                    /* font-size: 12px; */
+                    padding: 20px 5px;
+                    
+            }
+        }
+       @media  screen and (max-width: 1245px) and (min-width: 1218px) {
+        #res-nav > li a
+            {
+                    font-size: 13px;
+                    padding: 20px 6px;
+            }
+        }
+       @media  screen and (max-width: 1225px) and (min-width: 1218px) {
+        #res-nav > li
+            {
+                    margin-left: 8px;
+                    margin-right: 8px;
+            }
+        }
+       @media  screen and (max-width: 1218px) and (min-width: 1213px) {
+        #res-nav > li
+            {
+                    margin-left: 8px;
+                    margin-right: 8px;
+            }
+            #res-nav > li a
+            {
+                    font-size: 13px;
+                    padding: 20px 6px;
+            }
+        }
+       @media  screen and (max-width: 1213px) and (min-width: 1210px) {
+        #res-nav > li
+            {
+                    margin-left: 8px;
+                    margin-right: 8px;
+            }
+            #res-nav > li a
+            {
+                    font-size: 13px;
+                    padding: 20px 6px;
+            }
+        }
+       @media  screen and (max-width: 1210px) and (min-width: 1074px) {
+        #res-nav > li
+            {
+                    margin-left: 8px;
+                    margin-right: 8px;
+            }
+            #res-nav > li a
+            {
+                    font-size: 13px;
+                    padding: 20px 6px;
+            }
+        }
+       @media  screen and (max-width: 1074px) and (min-width: 1000px) {
+       
+            #res-nav > li a
+            {
+                    font-size: 12px;
+                    padding: 20px 6px;
+            }
+        }
+    </style>
     <!-- Start logistics_header area -->
     <header class="logistics_header header_v1">
         <div class="container-full">
@@ -11,12 +86,12 @@
                         <div class="row align-items-center">
                             <div class="<?php echo e($bs->is_quote == 0 ? 'col-lg-12' : 'col-lg-10'); ?>">
                                 <div class="primary_menu">
-                                    <nav class="main-menu <?php echo e($bs->is_quote == 0 ? 'text-right' : ''); ?>" style="width:100vw;">
+                                    <nav class="main-menu <?php echo e($bs->is_quote == 0 ? 'text-right' : ''); ?>">
                                         <?php
                                             $links = json_decode($menus, true);
                                             //  dd($links);
                                         ?>
-                                        <ul>
+                                        <ul id="res-nav">
 
                                             <?php $__currentLoopData = $links; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $link): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <?php
@@ -82,11 +157,9 @@
                                             
                                             <?php if(auth()->guard()->guest()): ?>
 
-                                            <ul style="    display: inline-block;
-                                            position: relative;
-                                            margin-left: 20px;">
+                                           
                                                 <li><a href="<?php echo e(route('user.login')); ?>"><?php echo e(__('Login')); ?></a></li>
-                                            </ul>
+                                       
                                             <?php endif; ?>
                                             <?php if(auth()->guard()->check()): ?>
                                             <ul class="login">

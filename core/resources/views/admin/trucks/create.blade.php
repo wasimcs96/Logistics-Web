@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+<h1>Add Truck</h1>
 <form  class="" action="{{route('admin.truck.store')}}" method="POST">
   @csrf
   <div class="row" style="justify-content: center;">

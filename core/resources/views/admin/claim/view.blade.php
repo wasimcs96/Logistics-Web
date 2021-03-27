@@ -47,7 +47,7 @@
                     <td>{{ $item->description ?? '' }}</td>
                     <!-- <td>{{ $item->photo ?? '' }}</td> -->
                     <!-- <td>@if(isset($item->photo))<a href="{{asset($item->photo)}}" target="_blank" ><img src="{{ asset($item->photo)}}" style="width: 100px;" target="_blank" >@else N/A @endif</a></td> -->
-                    <td>@if(isset($item->photo))<a href="{{asset($item->photo)}}" target="_blank" ><img src="{{ asset($item->photo)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('admin/img/no-image.png')}}" style="width: 100px;"> @endif</td>
+                    <td>@if(isset($item->photo))<a href="{{ $item->photo }}" ><img src="{{ asset($item->photo)}}" style="width: 100px;" target="_blank" ></a>@else <img src="{{ asset('admin/img/no-image.png')}}" style="width: 100px;"> @endif</td>
                     <td>{{ $item->damage_desc ?? '' }}</td>
                   </tr>
                   @endforeach

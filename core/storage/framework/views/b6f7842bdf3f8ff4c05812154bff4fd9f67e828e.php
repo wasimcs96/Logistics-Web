@@ -912,49 +912,10 @@
 
 
 
-        <?php if(empty($admin->role) || (!empty($permissions) && in_array('Career Page', $permissions))): ?>
+        
           
-          <li class="nav-item
-          <?php if(request()->path() == 'admin/jcategorys'): ?> active
-          <?php elseif(request()->path() == 'admin/job/create'): ?> active
-          <?php elseif(request()->is('admin/jcategory/*/edit')): ?> active
-          <?php elseif(request()->path() == 'admin/jobs'): ?> active
-          <?php elseif(request()->is('admin/job/*/edit')): ?> active
-          <?php endif; ?>">
-            <a data-toggle="collapse" href="#career">
-                <i class="fas fa-user-md"></i>
-              <p style="color: white;">Career Page</p>
-              <span class="caret"></span>
-            </a>
-            <div class="collapse
-            <?php if(request()->path() == 'admin/jcategorys'): ?> show
-            <?php elseif(request()->path() == 'admin/job/create'): ?> show
-            <?php elseif(request()->is('admin/jcategory/*/edit')): ?> show
-            <?php elseif(request()->path() == 'admin/jobs'): ?> show
-            <?php elseif(request()->is('admin/job/*/edit')): ?> show
-            <?php endif; ?>" id="career">
-              <ul class="nav nav-collapse">
-                <li class="
-                <?php if(request()->path() == 'admin/jcategorys'): ?> active
-                <?php elseif(request()->is('admin/jcategory/*/edit')): ?> active
-                <?php endif; ?>">
-                  <a href="<?php echo e(route('admin.jcategory.index') . '?language=' . $default->code); ?>">
-                    <span class="sub-item" style="color: white;">Category</span>
-                  </a>
-                </li>
-                <li class="
-                <?php if(request()->path() == 'admin/jobs'): ?> active
-                <?php elseif(request()->is('admin/job/*/edit')): ?> active
-                <?php elseif(request()->is('admin/job/create')): ?> active
-                <?php endif; ?>">
-                  <a href="<?php echo e(route('admin.job.index') . '?language=' . $default->code); ?>">
-                    <span class="sub-item" style="color: white;">Job Management</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        <?php endif; ?>
+          
+        
 
 
         <?php if(empty($admin->role) || (!empty($permissions) && in_array('Event Calendar', $permissions))): ?>
@@ -999,91 +960,15 @@
 
 
 
-        <?php if(empty($admin->role) || (!empty($permissions) && in_array('Blogs', $permissions))): ?>
-          
-          <li class="nav-item
-          <?php if(request()->path() == 'admin/bcategorys'): ?> active
-          <?php elseif(request()->path() == 'admin/blogs'): ?> active
-          <?php elseif(request()->path() == 'admin/archives'): ?> active
-          <?php elseif(request()->is('admin/blog/*/edit')): ?> active
-          <?php endif; ?>">
-            <a data-toggle="collapse" href="#blog">
-              <i class="la flaticon-chat-4"></i>
-              <p style="color: white;">Blogs</p>
-              <span class="caret"></span>
-            </a>
-            <div class="collapse
-            <?php if(request()->path() == 'admin/bcategorys'): ?> show
-            <?php elseif(request()->path() == 'admin/blogs'): ?> show
-            <?php elseif(request()->path() == 'admin/archives'): ?> show
-            <?php elseif(request()->is('admin/blog/*/edit')): ?> show
-            <?php endif; ?>" id="blog">
-              <ul class="nav nav-collapse">
-                <li class="<?php if(request()->path() == 'admin/bcategorys'): ?> active <?php endif; ?>">
-                  <a href="<?php echo e(route('admin.bcategory.index') . '?language=' . $default->code); ?>">
-                    <span class="sub-item" style="color: white;">Category</span>
-                  </a>
-                </li>
-                <li class="
-                <?php if(request()->path() == 'admin/blogs'): ?> active
-                <?php elseif(request()->is('admin/blog/*/edit')): ?> active
-                <?php endif; ?>">
-                  <a href="<?php echo e(route('admin.blog.index') . '?language=' . $default->code); ?>">
-                    <span class="sub-item" style="color: white;">Blogs</span>
-                  </a>
-                </li>
-                <li class="<?php if(request()->path() == 'admin/archives'): ?> active <?php endif; ?>">
-                  <a href="<?php echo e(route('admin.archive.index')); ?>">
-                    <span class="sub-item" style="color: white;">Archives</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        <?php endif; ?>
-
-        <?php if(empty($admin->role) || (!empty($permissions) && in_array('RSS Feeds', $permissions))): ?>
         
-        <li class="nav-item
-        <?php if(request()->path() == 'admin/rss/create'): ?> active
-        <?php elseif(request()->path() == 'admin/rss/feeds'): ?> active
-        <?php elseif(request()->path() == 'admin/rss'): ?> active
-        <?php elseif(request()->is('admin/rss/edit/*')): ?> active
-        <?php endif; ?>">
-          <a data-toggle="collapse" href="#rss">
-            <i class="fa fa-rss"></i>
-            <p style="color: white;">Storage</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse
-          <?php if(request()->path() == 'admin/rss/create'): ?> show
-          <?php elseif(request()->path() == 'admin/rss/feeds'): ?> show
-          <?php elseif(request()->path() == 'admin/rss'): ?> show
-          <?php elseif(request()->is('admin/rss/edit/*')): ?> show
-          <?php endif; ?>" id="rss">
-            <ul class="nav nav-collapse">
-              <li class="<?php if(request()->path() == 'admin/rss/create'): ?> active <?php endif; ?>">
-                <a href="<?php echo e(route('admin.rss.create')); ?>">
-                  <span class="sub-item" style="color: white;">Import Storage</span>
-                </a>
-              </li>
+          
+          
+        
 
-              <li class="<?php if(request()->path() == 'admin/rss/feeds'): ?> active <?php endif; ?>">
-                <a href="<?php echo e(route('admin.rss.feed'). '?language=' . $default->code); ?>">
-                  <span class="sub-item" style="color: white;">Storage Feeds</span>
-                </a>
-              </li>
-
-              <li class="<?php if(request()->path() == 'admin/rss'): ?> active <?php endif; ?>">
-                <a href="<?php echo e(route('admin.rss.index'). '?language=' . $default->code); ?>">
-                  <span class="sub-item" style="color: white;">Storage Posts</span>
-                </a>
-              </li>
-
-            </ul>
-          </div>
-        </li>
-      <?php endif; ?>
+        
+        
+        
+      
 
 
 
@@ -1139,19 +1024,10 @@
         <?php endif; ?>
 
 
-        <?php if(empty($admin->role) || (!empty($permissions) && in_array('Language Management', $permissions))): ?>
         
-        <li class="nav-item
-         <?php if(request()->path() == 'admin/languages'): ?> active
-         <?php elseif(request()->is('admin/language/*/edit')): ?> active
-         <?php elseif(request()->is('admin/language/*/edit/keyword')): ?> active
-         <?php endif; ?>">
-          <a href="<?php echo e(route('admin.language.index')); ?>">
-            <i class="la flaticon-chat-8"></i>
-            <p style="color: white;">Language Management</p>
-          </a>
-        </li>
-        <?php endif; ?>
+        
+        
+        
 
 
         <?php if(empty($admin->role) || (!empty($permissions) && in_array('Backup', $permissions))): ?>

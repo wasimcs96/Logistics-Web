@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+<h1>Add Quote</h1>
 <form  class="" action="{{route('front.sendquote')}}" method="POST">
   @csrf
   <div class="row" style="justify-content: center;">

@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+<h1>Add Leads</h1>
 <form class="" action="{{route('admin.lead.store')}}" method="POST">
     @csrf
     <div class="row" style="justify-content: center;">

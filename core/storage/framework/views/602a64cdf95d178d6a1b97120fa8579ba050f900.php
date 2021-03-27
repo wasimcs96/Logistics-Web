@@ -45,7 +45,7 @@
                     <td><?php echo e($item->description ?? ''); ?></td>
                     <!-- <td><?php echo e($item->photo ?? ''); ?></td> -->
                     <!-- <td><?php if(isset($item->photo)): ?><a href="<?php echo e(asset($item->photo)); ?>" target="_blank" ><img src="<?php echo e(asset($item->photo)); ?>" style="width: 100px;" target="_blank" ><?php else: ?> N/A <?php endif; ?></a></td> -->
-                    <td><?php if(isset($item->photo)): ?><a href="<?php echo e(asset($item->photo)); ?>" target="_blank" ><img src="<?php echo e(asset($item->photo)); ?>" style="width: 100px;" target="_blank" ></a><?php else: ?> <img src="<?php echo e(asset('admin/img/no-image.png')); ?>" style="width: 100px;"> <?php endif; ?></td>
+                    <td><?php if(isset($item->photo)): ?><a href="<?php echo e($item->photo); ?>" ><img src="<?php echo e(asset($item->photo)); ?>" style="width: 100px;" target="_blank" ></a><?php else: ?> <img src="<?php echo e(asset('admin/img/no-image.png')); ?>" style="width: 100px;"> <?php endif; ?></td>
                     <td><?php echo e($item->damage_desc ?? ''); ?></td>
                   </tr>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

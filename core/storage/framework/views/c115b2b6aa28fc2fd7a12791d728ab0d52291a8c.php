@@ -43,6 +43,7 @@
       #scroll_up {
           right: 20px;
       }
+
       </style>
       <?php endif; ?>
       <?php if(count($langs) == 0): ?>
@@ -60,6 +61,8 @@
       .hero-txt {
           padding-bottom: 160px;
       }
+    
+   
       </style>
       <?php endif; ?>
 
@@ -124,10 +127,10 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="widget_box about_widget">
                             <img src="<?php echo e(asset('assets/front/img/'.$bs->footer_logo)); ?>" class="img-fluid" alt="">
-                            <p>
+                            <p style="color: white">
                                 <?php if(strlen(convertUtf8($bs->footer_text)) > 194): ?>
                                    <?php echo e(substr(convertUtf8($bs->footer_text), 0, 194)); ?><span style="display: none; color: white"><?php echo e(substr(convertUtf8($bs->footer_text), 194)); ?></span>
-                                   <a href="#" class="see-more" style="color: #6c6b71;">see more...</a>
+                                   <a href="#" class="see-more" style="color: #ED242F;">see more...</a>
                                 <?php else: ?>
                                    <?php echo e(convertUtf8($bs->footer_text)); ?>
 
@@ -138,9 +141,9 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="widget_box contact_widget">
                             <h4 class="widget_title"><?php echo e(__('Contact Us')); ?></h4>
-                            <p><?php echo e(convertUtf8($bs->contact_address)); ?></p>
-                            <p><?php echo e(__('Phone')); ?>: <a href="#"><?php echo e(convertUtf8($bs->contact_number)); ?> </a></p>
-                            <p><?php echo e(__('Email')); ?>: <a href="#"><?php echo e(convertUtf8($be->to_mail)); ?></a></p>
+                            <p style="color: white"><?php echo e(convertUtf8($bs->contact_address)); ?></p>
+                            <p style="color: white"><?php echo e(__('Phone')); ?>: <a href="#" style="color: white"><?php echo e(convertUtf8($bs->contact_number)); ?> </a></p>
+                            <p style="color: white"><?php echo e(__('Email')); ?>: <a href="#" style="color: white"><?php echo e(convertUtf8($be->to_mail)); ?></a></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
@@ -148,7 +151,7 @@
                             <h4 class="widget_title"><?php echo e(__('Useful Links')); ?></h4>
                             <ul class="widget_link">
                                 <?php $__currentLoopData = $ulinks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $ulink): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><a href="<?php echo e($ulink->url); ?>"><?php echo e(convertUtf8($ulink->name)); ?></a></li>
+                                    <li><a href="<?php echo e($ulink->url); ?>" style="color: white"><?php echo e(convertUtf8($ulink->name)); ?></a></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>
@@ -161,7 +164,7 @@
                                 <?php echo csrf_field(); ?>
                                 <div class="form_group">
                                     <input type="email" class="form_control" placeholder="<?php echo e(__('Enter Email Address')); ?>" name="email" required>
-                                    <p id="erremail" class="text-danger mb-0 err-email"></p>
+                                    <p id="erremail" class="text-danger mb-0 err-email" ></p>
                                     <button class="logistics_btn" type="submit"><?php echo e(__('Subscribe')); ?></button>
                                 </div>
                             </form>
@@ -179,14 +182,14 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="copyright_text">
-                            <p><?php echo replaceBaseUrl(convertUtf8($bs->copyright_text)); ?></p>
+                            <p style="color: white"><?php echo replaceBaseUrl(convertUtf8($bs->copyright_text)); ?></p>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="social_box">
                             <ul>
                                 <?php $__currentLoopData = $socials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $social): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><a target="_blank" href="<?php echo e($social->url); ?>"><i class="<?php echo e($social->icon); ?>"></i></a></li>
+                                    <li style="color: white"><a target="_blank" href="<?php echo e($social->url); ?>"><i class="<?php echo e($social->icon); ?>"></i></a></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>
