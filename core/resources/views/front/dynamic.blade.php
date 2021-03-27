@@ -46,7 +46,7 @@ margin-top: 0;
     </div>
     <!--   about company section end   -->
 
-    <section class="metro-cta section-padding">
+<section class="metro-cta section-padding">
 <script>console.log("hello please run none");</script>
 <section class="cta-banner">
 <div class="container">
@@ -843,10 +843,6 @@ img {
     text-align: left!important;
 }
 
-p {
-    line-height: 30px;
-}
-
 @media (min-width: 992px){
 .mb-lg-0, .my-lg-0 {
     margin-bottom: 0!important;
@@ -918,10 +914,6 @@ p {
     margin: 0;
     padding: 0;
     border: 0;
-}
-
-p {
-    line-height: 30px;
 }
 
 button, input {

@@ -1750,7 +1750,7 @@ li.submenus::after {
     background-color: #262938;
     bottom: 0px;
     width: 100%;
-    padding: 15px 0px;
+    padding: 0px 0px;
     z-index: 10000000000;
     color: #fff;
 }
