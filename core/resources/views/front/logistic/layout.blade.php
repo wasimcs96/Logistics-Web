@@ -42,6 +42,7 @@
       #scroll_up {
           right: 20px;
       }
+
       </style>
       @endif
       @if (count($langs) == 0)
@@ -59,6 +60,8 @@
       .hero-txt {
           padding-bottom: 160px;
       }
+    
+   
       </style>
       @endif
 
@@ -121,10 +124,10 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="widget_box about_widget">
                             <img src="{{asset('assets/front/img/'.$bs->footer_logo)}}" class="img-fluid" alt="">
-                            <p>
+                            <p style="color: white">
                                 @if (strlen(convertUtf8($bs->footer_text)) > 194)
                                    {{substr(convertUtf8($bs->footer_text), 0, 194)}}<span style="display: none; color: white">{{substr(convertUtf8($bs->footer_text), 194)}}</span>
-                                   <a href="#" class="see-more" style="color: #6c6b71;">see more...</a>
+                                   <a href="#" class="see-more" style="color: #ED242F;">see more...</a>
                                 @else
                                    {{convertUtf8($bs->footer_text)}}
                                 @endif
@@ -134,9 +137,9 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="widget_box contact_widget">
                             <h4 class="widget_title">{{__('Contact Us')}}</h4>
-                            <p>{{convertUtf8($bs->contact_address)}}</p>
-                            <p>{{__('Phone')}}: <a href="#">{{convertUtf8($bs->contact_number)}} </a></p>
-                            <p>{{__('Email')}}: <a href="#">{{convertUtf8($be->to_mail)}}</a></p>
+                            <p style="color: white">{{convertUtf8($bs->contact_address)}}</p>
+                            <p style="color: white">{{__('Phone')}}: <a href="#" style="color: white">{{convertUtf8($bs->contact_number)}} </a></p>
+                            <p style="color: white">{{__('Email')}}: <a href="#" style="color: white">{{convertUtf8($be->to_mail)}}</a></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
@@ -144,7 +147,7 @@
                             <h4 class="widget_title">{{__('Useful Links')}}</h4>
                             <ul class="widget_link">
                                 @foreach ($ulinks as $key => $ulink)
-                                    <li><a href="{{$ulink->url}}">{{convertUtf8($ulink->name)}}</a></li>
+                                    <li><a href="{{$ulink->url}}" style="color: white">{{convertUtf8($ulink->name)}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -157,7 +160,7 @@
                                 @csrf
                                 <div class="form_group">
                                     <input type="email" class="form_control" placeholder="{{__('Enter Email Address')}}" name="email" required>
-                                    <p id="erremail" class="text-danger mb-0 err-email"></p>
+                                    <p id="erremail" class="text-danger mb-0 err-email" ></p>
                                     <button class="logistics_btn" type="submit">{{__('Subscribe')}}</button>
                                 </div>
                             </form>
@@ -175,14 +178,14 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="copyright_text">
-                            <p>{!! replaceBaseUrl(convertUtf8($bs->copyright_text)) !!}</p>
+                            <p style="color: white">{!! replaceBaseUrl(convertUtf8($bs->copyright_text)) !!}</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="social_box">
                             <ul>
                                 @foreach ($socials as $key => $social)
-                                    <li><a target="_blank" href="{{$social->url}}"><i class="{{$social->icon}}"></i></a></li>
+                                    <li style="color: white"><a target="_blank" href="{{$social->url}}"><i class="{{$social->icon}}"></i></a></li>
                                 @endforeach
                             </ul>
                         </div>

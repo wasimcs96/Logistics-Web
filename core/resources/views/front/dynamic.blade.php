@@ -46,6 +46,36 @@ margin-top: 0;
     </div>
     <!--   about company section end   -->
 
+    <section class="metro-cta section-padding">
+<script>console.log("hello please run none");</script>
+<section class="cta-banner">
+<div class="container">
+<div class="row">
+<div class="col-12 col-xl-10 offset-xl-1 cta-banner-area">
+<div class="row">
+<div class="col-12 col-lg-5 cta-banner-blue text-white text-uppercase text-center">
+<h3 class="font-oswald mb-0" style="color: white;">ARE YOU READY TO MOVE?</h3>
+<h2 class="font-oswald mb-0" style="color: white;">GET YOUR <span class="underline" style="color: white;">FREE QUOTE</span></h2>
+</div>
+<div class="col-12 col-lg-7 cta-banner-green py-md-4 py-lg-0">
+<div class="row align-items-center h-100">
+<div class="col-12 col-md-6 text-center mb-5 pb-5 mb-md-0 pb-md-0">
+<a href="http://localhost/logistics/contact">
+<button class="btn btn-round-white font-oswald text-uppercase font-weight-bold">Submit Your Request <span class="fas fa-chevron-right ml-1"></span></button>
+</a>
+</div>
+<div class="col-12 col-md-6 text-center">
+<a href="tel:+14377717791"><button class="btn btn-round-white font-oswald text-uppercase font-weight-bold">Call Us: +14377717791 <span class="fas fa-chevron-right ml-1"></span></button></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
     <section class="about-why-us section-padding outline-none" id="why-metropolitan-movers">
 <div class="container">
 <h2 class="section-title">Why Global Trust Movers?</h2>
@@ -182,7 +212,7 @@ Working to achieve 100% customer satisfaction is in our DNA. We customise the mo
 </div>
 <div class="col-12 col-lg-6 offset-lg-1 col-xl-6 offset-xl-2 text-black cta-form">
 <p class="mb-0  text-center  text-lg-left">We are one click away!</p>
-<h3 class="text-uppercase font-weight-bold  text-center  text-lg-left">Request a free quote</h3>
+<h3 class="text-uppercase font-weight-bold  text-center  text-lg-left mb-4">Request a free quote</h3>
 <div role="form" class="wpcf7" id="wpcf7-f11-o2" lang="en-US" dir="ltr">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
 <form action="/long-distance-moving#wpcf7-f11-o2" method="post" class="wpcf7-form underline-input-form init" novalidate="novalidate" data-status="init" id="underline-input-form">
@@ -258,7 +288,7 @@ Working to achieve 100% customer satisfaction is in our DNA. We customise the mo
     position: initial;
     z-index: 10;
     padding: 5rem 8rem;
-    color: rgba(78, 77, 77, 0.856);
+    color: black;
     text-align: center;
     font-size: 1.2rem;
     font-style: italic;
@@ -271,7 +301,7 @@ Working to achieve 100% customer satisfaction is in our DNA. We customise the mo
         position: initial;
         z-index: 10;
         padding: 3rem 2rem;
-        color: rgba(78, 77, 77, 0.856);
+        color: black;
         text-align: center;
         font-size: 0.7rem;
         font-style: italic;
@@ -306,11 +336,6 @@ Working to achieve 100% customer satisfaction is in our DNA. We customise the mo
         font-size: 0.6rem;
         margin-top: 0.5rem
     }
-}
-
-i {
-    background-color: #0C4DA1;
-    padding: 1.4rem
 }
 
 @media(max-width:767px) {
@@ -619,12 +644,6 @@ img {
 .text-373737 { 
     color: #373737;
 } 
-
-@media all{     
-p  { 
-    text-align: center!important;
-} 
-}     
 
 .card-text:last-child { 
     margin-bottom: 0;
@@ -945,6 +964,162 @@ background-color: initial;
 background-position-x: 25vw;
 background-position-y: center;
 }
+
+.metro-cta .cta-banner{
+    transform: none;
+}
+
+@media (min-width: 992px){
+.cta-banner-area {
+    background-color: #ED242F;
+}
+}
+
+.cta-banner-area {
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 38%);
+}
+
+@media (min-width: 768px){
+.cta-banner .cta-banner-blue {
+    padding: 40px;
+}
+}
+
+.cta-banner .cta-banner-blue {
+    background-color: #0C4DA1;
+}
+
+.col-lg-5{
+    position: relative;
+    width: 100%;
+}
+
+.cta-banner-blue h3 {
+    font-size: 18px;
+}
+
+.font-oswald {
+    font-family: oswald;
+}
+
+.mb-0, .my-0 {
+    margin-bottom: 0!important;
+}
+
+h3{
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.cta-banner-blue h2 {
+    font-size: 25px;
+}
+
+.cta-banner-blue .underline {
+    border-bottom: 2px solid #fff;
+}
+
+span {
+    font-size: larger;
+    align-content: center;
+}
+
+@media (min-width: 992px){
+.cta-banner-blue:after {
+    content: '';
+    width: 55px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-repeat: no-repeat;
+    background-image: url('{{asset('assets/front/img/arrow.png')}}');
+    background-size: 55px 100%;
+    z-index: 1;
+}
+}
+
+.cta-banner .cta-banner-green{
+    padding-left: 55px;
+}
+
+@media (min-width: 992px){
+.pb-lg-0, .py-lg-0 {
+    padding-bottom: 0!important;
+}
+}
+
+@media (min-width: 992px){
+.pt-lg-0, .py-lg-0 {
+    padding-top: 0!important;
+}
+}
+
+@media (min-width: 992px){
+.col-lg-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+}
+
+@media (min-width: 992px){
+.cta-banner .cta-banner-green>.row {
+    position: relative;
+}
+}
+
+@media (min-width: 992px){
+.cta-banner .cta-banner-green>.row:before {
+    content: '';
+    height: 100%;
+    width: 1px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+}
+
+@media (max-width: 1499px){
+.cta-banner .cta-banner-green>.row:after {
+    font-size: 12px;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+}
+}
+
+@media (min-width: 992px){
+.cta-banner .cta-banner-green>.row:after {
+    content: 'OR';
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    line-height: 35px;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    font-size: 14px;
+    font-weight: 700;
+}
+}
+
+.btn-round-white {
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 15px 15px;
+    font-size: 14px;
+}
+
+.font-weight-bold {
+    font-weight: 700!important;
+}
+
+
 
 </style>
 
