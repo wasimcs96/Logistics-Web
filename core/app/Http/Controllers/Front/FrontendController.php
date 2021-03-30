@@ -929,7 +929,7 @@ class FrontendController extends Controller
             $currentLang = Language::where('is_default', 1)->first();
         }
         $lang_id = $currentLang->id;
-
+        $testimonials = Testimonial::where('language_id', $lang_id)->orderBy('serial_number', 'ASC')->get();
         $data['partners'] = Partner::where('language_id', $lang_id)->orderBy('serial_number', 'ASC')->get();
 
         $data['page'] = Page::findOrFail($id);
@@ -943,7 +943,7 @@ class FrontendController extends Controller
 
         $data['version'] = $version;
 
-        return view('front.dynamic', $data);
+        return view('front.dynamic', $data)->with('testimonials',$testimonials);
     }
 
     public function changeLanguage($lang)
@@ -1245,7 +1245,9 @@ class FrontendController extends Controller
             $currentLang = Language::where('is_default', 1)->first();
             }
             $lang_id = $currentLang->id;
+            
             $data['partners'] = Partner::where('language_id', $lang_id)->orderBy('serial_number', 'ASC')->get();
+            $testimonials = Testimonial::where('language_id', $lang_id)->orderBy('serial_number', 'ASC')->get();
             
             $bs = $currentLang->basic_setting;
             $be = $currentLang->basic_extended;
@@ -1256,7 +1258,7 @@ class FrontendController extends Controller
             }
             
             $data['version'] = $version;
-         return view ('front.logistic.content',$data);
+         return view ('front.logistic.content',compact('testimonials'),$data)->with('testimonials',$testimonials);
      }
 
 

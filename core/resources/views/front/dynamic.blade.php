@@ -133,7 +133,7 @@ Working to achieve 100% customer satisfaction is in our DNA. We customise the mo
 </section>
 
 
-<section class="testimonials section-padding outline-none" id="customer-reviews">
+<!-- <section class="testimonials section-padding outline-none" id="customer-reviews">
         <div class="ctr">
         <h2 class="round-title text" style="margin-bottom: 100px; font-weight: 700; line-height: 1.2; font-size: 27px; text-transform: uppercase; font-family: oswald; text-align: center; position: relative; z-index: 1; color: rgb(19, 19, 19);">What People Say</h2>
             <div class="rw">
@@ -165,7 +165,38 @@ Working to achieve 100% customer satisfaction is in our DNA. We customise the mo
             </div>
         </div>
         </div>
-</section>
+</section> -->
+
+    <!-- Start logistics_testimonial section -->
+    @if ($bs->testimonial_section == 1)
+    <section class="logistics_testimonial testimonial_v1 pt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title text-center">
+                        <span>{{convertUtf8($bs->testimonial_title)}}</span>
+                        <h2>{{convertUtf8($bs->testimonial_subtitle)}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial_slide">
+                @foreach ($testimonials as $key => $testimonial)
+                    <div class="testimonial_box d-lg-flex align-items-lg-center">
+                        <div class="logistics_img">
+                            <img src="{{asset('assets/front/img/testimonials/'.$testimonial->image)}}" class="img-fluid" alt="" width="100%">
+                        </div>
+                        <div class="logistics_content">
+                            <h4>{{convertUtf8($testimonial->name)}}</h4>
+                            <h6>{{convertUtf8($testimonial->rank)}}</h6>
+                            <p>{{convertUtf8($testimonial->comment)}}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+    <!-- End logistics_testimonial section -->
 
     <section class="cta-section franchise-cta-section">
 <div class="cotainer-fluid cta-white-blue">
