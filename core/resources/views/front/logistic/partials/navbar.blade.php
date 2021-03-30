@@ -79,7 +79,7 @@
     padding: 20px 6px;
 }
 }
-    </style>
+        </style>
     <!-- Start logistics_header area -->
     <header class="logistics_header header_v1">
         <div class="container-full">
