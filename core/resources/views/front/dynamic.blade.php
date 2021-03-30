@@ -165,7 +165,7 @@ Working to achieve 100% customer satisfaction is in our DNA. We customise the mo
             </div>
         </div>
         </div>
-    </section>
+</section>
 
     <section class="cta-section franchise-cta-section">
 <div class="cotainer-fluid cta-white-blue">
