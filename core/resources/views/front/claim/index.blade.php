@@ -24,7 +24,7 @@
      <div class="breadcrumb-area-overlay" style="background-color: #{{$be->breadcrumb_overlay_color}};opacity: {{$be->breadcrumb_overlay_opacity}};"></div>
   </div>
   <div class="container mt-4">
-    <form class="" action="{{route('claim.store')}}" method="POST">
+    <form class="" action="{{route('claim.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3 col-lg-6">
     <label for="exampleInputPassword1" class="form-label">First Name</label>
@@ -60,7 +60,7 @@
   </div>
   <div class="mb-3 col-mb-3 col-lg-6">
     <label for="exampleInputPassword1" class="form-label">Postal Code</label>
-    <input type="text" class="form-control" name="postal_code" id="postal_code" required>
+    <input type="number" class="form-control" name="postal_code" id="postal_code" required>
   </div>
   <div class="mb-3 col-mb-3 col-lg-6">
     <label for="exampleInputEmail1" class="form-label">Email</label>

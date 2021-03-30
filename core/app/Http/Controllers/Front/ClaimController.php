@@ -17,7 +17,7 @@ class ClaimController extends Controller
 
     public function store(Request $request)
     {  
-    //    dd($request->all());
+    //    dd($request->item);
 
         $claim = Claim::create([
             'first_name'=>$request->first_name,
@@ -36,19 +36,22 @@ class ClaimController extends Controller
         ]);
 
 
-   foreach($request->item as $key => $value)
+   foreach($request->item as $key =>$value)
+{
+        $image = $value["photo"];
+        $image_new_name = time().$image->getClientOriginalName();
+        $image->move('assets/front/img/', $image_new_name);
 
-        // $rt=$key+1;
-        // dd();
+
         FileItem::create([
             'claims_id'=>$claim->id,
             'description'=>$value["description"],
-            'photo'=>$value["photo"],
+            'photo'=>'assets/front/img/'.$image_new_name ?? '',
             'damage_desc'=>$value["damage_desc"],
 
         ]);
       
-   
+}
 
         // Session::flash('success', 'Truck created successfully!');
         return redirect()->route('claim.index');

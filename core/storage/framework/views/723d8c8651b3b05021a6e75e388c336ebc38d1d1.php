@@ -1,11 +1,9 @@
-@extends('admin.layout')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="page-header">
   <h4 class="page-title">Claim</h4>
   <ul class="breadcrumbs">
     <li class="nav-home">
-      <a href="{{route('admin.dashboard')}}">
+      <a href="<?php echo e(route('admin.dashboard')); ?>">
         <i class="flaticon-home"></i>
       </a>
     </li>
@@ -50,41 +48,44 @@
                 </thead>
                 <tbody>
 
-                  @foreach($claims as $key=>$claim)
+                  <?php $__currentLoopData = $claims; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$claim): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{ $claim->first_name ?? '' }}</td>
-                    <td>{{ $claim->last_name ?? '' }}</td>
-                    <td>{{ $claim->email ?? '' }}</td>
-                    <td>{{ $claim->home_phone ?? '' }}</td>
-                    <td>{{ $claim->mobile_phone ?? '' }}</td>
-                    <td>{{ $claim->other_phone ?? '' }}</td>
-                    <td>{{ $claim->address ?? '' }}</td>
-                    <td>{{ $claim->city ?? '' }}</td>
-                    <td>{{ $claim->province ?? '' }}</td>
-                    <td>{{ $claim->postal_code ?? '' }}</td>
-                    <td>{{ $claim->move_date ?? '' }}</td>
-                    <!-- <td>{{ $claim->additional_information ?? '' }}</td> -->
+                    <td><?php echo e($key+1); ?></td>
+                    <td><?php echo e($claim->first_name ?? ''); ?></td>
+                    <td><?php echo e($claim->last_name ?? ''); ?></td>
+                    <td><?php echo e($claim->email ?? ''); ?></td>
+                    <td><?php echo e($claim->home_phone ?? ''); ?></td>
+                    <td><?php echo e($claim->mobile_phone ?? ''); ?></td>
+                    <td><?php echo e($claim->other_phone ?? ''); ?></td>
+                    <td><?php echo e($claim->address ?? ''); ?></td>
+                    <td><?php echo e($claim->city ?? ''); ?></td>
+                    <td><?php echo e($claim->province ?? ''); ?></td>
+                    <td><?php echo e($claim->postal_code ?? ''); ?></td>
+                    <td><?php echo e($claim->move_date ?? ''); ?></td>
+                    <!-- <td><?php echo e($claim->additional_information ?? ''); ?></td> -->
                     <td class="col-lg-3">
                                     <div class="comment more">
                                         <?php $aRoom= $claim->additional_information ?>
-                                        @if(strlen($aRoom) > 20)
-                                        {{substr($aRoom,0,20)}}
+                                        <?php if(strlen($aRoom) > 20): ?>
+                                        <?php echo e(substr($aRoom,0,20)); ?>
+
                                         <span class="read-more-show hide_content"><span
                                                 class="btn btn-warning btn-sm">More<i
                                                     class="fa fa-angle-down"></i></span></span>
                                         <span class="read-more-content">
-                                            <?php $reamm = substr($aRoom,100,strlen($aRoom)) ?> {!! $reamm!!}
+                                            <?php $reamm = substr($aRoom,100,strlen($aRoom)) ?> <?php echo $reamm; ?>
+
                                             <span class="read-more-hide hide_content"><span
                                                     class="btn btn-warning btn-sm">Less <i
                                                         class="fa fa-angle-up"></i></span></span> </span>
-                                        @else
-                                        {!!$aRoom !!}
-                                        @endif
+                                        <?php else: ?>
+                                        <?php echo $aRoom; ?>
+
+                                        <?php endif; ?>
                                 </td>
-                    <td>{{ $claim->order_number ?? '' }}</td>
+                    <td><?php echo e($claim->order_number ?? ''); ?></td>
                     <td>
-                    <a class="btn btn-secondary btn-sm" href="{{ route('admin.claim.view',['id'=>$claim->id]) }}"
+                    <a class="btn btn-secondary btn-sm" href="<?php echo e(route('admin.claim.view',['id'=>$claim->id])); ?>"
                         style="background: #6861CE !important;
                             border-color: #6861CE !important;">
                         <span class="btn-label">
@@ -97,7 +98,7 @@
 
 
                   </tr>
-                  @endforeach
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
               </table>
             </div>
@@ -109,8 +110,8 @@
   </div>
 </div>
 
-@endsection
-@section('styles')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
 
  <style type="text/css"> 
   .read-more-show{
@@ -126,9 +127,9 @@
     display: none;
   }
   </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 <script type="text/javascript">
   // Hide the extra content initially, using JS so that if JS is disabled, no problemo:
               $('.read-more-content').addClass('hide_content')
@@ -149,4 +150,5 @@
                 e.preventDefault();
               });
   </script>
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\logistics\core\resources\views/admin/claim/show.blade.php ENDPATH**/ ?>
