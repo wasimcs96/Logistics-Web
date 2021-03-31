@@ -29,12 +29,14 @@ class TruckController extends Controller
             'truck_number' => 'required',
             'company_name' => 'required',
             'load_weight' => 'required',
+            'truck_company' => 'required',
         ]);
 
         Truck::create([
             'load_weight'=>$request->load_weight,
             'truck_number'=>$request->truck_number,
             'company_name'=>$request->company_name,
+            'truck_company'=>$request->truck_company,
         ]);
       
    
@@ -56,12 +58,15 @@ class TruckController extends Controller
             'truck_number' => 'required',
             'company_name' => 'required',
             'load_weight' => 'required',
+            'truck_company' => 'required',
+
         ]);
 
         $truck= Truck::find($id);
         $truck->truck_number = $request->truck_number;
         $truck->company_name = $request->company_name;
         $truck->load_weight = $request->load_weight;
+        $truck->truck_company = $request->truck_company;
         $truck->save();
 
         Session::flash('success', 'Truck updated successfully!');

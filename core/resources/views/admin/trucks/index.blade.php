@@ -36,6 +36,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Truck Number</th>
                     <th scope="col">Company Name</th>
+                    <th scope="col">Truck Company</th>
                     <th scope="col">Load Weight</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Updated At</th>
@@ -49,6 +50,7 @@
                     <td>{{ $key+1 }}</td>
                     <td>{{ $truck->truck_number }}</td>
                     <td>{{ $truck->company_name }}</td>
+                    <td>{{ $truck->truck_company }}</td>
                     <td>{{ $truck->load_weight }}</td>
                     <td>{{ $truck->created_at }}</td>
                     <td>{{ $truck->updated_at }}</td>

@@ -217,7 +217,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
   });
 
-  Route::post('/assign/driver', 'Admin\ProductOrderController@assignDriver')->name('admin.assign.driver');
+  Route::post('/assign/driver', 'Admin\QuoteController@assignDriver')->name('admin.assign.driver');
 
   // Admin Profile Routes
   Route::get('/changePassword', 'Admin\ProfileController@changePass')->name('admin.changePass');
@@ -235,9 +235,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
   Route::get('/truck/edit/{id}', 'Admin\TruckController@edit')->name('admin.truck.edit');
   Route::get('/truck/destroy/{id}', 'Admin\TruckController@destroy')->name('admin.truck.destroy');
 
-  Route::get('/driver', 'Admin\ProductOrderController@indexDriver')->name('driver.index');
+  Route::get('/driver', 'Admin\QuoteController@indexDriver')->name('driver.index');
 
-  Route::post('driver/product/orders/status', 'Admin\ProductOrderController@driverStatus')->name('admin.driver.product.orders.status');
+  Route::post('driver/product/orders/status', 'Admin\QuoteController@driverStatus')->name('admin.driver.product.orders.status');
 
   
 
