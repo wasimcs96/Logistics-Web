@@ -10,6 +10,8 @@ use App\BasicSetting;
 use App\Language;
 use App\Mail\ContactMail;
 use App\QuoteInput;
+use App\Truck;
+use App\TruckDriver;
 use App\QuoteInputOption;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -21,7 +23,7 @@ class QuoteController extends Controller
     public function visibility()
     {
         $data['abs'] = BasicSetting::first();
-        return view('admin.quote.visibility', $data);
+        return view('admin.quote.visibility', $data)->with('trucks',Truck::all());
     }
 
     public function updateVisibility(Request $request) {
@@ -31,7 +33,7 @@ class QuoteController extends Controller
             $bs->save();
         }
 
-        $request->session()->flash('success', 'Page status updated successfully!');
+        $request->session()->flash('success', 'Page status updated successfully!')->with('trucks',Truck::all());
         return back();
     }
 
@@ -208,31 +210,31 @@ class QuoteController extends Controller
     public function all()
     {
         $data['quotes'] = Quote::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.quote.quote', $data);
+        return view('admin.quote.quote', $data)->with('trucks',Truck::all());
     }
 
     public function pending()
     {
         $data['quotes'] = Quote::where('status', 0)->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.quote.quote', $data);
+        return view('admin.quote.quote', $data)->with('trucks',Truck::all());
     }
 
     public function processing()
     {
         $data['quotes'] = Quote::where('status', 1)->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.quote.quote', $data);
+        return view('admin.quote.quote', $data)->with('trucks',Truck::all());
     }
 
     public function completed()
     {
         $data['quotes'] = Quote::where('status', 2)->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.quote.quote', $data);
+        return view('admin.quote.quote', $data)->with('trucks',Truck::all());
     }
 
     public function rejected()
     {
         $data['quotes'] = Quote::where('status', 3)->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.quote.quote', $data);
+        return view('admin.quote.quote', $data)->with('trucks',Truck::all());
     }
 
     public function status(Request $request)
@@ -300,5 +302,101 @@ class QuoteController extends Controller
     public function addQuote()
     {
         return view('admin.quote.create');
+    }
+
+    public function assignDriver(Request $request)
+    {
+        
+        $this->validate($request,[
+            'truck' => 'required',
+            // 'user_id' => 'required',
+            'quote_id' => 'required',
+            'paddress' => 'required',
+            'daddress' => 'required',
+            'date' => 'required',
+        ]);
+        // dd($request->all());
+        TruckDriver::create([
+            'truck_id'=>$request->truck,
+            // 'user_id'=>$request->user_id,
+            'quote_id'=>$request->quote_id,
+            'pick_address'=>$request->paddress,
+            'drop_address'=>$request->daddress,
+            'date'=>$request->date,
+            'status'=>1,
+        ]);
+      
+   
+        Session::flash('success', 'Driver assigned successfully!');
+return redirect()->back();
+        // return response('success');
+    }
+
+    public function indexDriver()
+    {
+        $drivers = TruckDriver::where('user_id',Auth::guard('admin')->user()->id)->get();
+        return view('admin.driver.index')->with('drivers',$drivers);
+        Session::flash('success', 'Driver created successfully!');
+    }
+
+    public function driverStatus(Request $request)
+    {
+
+        // dd($request->all());
+        $po = Quote::find($request->quote_id);
+        $po->status = $request->status;
+        $po->save();
+
+        $user = User::findOrFail($po->user_id);
+        $be = BasicExtended::first();
+        $sub = 'Order Status Update';
+
+        $to = $user->email;
+         // Send Mail to Buyer
+         $mail = new PHPMailer(true);
+         if ($be->is_smtp == 1) {
+             try {
+                 $mail->isSMTP();
+                 $mail->Host       = $be->smtp_host;
+                 $mail->SMTPAuth   = true;
+                 $mail->Username   = $be->smtp_username;
+                 $mail->Password   = $be->smtp_password;
+                 $mail->SMTPSecure = $be->encryption;
+                 $mail->Port       = $be->smtp_port;
+
+                 //Recipients
+                 $mail->setFrom($be->from_mail, $be->from_name);
+                 $mail->addAddress($user->email, $user->fname);
+
+                 // Content
+                 $mail->isHTML(true);
+                 $mail->Subject = $sub;
+                 $mail->Body    = 'Hello <strong>' . $user->fname . '</strong>,<br/>Your order status is '.$request->order_status.'.<br/>Thank you.';
+                 $mail->send();
+             } catch (Exception $e) {
+                 // die($e->getMessage());
+             }
+         } else {
+             try {
+
+                 //Recipients
+                 $mail->setFrom($be->from_mail, $be->from_name);
+                 $mail->addAddress($user->email, $user->fname);
+
+
+                 // Content
+                 $mail->isHTML(true);
+                 $mail->Subject = $sub ;
+                 $mail->Body    = 'Hello <strong>' . $user->fname . '</strong>,<br/>Your order status is '.$request->order_status.'.<br/>Thank you.';
+
+                 $mail->send();
+             } catch (Exception $e) {
+                 // die($e->getMessage());
+             }
+         }
+
+
+        Session::flash('success', 'Order status changed successfully!');
+        return back();
     }
 }

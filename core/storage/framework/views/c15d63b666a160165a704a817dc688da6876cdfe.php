@@ -1,13 +1,13 @@
     <style>
        @media  screen and (max-width: 1316px) and (min-width: 1266px) {
-        #res-nav > li a
+        #res-nav > li > a
             {
                     /* font-size: 13px; */
                     padding: 20px 6px;
             }
         }
        @media  screen and (max-width: 1266px) and (min-width: 1245px) {
-        #res-nav > li a
+        #res-nav > li > a
             {
                     /* font-size: 12px; */
                     padding: 20px 5px;
@@ -15,7 +15,7 @@
             }
         }
        @media  screen and (max-width: 1245px) and (min-width: 1218px) {
-        #res-nav > li a
+        #res-nav > li > a
             {
                     font-size: 13px;
                     padding: 20px 6px;
@@ -34,7 +34,7 @@
                     margin-left: 8px;
                     margin-right: 8px;
             }
-            #res-nav > li a
+            #res-nav > li > a
             {
                     font-size: 13px;
                     padding: 20px 6px;
@@ -46,7 +46,7 @@
                     margin-left: 8px;
                     margin-right: 8px;
             }
-            #res-nav > li a
+            #res-nav > li > a
             {
                     font-size: 13px;
                     padding: 20px 6px;
@@ -58,7 +58,7 @@
                     margin-left: 8px;
                     margin-right: 8px;
             }
-            #res-nav > li a
+            #res-nav > li > a
             {
                     font-size: 13px;
                     padding: 20px 6px;
@@ -66,12 +66,19 @@
         }
        @media  screen and (max-width: 1074px) and (min-width: 1000px) {
        
-            #res-nav > li a
+            #res-nav > li > a
             {
                     font-size: 12px;
                     padding: 20px 6px;
             }
         }
+
+        @media  screen and (max-width: 1000px) and (min-width: 991px){
+#res-nav > li > a {
+    font-size: 12px;
+    padding: 20px 6px;
+}
+}
     </style>
     <!-- Start logistics_header area -->
     <header class="logistics_header header_v1">
