@@ -236,6 +236,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
   Route::get('/truck/destroy/{id}', 'Admin\TruckController@destroy')->name('admin.truck.destroy');
 
   Route::get('/driver', 'Admin\QuoteController@indexDriver')->name('driver.index');
+  Route::get('/invoice', 'Admin\QuoteController@indexInvoice')->name('invoice.index');
+
 
   Route::post('driver/product/orders/status', 'Admin\QuoteController@driverStatus')->name('admin.driver.product.orders.status');
 

@@ -399,4 +399,9 @@ return redirect()->back();
         Session::flash('success', 'Order status changed successfully!');
         return back();
     }
+
+    public function indexInvoice()
+    {
+        return view('admin.quote.invoice');
+    }
 }
