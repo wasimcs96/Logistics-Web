@@ -145,7 +145,10 @@ if (!function_exists('getHref') ) {
         } else {
             $pageid = (int)$link["type"];
             $page = Page::find($pageid);
-            $href = route('front.dynamicPage', [$page->slug, $page->id]);
+            if($page){
+                $href = route('front.dynamicPage', [$page->slug, $page->id]);
+            }
+            
         }
 
         return $href;
