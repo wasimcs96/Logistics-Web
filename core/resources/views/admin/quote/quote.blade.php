@@ -252,7 +252,7 @@
         </div>
         <div class="form-group" id="message">
             <label for="">PDF **</label>
-            <input id="pdf" type="file" class="form-control" name="pdf" value="" placeholder="Choose PDF">
+            <input id="pdf" type="file" class="form-control" name="pdf[]" value="" placeholder="Choose PDF" multiple>
             <p id="eerrmessage" class="mb-0 text-danger em"></p>
           </div>
             <div class="form-group" id="message">

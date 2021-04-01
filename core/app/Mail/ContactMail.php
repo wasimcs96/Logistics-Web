@@ -38,15 +38,21 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        // dd($this->pdf);
-        if($this->pdf != "")
+        //  dd($this->pdf);
+        if($this->pdf != [])
         {
-        return $this->from($this->sender)
+             $try=$this->from($this->sender)
         ->subject($this->subject)
-        ->view('mail.contact')->attach($this->pdf, [
-            'as' => 'logistics.pdf',
-            'mime' => 'application/pdf',
-        ]);
+        ->view('mail.contact');
+
+        foreach ($this->pdf as $value)
+        {
+            $try->attach($value);
+        }
+
+
+
+        return $try;
         }
         else
         {
