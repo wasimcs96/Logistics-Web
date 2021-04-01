@@ -269,6 +269,7 @@ class QuoteController extends Controller
         $sub = $request->subject;
         $msg = $request->message;
         $to = $request->email;
+        $file = '';
         if($request->hasFile('pdf'))
         {
              $featured = $request->pdf;

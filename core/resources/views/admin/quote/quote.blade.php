@@ -57,7 +57,7 @@
                         <th scope="col"> Driver</th>
                         <th scope="col">Deatails</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Add Invoice</th>
+                        <!--<th scope="col">Add Invoice</th>-->
                         <th scope="col">Mail</th>
                         <th scope="col">Action</th>
                       </tr>
@@ -106,9 +106,7 @@
                               </select>
                             </form>
                           </td>
-                          <td>
-                            <a href="{{ route('invoice.index') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Invoice</a>
-                          </td>
+
                           <td>
                             <a href="#" class="btn btn-primary btn-sm editbtn" data-target="#mailModal" data-toggle="modal" data-email="{{$quote->email}}"><i class="far fa-envelope"></i> Send</a>
                           </td>
