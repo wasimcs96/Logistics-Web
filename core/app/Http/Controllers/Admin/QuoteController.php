@@ -249,6 +249,7 @@ class QuoteController extends Controller
 
     public function mail(Request $request)
     {
+
         $rules = [
             'email' => 'required',
             'subject' => 'required',
@@ -268,8 +269,23 @@ class QuoteController extends Controller
         $sub = $request->subject;
         $msg = $request->message;
         $to = $request->email;
+        if($request->hasFile('pdf'))
+        {
+             $featured = $request->pdf;
+             $featured_new_name = time().$featured->getClientOriginalName();
+             $featured->move('assets/admin/img',$featured_new_name);
+             $file = 'assets/admin/img/'.$featured_new_name;
+            // $post->featured = 'uploads/posts/'.$featured_new_name;
+            // $msg->attachData($file, [
+            //         'as' => $request->pdf,
+            //         'mime' => 'application/pdf',
+            //     ]);
 
-        Mail::to($to)->send(new ContactMail($from, $sub, $msg));
+        }
+        Mail::to($to)->send(new ContactMail($from, $sub, $msg, $file));
+
+
+
 
         Session::flash('success', 'Mail sent successfully!');
         return "success";
@@ -306,7 +322,7 @@ class QuoteController extends Controller
 
     public function assignDriver(Request $request)
     {
-        
+
         $this->validate($request,[
             'truck' => 'required',
             // 'user_id' => 'required',
@@ -325,8 +341,8 @@ class QuoteController extends Controller
             'date'=>$request->date,
             'status'=>1,
         ]);
-      
-   
+
+
         Session::flash('success', 'Driver assigned successfully!');
 return redirect()->back();
         // return response('success');
