@@ -269,13 +269,20 @@ class QuoteController extends Controller
         $sub = $request->subject;
         $msg = $request->message;
         $to = $request->email;
-        $file = '';
+        $file = [];
         if($request->hasFile('pdf'))
         {
-             $featured = $request->pdf;
-             $featured_new_name = time().$featured->getClientOriginalName();
-             $featured->move('assets/admin/img',$featured_new_name);
-             $file = 'assets/admin/img/'.$featured_new_name;
+            $pdfs = collect($request->pdf);
+
+            foreach($pdfs as $pd)
+            {
+
+                $featured = $pd;
+                $featured_new_name = time().$featured->getClientOriginalName();
+                $featured->move('assets/admin/img',$featured_new_name);
+                $file[] = 'assets/admin/img/'.$featured_new_name;
+            }
+
             // $post->featured = 'uploads/posts/'.$featured_new_name;
             // $msg->attachData($file, [
             //         'as' => $request->pdf,
@@ -283,6 +290,7 @@ class QuoteController extends Controller
             //     ]);
 
         }
+
         Mail::to($to)->send(new ContactMail($from, $sub, $msg, $file));
 
 
