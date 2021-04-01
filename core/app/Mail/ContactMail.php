@@ -15,18 +15,20 @@ class ContactMail extends Mailable
     public $subject;
     public $text;
     public $subsc;
+    public $pdf;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($from, $subject, $message, $subsc=false)
+    public function __construct($from, $subject, $message, $pdf, $subsc=false)
     {
         $this->sender = $from;
         $this->subject = $subject;
         $this->text = $message;
         $this->subsc = $subsc;
+        $this->pdf = $pdf;
     }
 
     /**
@@ -38,6 +40,9 @@ class ContactMail extends Mailable
     {
         return $this->from($this->sender)
         ->subject($this->subject)
-        ->view('mail.contact');
+        ->view('mail.contact')->attach($this->pdf, [
+            'as' => 'logistics.pdf',
+            'mime' => 'application/pdf',
+        ]);
     }
 }

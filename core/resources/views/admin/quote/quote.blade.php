@@ -127,7 +127,7 @@
                         </tr>
 
                         @includeif('admin.quote.quote-details')
-                        
+
   {{-- processModal --}}
 
   <div class="modal fade" id="processModal-{{$quote->id}}" tabindex="-1" role="dialog"
@@ -141,7 +141,7 @@
               </button>
           </div>
           <div class="modal-body">
-            
+
               <form action="{{route('admin.assign.driver')}}" method="POST">
                 @csrf
                   <label>Truck Information **</label>
@@ -184,7 +184,7 @@
                       <p id="eerremail" class="mb-0 text-danger em"></p>
                   </div>
                   <div id="daddressError"></div>
-              
+
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary"
@@ -252,11 +252,17 @@
               <option value="4">Email Template 4</option>
           </select>
         </div>
+        <div class="form-group" id="message">
+            <label for="">PDF **</label>
+            <input id="pdf" type="file" class="form-control" name="pdf" value="" placeholder="Choose PDF">
+            <p id="eerrmessage" class="mb-0 text-danger em"></p>
+          </div>
             <div class="form-group" id="message">
               <label for="">Message **</label>
               <textarea id="inmessage" class="form-control summernote" name="message" data-height="150" placeholder="Enter message"></textarea>
               <p id="eerrmessage" class="mb-0 text-danger em"></p>
             </div>
+
           </form>
         </div>
         <div class="modal-footer">
@@ -356,7 +362,7 @@ $('.card-block').find('p').html(`<!DOCTYPE html PUBLIC "><html xmlns="http://www
     {
 
     }
-    
+
 
   });
 </script>
