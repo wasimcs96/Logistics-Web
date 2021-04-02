@@ -164,7 +164,7 @@ body{
 }
 .btn_link{
 	text-transform: uppercase;
-	color: #6c6b71;
+	color: #fff;
 	display: inline-block;
 	transition: all .5s;
 }
@@ -600,7 +600,7 @@ div#particles-js canvas {
 	box-shadow: none;
 }
 .header_v1 .site_menu{
-	padding: 0px 70px 0 30px;
+	padding: 0px 30px 0 30px;
 }
 
 .header_v1 .header_navigation .site_menu .button_box{
@@ -814,7 +814,7 @@ div#particles-js canvas {
 /*Extra Large Device*/
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
     .main-menu ul > li > a {
-	    padding: 20px 10px;
+	    padding: 24px 10px;
 	    font-size: 14px;
 	}
 }
@@ -825,7 +825,7 @@ div#particles-js canvas {
 	    margin-right: 5px;
 	}
 	.main-menu ul > li > a {
-	    padding: 20px 8px;
+	    padding: 24px 8px;
 	    font-size: 14px;
 	}
 }
@@ -1653,7 +1653,7 @@ li.submenus::after {
 .footer_v1 .widget_box.contact_widget p a,
 .footer_v1 .widget_box .widget_link li a,
 .footer_v1 .footer_bottom .copyright_text p{
-	color: #6c6b71;
+	color: white !important;
 }
 .footer_v1 .footer_bottom .copyright_text p span{
 	color: #ff5e14;
@@ -1750,7 +1750,7 @@ li.submenus::after {
     background-color: #262938;
     bottom: 0px;
     width: 100%;
-    padding: 0px 0px;
+    padding: 15px 0px;
     z-index: 10000000000;
     color: #fff;
 }
